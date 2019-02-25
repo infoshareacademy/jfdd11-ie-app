@@ -7,6 +7,10 @@
     left:0;
 }
 
+.upperCase {
+    text-transform: uppercase;
+}
+
 .js-menu li {
     padding-bottom: 10px;
     padding-top: 10px;

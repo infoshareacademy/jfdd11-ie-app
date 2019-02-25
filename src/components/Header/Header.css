@@ -1,5 +1,9 @@
-.js-toggler {
-    display:none;
+.js-toggler{
+    width: 30px;
+    border:none;
+    margin-right: 20px;
+    margin-top: 25px;
+    cursor: pointer;
 }
 
 .menu {

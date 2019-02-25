@@ -9,12 +9,20 @@ import menu from './menu-mobile.svg';
 
 class Header extends Component {
   render() {
+
+    function toggle () {
+      const toggler = document.querySelector('.js-toggler');
+      const menu = document.querySelector('.js-menu')
+  
+      toggler.addEventListener('click', function (event) {
+          menu.classList.toggle('expanded')
+      })
+  }
+
     return (
         <nav className="menu">
-          <a href="#hero-image">
           <img src={logo} alt="logo-MoveIt" className="logo"/>
-          </a>
-          <div>
+          <div onClick ={this.toggle}>
             <img src={menu} alt="icon-hamburger-menu" className="js-toggler" />
           </div>
           <MainMenu/>

@@ -4,6 +4,16 @@ import { NavLink } from 'react-router-dom';
 import './MainMenu.css'
 
 class MainMenu extends Component {
+
+  function () {
+    const toggler = document.querySelector('.js-toggler');
+    const menu = document.querySelector('.js-menu')
+
+    toggler.addEventListener('click', function (event) {
+        menu.classList.toggle('expanded')
+    })
+}
+
   render() {
     return (
         <ul className="js-menu upperCase" >
