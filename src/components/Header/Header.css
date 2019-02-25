@@ -1,0 +1,13 @@
+.js-toggler {
+    display:none;
+}
+
+.menu {
+    height: 80px;
+    background: #fff;
+    position:fixed;
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    z-index: 999;
+}
