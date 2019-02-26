@@ -1,0 +1,22 @@
+.global-settings{
+    padding: 0 20px;
+    height: auto;
+    min-height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    background-color: #323232;
+    align-items: flex-end;
+    background-size: cover;
+    color: white; 
+}
+.footer-box{
+    display: flex;
+    flex-direction: column;
+}
+.contact{
+    padding-top: 15px; 
+}
+.moveIt{
+    padding:5px 0px 5px 0px;
+    font-weight: 900;
+}
