@@ -77,12 +77,41 @@
     text-transform: uppercase;
     font-weight: bold;
     font-size: 20px;
+    padding-bottom: 3%;
+    padding-top: 5%;
+
+  }
+
+
+  h3{
+      color:  #f8c512;
+      padding-top:3%;
+      padding-bottom: 2%;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 17px;
+  }
+
+.opinions{
     padding-left: 5%;
+    padding-right: 5%;
+}
+
+.secund{
+    
+        background-color: #EBEBEB;
+        height: 1px;
+        color: #EBEBEB;
+        border: 0px;
+        padding-left: 5%;
+    padding-right: 5%;
+}
+
+p{
     padding-top: 3%;
+    padding-bottom: 3%;
+}
 
-  }
-
-  hr{
-      margin-left: 5%;
-      margin-right: 5%;
-  }
+.markStars{
+    padding-left: 20%;
+}

@@ -37,10 +37,7 @@ class MyAccount extends Component {
         ? this.state.users.find(user => user.id === 1)
         : null;
 
-        const opinion =
-        this.state.opinions.length !== 0
-          ? this.state.opinions.find(opinion => opinion.id === 1)
-          : null;
+  
 
     return (
       <div className='myAccountAll'>
@@ -53,11 +50,14 @@ class MyAccount extends Component {
         {user && <div className='information'><span>E-mail:</span> {user.email}</div>}
         </div>
         <div className='Marks'>
-        {opinion && <div className="mark"> <a className ="star">Ocena : {opinion.mark}</a> <Stars/> </div>}
+      <div className="mark"> <a className ="star">Ocena </a> <StarsAverage/> </div>
         </div>
-        <div className='opinions'>
-        {opinion && <div> <h2>OPINIE</h2><hr></hr> {opinion.coment} </div>}
-        </div>
+        <div className="opinions">
+        <h2>OPINIE</h2><hr></hr>
+        {this.state.opinions.map(opinion=> (
+          <div key={opinion.id}><h3>{opinion.user}<a className="markStars"><Stars/></a></h3><p>{opinion.coment}</p> <hr className="secund"></hr> </div>
+        ))}
+      </div>
       </div>
     );
   }

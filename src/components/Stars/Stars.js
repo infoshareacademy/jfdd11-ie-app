@@ -12,15 +12,14 @@ class Stars extends Component {
     }
  
     render() {
-      // rating = 2;
       return (
         <StarRatings
           rating={this.state.rating}
           starRatedColor="#f8c512"
           numberOfStars={5}
           name='rating'
-          starDimension="35px"
-          starSpacing="7px"
+          starDimension="25px"
+          starSpacing="5px"
 
         />
       );
