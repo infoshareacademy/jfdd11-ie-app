@@ -6,7 +6,7 @@ import Header from "../Header";
 class Home extends Component {
   render() {
     return (
-      <div>
+      <div className="Main-Container">
         <Header />
         <div className="hero-image">
           <h1 className="first-claim upperCase">Planujesz przeprowadzkę?</h1>

@@ -1,7 +1,7 @@
 .Main-Container {
     width: 100%;
+ 
     margin: 0 auto;
-    height: auto;
 }
 
 .logo {
@@ -11,9 +11,10 @@
 
 .hero-image {
     background: linear-gradient(#f8c512, #edb60d);
-    height: auto;
+    /* height: auto; */
     text-align: left;
-    padding: 100px 15px 15px 15px;
+    padding: 150px 15px 15px 15px;
+    height: 100vh;
 }
 
 .white-text {
