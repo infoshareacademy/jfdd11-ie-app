@@ -21,3 +21,11 @@
     text-decoration: none;
     font-size: 22px;
 }
+
+.expanded {
+    display: initial;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 999;
+}
