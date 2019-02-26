@@ -10,6 +10,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { white } from "ansi-colors";
 import ScrollTop from "react-scrolltop-button";
 import Footer from "../Footer"
+import Header from "../Header";
 
 const styles = theme => ({
   root: {
@@ -35,7 +36,7 @@ const styles = theme => ({
     textAlign: "center",
     fontSize: theme.typography.pxToRem(40),
     fontWeight: 900,
-    padding: "50px 0 50px 0"
+    padding: "150px 0 50px 0"
   }
 });
 
@@ -63,6 +64,7 @@ class FAQ extends Component {
           speed={10}
           target={0}
         />
+        <Header />
         <div className={classes.main}>Najczęściej zadawane pytania</div>
         <div className={classes.root}>
           {this.state.faq.map(item => (
