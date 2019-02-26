@@ -44,7 +44,7 @@ function SimpleExpansionPanel(props) {
     <ScrollTop
   text='to top'
   distance={100}
-  breakpoint={768}
+  breakpoint={460}
   style={{ backgroundColor: '#f8c512', zIndex: 9999 }}
   className='scroll-your-role'
   speed={10}
