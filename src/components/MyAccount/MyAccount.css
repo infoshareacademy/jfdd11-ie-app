@@ -1,0 +1,88 @@
+
+
+* {
+    box-sizing: border-box;
+  }
+  
+.myAccountAll {
+    font-family: 'Catamaran', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+ .myAccount{
+      background-color: #f8c512;
+      padding-bottom: 5%;
+    }
+
+    .Marks {
+        background-color:  #EAEDEA;
+        padding-top: 3%;
+        padding-bottom: 3%;
+    }
+
+    h1 {
+        color: white;
+        font-size: 20px;
+        font-weight: bolder;
+        text-transform: uppercase;
+        padding-left: 5%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
+
+    img{
+        margin-left: 5%;
+        background: white;
+        float: left;
+        
+    }
+
+   .companyName{
+       text-transform: uppercase;
+       font-size: 20px;
+       font-weight: bold;
+       padding-left: 32%;
+       padding-bottom: 3%;
+       
+   }
+
+   span{
+       color: white;
+       text-transform: uppercase;
+       font-size:17px;
+       font-weight: bold;
+   }
+
+   .information{
+       color: black;
+       text-transform: uppercase;
+       font-size:15px;
+       font-weight: bold;
+       padding-left: 32%;
+       padding-top:1%;
+   }
+
+   .mark{
+       padding-left: 5%;
+       text-transform: uppercase;
+       font-weight: bold;
+       font-size: 20px;
+   }
+
+  .star{
+      padding-right: 10%;
+  }
+   
+  h2{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    padding-left: 5%;
+    padding-top: 3%;
+
+  }
+
+  hr{
+      margin-left: 5%;
+      margin-right: 5%;
+  }
