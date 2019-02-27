@@ -1,6 +1,6 @@
 .Main-Container {
     width: 100%;
- 
+    height: 100vh;
     margin: 0 auto;
 }
 
@@ -10,11 +10,11 @@
 }
 
 .hero-image {
-    background: linear-gradient(#f8c512, #edb60d);
+    background: url(./background.png) no-repeat right center, linear-gradient(#f8c512, #edb60d) ;
     /* height: auto; */
     text-align: left;
-    padding: 150px 15px 15px 15px;
-    height: 100vh;
+    padding: 120px 15px 15px 15px;
+
 }
 
 .white-text {
