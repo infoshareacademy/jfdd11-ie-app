@@ -38,6 +38,7 @@ class Header extends Component {
             <li className="Link-Style"><NavLink to="/contacts">Moje konto</NavLink></li>
             <li className="Link-Style"><NavLink to="/contacts">Zaplanuj przeprowadzkę</NavLink></li>
             <li className="Link-Style"><NavLink to="/contacts">Moje przeprowadzki</NavLink></li>
+            <li className="Link-Style"><NavLink to="/faq">FAQ</NavLink></li>
             <li className="Link-Style"><NavLink to="/contacts">Wyloguj się</NavLink></li>
         </ul>
       </nav>
