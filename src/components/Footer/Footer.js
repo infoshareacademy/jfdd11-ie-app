@@ -8,11 +8,11 @@ class Footer extends Component {
           <div className="footer-box">
             <p className="moveIt">moveIt</p>
             <p>
-              Adres e-mail: <a href="mailto:support@move.it">support@move.it</a>
+              Adres e-mail: <a className="send-email" href="mailto:support@move.it">support@move.it</a>
             </p>
             <p className="copyright">Copyright © Move-It 2019</p>
           </div>
-          <img src={Logo} alt="moveIt logo - flying couch" />
+          <img className="footer-logo" src={Logo} alt="moveIt logo - flying couch" />
         </div>
     );
   }
