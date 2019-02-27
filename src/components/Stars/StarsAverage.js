@@ -3,16 +3,14 @@ import StarRatings from 'react-star-ratings';
  
 class StarsAverage extends Component {
   state = {
-    rating: []
+    rating: 4
   }
     changeRating( newRating, name ) {
       this.setState({
         rating: newRating
       });
     }
-
     
-}
  
     render() {
       return (
