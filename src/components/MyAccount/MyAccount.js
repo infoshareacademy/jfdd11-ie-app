@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Stars from '../Stars/Stars.js';
 import './MyAccount.css';
 import StarsAverage from '../Stars/StarsAverage.js'
+import Header from "../Header/index.js";
+import Footer from "../Footer/index.js";
 
 
 class MyAccount extends Component {
@@ -41,11 +43,12 @@ class MyAccount extends Component {
 
     return (
       <div className='myAccountAll'>
+      <Header/>
         <div className='myAccount'>
-        <h1>MOJE KONTO</h1>
-        {user && <div><img src={user.avatar} alt="moje zdjęcie" /></div>}
+        <h1 className = "titleMyAccount">MOJE KONTO</h1>
+        {user && <div><img className="myPhoto" src={user.avatar} alt="moje zdjęcie" /></div>}
         {user && <div className="companyName">{user.company_name}</div>}
-        {user && <div className='information'><span>Imie:</span> {user.first_name}</div>}
+        {user && <div className='information'><span >Imie:</span> {user.first_name}</div>}
         {user && <div className='information'><span>Nazwisko:</span> {user.last_name}</div>}
         {user && <div className='information'><span>E-mail:</span> {user.email}</div>}
         </div>
@@ -58,6 +61,7 @@ class MyAccount extends Component {
           <div key={opinion.id}><h3>{opinion.user}<a className="markStars"><Stars/></a></h3><p>{opinion.coment}</p> <hr className="secund"></hr> </div>
         ))}
       </div>
+      <Footer/>
       </div>
     );
   }

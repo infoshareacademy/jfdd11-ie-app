@@ -1,0 +1,51 @@
+.js-toggler {
+    width: 30px;
+    border: none;
+    margin-right: 20px;
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+.menu {
+    height: 80px;
+    background: #fff;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 999;
+}
+
+.js-menu {
+    display: none;
+    top: 80px;
+    position: absolute;
+    right: 0;
+    background: #fff;
+    left: 0;
+    z-index: 999999;
+}
+
+.upperCase {
+    text-transform: uppercase;
+}
+
+.Link-Style {
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+    font-size: 22px;
+}
+
+.Link-Style a {
+    text-decoration: none;
+    color: #323232;
+}
+
+.expanded {
+    display: initial;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 999;
+}
