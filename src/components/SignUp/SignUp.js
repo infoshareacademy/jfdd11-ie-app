@@ -3,6 +3,7 @@ import Footer from "../Footer";
 import Header from "../Header";
 import { NavLink } from 'react-router-dom';
 import "./SignUp.css";
+import firebase from 'firebase';
 
 class SignUp extends Component {
     state = {
@@ -16,11 +17,14 @@ class SignUp extends Component {
         success: null,
       };
 
-      toggleIsCarrier = () =>{
+      changeRoleToUser = () =>
           this.setState({
-              isCarrier: !this.state.isCarrier
-          })
-      };
+              isCarrier: false
+          });
+      changeRoleToCarrier = ()=>
+        this.setState({
+            isCarrier: true
+        });
 
       handleChange = event => {
         const fieldName = event.target.name;
@@ -34,7 +38,29 @@ class SignUp extends Component {
         });
       };
 
+      handleSubmit = event => {
+        event.preventDefault();
+    
+        firebase
+          .auth()
+          .createUserWithEmailAndPassword(this.state.email, this.state.password)
+          .then(data => {
+            const userId = firebase.auth().currentUser.uid;
+            firebase
+              .database()
+              .ref('users')
+              .child(userId)
+              .set({
+                name: this.state.name,
+                surname: this.state.surname,
+              });
+            this.setState({ error: null, success: 'Account created' });
+          })
+          .catch(error => this.setState({ error: error, success: null }));
+      };
+
     render(){
+        console.log(this.state.password);
         return(
             <div className="sign-up_root">
             <Header/>
@@ -45,31 +71,29 @@ class SignUp extends Component {
             <form>
                 <div className="sign-up_checkboxes">
                     <label htmlFor="user">Chcę się przeprowadzić
-                    <input id="user" name="isUser" type="checkbox"></input>
+                    <input id="user" name="user-type" type="radio" onChange={this.changeRoleToUser}></input>
                     </label>
                     <label htmlFor="carrier">Chcę pomóc innym w przeprowadzce
-                    <input id="carrier" name="isCarrier" type="checkbox" onChange={this.toggleIsCarrier}></input>
+                    <input id="carrier" name="user-type" type="radio" onChange={this.changeRoleToCarrier}></input>
                     </label>
                 </div>
-                <label htmlFor="name">Imię</label>
-                <input id="name" name="name"></input>
+                <input id="name" name="name" onChange={this.handleChange} placeholder="Imię"></input>
 
-                <label htmlFor="surname">Nazwisko</label>
-                <input id="surname" name="surname"></input>
+                <input id="surname" name="surname" onChange={this.handleChange} placeholder="Nazwisko"></input>
+
+                <input id="phone" name="phone" onChange={this.handleChange} placeholder="Telefon"></input>
 
                 {this.state.isCarrier?
                 <>
                 <label htmlFor="company">Nazwa firmy</label>
-                <input id="company" name="company"></input>
+                <input id="company" name="company" onChange={this.handleChange} placeholder="Nazwa firmy"></input>
                 </>
                 :
                 null}
 
-                <label htmlFor="email">E-mail</label>
-                <input id="email" name="email" type="email"></input>
+                <input id="email" name="email" type="email" onChange={this.handleChange}placeholder="E-mail"></input>
 
-                <label htmlFor="password" type="password">Hasło</label>
-                <input id="password" name="password"></input>
+                <input type="password" id="password" name="password" onChange={this.handleChange}placeholder="Hasło"></input>
 
                 <button>Zarejestruj się</button>
                 <button>Zarejestruj się z Google</button>
