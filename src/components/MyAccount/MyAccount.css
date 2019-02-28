@@ -7,17 +7,20 @@
 .myAccountAll {
     font-family: 'Catamaran', sans-serif;
     scroll-behavior: smooth;
+    width: 100%;
   }
 
  .myAccount{
-      background-color: #f8c512;
-      padding-bottom: 5%;
+      
+    background-color: #f8c512;
+      padding-bottom: 25px;
+      padding-top: 100px;
     }
 
     .Marks {
         background-color:  #EAEDEA;
-        padding-top: 3%;
-        padding-bottom: 3%;
+        padding-top: 15px;
+        padding-bottom: 15px;
     }
 
     .titleMyAccount {
@@ -25,14 +28,14 @@
         font-size: 20px;
         font-weight: bolder;
         text-transform: uppercase;
-        padding-left: 5%;
-        padding-top: 5%;
-        padding-bottom: 5%;
+        padding-left: 20px;
+        padding-top: 5px;
+        padding-bottom: 15px;
     }
 
      .myPhoto {
         width: 120px;
-        margin-left: 5%;
+        margin-left: 20px;
         background: white;
         float: left;
         
@@ -42,12 +45,12 @@
        text-transform: uppercase;
        font-size: 20px;
        font-weight: bold;
-       padding-left: 32%;
-       padding-bottom: 3%;
+       padding-left: 160px;
+       padding-bottom: 12px;
        
    }
 
-   span{
+   .smallTitle{
        color: white;
        text-transform: uppercase;
        font-size:17px;
@@ -59,32 +62,31 @@
        text-transform: uppercase;
        font-size:15px;
        font-weight: bold;
-       padding-left: 32%;
-       padding-top:1%;
+       padding-left: 150px;
+       padding-top:5px;
    }
 
    .mark{
-       padding-left: 5%;
+       padding-left: 20px;
        text-transform: uppercase;
        font-weight: bold;
        font-size: 20px;
    }
 
-  .star{
-      padding-right: 10%;
-  }
-   
-  h2{
+
+  .opinionsTitle{
     text-transform: uppercase;
     font-weight: bold;
     font-size: 20px;
-    padding-bottom: 3%;
-    padding-top: 5%;
-
+    padding-bottom: 5px;
+    padding-top: 10px;
+    
   }
 
+  
 
-  h3{
+
+  .userName{
       color:  #f8c512;
       padding-top:3%;
       padding-bottom: 2%;
@@ -94,8 +96,8 @@
   }
 
 .opinions{
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .secund{
@@ -104,15 +106,28 @@
         height: 1px;
         color: #EBEBEB;
         border: 0px;
-        padding-left: 5%;
-    padding-right: 5%;
+        padding-left: 20px;
+    padding-right: 20px;
 }
 
-p{
-    padding-top: 3%;
-    padding-bottom: 3%;
+.opinionUsers{
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .markStars{
-    padding-left: 20%;
+    padding-left: 10px;
+}
+
+.editButton {
+    border-radius:20px;
+    border: none;
+    background-color: #323232;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    width:100px;
+    text-transform: uppercase;
+    height: 25px;
+    margin-left: 50px;
 }
