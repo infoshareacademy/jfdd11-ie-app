@@ -5,17 +5,19 @@ import { NavLink } from 'react-router-dom';
 import "./SignUp.css";
 import firebase from 'firebase';
 
-class SignUp extends Component {
-    state = {
+const initialState = {
         name: '',
         surname: '',
         email: '',
         password: '',
         company: '',
+        phone: '',
         isCarrier: false,
         error: null,
         success: null,
-      };
+}
+class SignUp extends Component {
+    state = initialState;
 
       changeRoleToUser = () =>
           this.setState({
@@ -44,7 +46,7 @@ class SignUp extends Component {
         firebase
           .auth()
           .createUserWithEmailAndPassword(this.state.email, this.state.password)
-          .then(data => {
+          .then(() => {
             const userId = firebase.auth().currentUser.uid;
             firebase
               .database()
@@ -53,14 +55,20 @@ class SignUp extends Component {
               .set({
                 name: this.state.name,
                 surname: this.state.surname,
+                company: this.state.company,
+                phone: this.state.phone,
+                isCarrier: this.state.isCarrier
+
               });
-            this.setState({ error: null, success: 'Account created' });
+            this.setState({ error: null, success: 'Konto zostało założone' });
           })
           .catch(error => this.setState({ error: error, success: null }));
+          this.setState(initialState);
       };
 
     render(){
-        console.log(this.state.password);
+      console.log(this.state.error)
+      const {name, surname, phone, isCarrier, company, email, password, error, success} = this.state;
         return(
             <div className="sign-up_root">
             <Header/>
@@ -68,7 +76,7 @@ class SignUp extends Component {
             <h1>Zarejestruj się!</h1>
             <p>Do czego chcesz użyć</p>
             <p>moveIt</p>
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <div className="sign-up_checkboxes">
                     <label htmlFor="user">Chcę się przeprowadzić
                     <input id="user" name="user-type" type="radio" onChange={this.changeRoleToUser}></input>
@@ -77,28 +85,28 @@ class SignUp extends Component {
                     <input id="carrier" name="user-type" type="radio" onChange={this.changeRoleToCarrier}></input>
                     </label>
                 </div>
-                <input id="name" name="name" onChange={this.handleChange} placeholder="Imię"></input>
+                <input id="name" name="name" onChange={this.handleChange} placeholder="Imię" value={name}></input>
 
-                <input id="surname" name="surname" onChange={this.handleChange} placeholder="Nazwisko"></input>
+                <input id="surname" name="surname" onChange={this.handleChange} placeholder="Nazwisko" value={surname}></input>
 
-                <input id="phone" name="phone" onChange={this.handleChange} placeholder="Telefon"></input>
+                <input id="phone" name="phone" onChange={this.handleChange} placeholder="Telefon" value={phone}></input>
 
-                {this.state.isCarrier?
+                {isCarrier?
                 <>
-                <label htmlFor="company">Nazwa firmy</label>
-                <input id="company" name="company" onChange={this.handleChange} placeholder="Nazwa firmy"></input>
+                <input id="company" name="company" onChange={this.handleChange} placeholder="Nazwa firmy" value={company}></input>
                 </>
                 :
                 null}
 
-                <input id="email" name="email" type="email" onChange={this.handleChange}placeholder="E-mail"></input>
+                <input id="email" name="email" type="email" onChange={this.handleChange}placeholder="E-mail" value={email}></input>
 
-                <input type="password" id="password" name="password" onChange={this.handleChange}placeholder="Hasło"></input>
+                <input type="password" id="password" name="password" onChange={this.handleChange}placeholder="Hasło" value={password}></input>
 
                 <button>Zarejestruj się</button>
                 <button>Zarejestruj się z Google</button>
             </form>
             <p>Mam już konto. <NavLink to="/sign-in">Zaloguj mnie!</NavLink></p>
+            {error?<p className="sign-up_error">{error.message}</p>:<p className="sign-up_success">{success}</p>}
             </div>
             <Footer />
             </div>

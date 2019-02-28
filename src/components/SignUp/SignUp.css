@@ -1,3 +1,9 @@
 .sign-up_main{
     padding-top: 100px;
 }
+.sign-up_error{
+    color: red;
+}
+sign-up_success{
+    color: green;
+}
