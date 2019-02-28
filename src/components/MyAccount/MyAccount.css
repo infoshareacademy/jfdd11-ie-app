@@ -4,26 +4,25 @@
     box-sizing: border-box;
   }
   
-.myAccountAll {
+.MyAccount_All {
     font-family: 'Catamaran', sans-serif;
     scroll-behavior: smooth;
     width: 100%;
   }
 
- .myAccount{
-      
+ .MyAccount_carrier-information{
     background-color: #f8c512;
       padding-bottom: 25px;
       padding-top: 100px;
     }
 
-    .Marks {
+    .MyAccount_marks {
         background-color:  #EAEDEA;
         padding-top: 15px;
         padding-bottom: 15px;
     }
 
-    .titleMyAccount {
+    .MyAccount_title {
         color: white;
         font-size: 20px;
         font-weight: bolder;
@@ -33,7 +32,7 @@
         padding-bottom: 15px;
     }
 
-     .myPhoto {
+     .MyAccount_user-photo {
         width: 120px;
         margin-left: 20px;
         background: white;
@@ -41,7 +40,7 @@
         
     }
 
-   .companyName{
+   .MyAccount_company-name{
        text-transform: uppercase;
        font-size: 20px;
        font-weight: bold;
@@ -50,14 +49,14 @@
        
    }
 
-   .smallTitle{
+   .MyAccount_information-title{
        color: white;
        text-transform: uppercase;
        font-size:17px;
        font-weight: bold;
    }
 
-   .information{
+   .MyAccount_information{
        color: black;
        text-transform: uppercase;
        font-size:15px;
@@ -66,7 +65,7 @@
        padding-top:5px;
    }
 
-   .mark{
+   .MyAccount_starts-average{
        padding-left: 20px;
        text-transform: uppercase;
        font-weight: bold;
@@ -74,7 +73,7 @@
    }
 
 
-  .opinionsTitle{
+  .MyAccount_opinions-title{
     text-transform: uppercase;
     font-weight: bold;
     font-size: 20px;
@@ -83,10 +82,8 @@
     
   }
 
-  
 
-
-  .userName{
+  .MyAccount_user-name{
       color:  #f8c512;
       padding-top:3%;
       padding-bottom: 2%;
@@ -95,12 +92,12 @@
       font-size: 17px;
   }
 
-.opinions{
+.MyAccount_opinions{
     padding-left: 20px;
     padding-right: 20px;
 }
 
-.secund{
+.MyAccount_line{
     
         background-color: #EBEBEB;
         height: 1px;
@@ -110,16 +107,16 @@
     padding-right: 20px;
 }
 
-.opinionUsers{
+.MyAccount_users-opinion{
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-.markStars{
+.MyAccount_mark-stars{
     padding-left: 10px;
 }
 
-.editButton {
+.MyAccount_edit-button {
     border-radius:20px;
     border: none;
     background-color: #323232;
@@ -129,5 +126,6 @@
     width:100px;
     text-transform: uppercase;
     height: 25px;
-    margin-left: 50px;
+    margin-left: 25%;
+    
 }
