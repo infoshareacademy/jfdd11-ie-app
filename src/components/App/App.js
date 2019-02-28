@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import FAQ from '../FAQ'
 import Home from "../Home";
+import SignUp from "../SignUp";
 
 
 
@@ -13,7 +14,8 @@ class App extends Component {
       <Router>
       <div className="Main-Container">
       <Route exact path="/faq" component={FAQ}/>  
-      <Route exact path="/" component={Home} /> 
+      <Route exact path="/" component={Home} />
+      <Route exact path="/sign-up" component={SignUp}/>   
         </div>
       </Router>
       </>
