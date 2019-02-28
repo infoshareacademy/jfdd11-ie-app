@@ -4,14 +4,9 @@
     margin: 0 auto;
 }
 
-.logo {
-    margin: 20px;
-    width: 200px;
-}
 
 .hero-image {
-    background: url(./background.png) no-repeat right center, linear-gradient(#f8c512, #edb60d) ;
-    /* height: auto; */
+    background: url(./background.png) right center, linear-gradient(#f8c512, #edb60d) ;
     text-align: left;
     padding: 120px 15px 15px 15px;
 

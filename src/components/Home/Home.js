@@ -8,16 +8,16 @@ import { withAuth } from '../../contexts/AuthContext';
 
 class Home extends Component {
   render() {
-    const { user, signOut } = this.props.authContext;
+    // const { user, signOut } = this.props.authContext;
     return (
       <div className="Main-Container">
         <Header />
-        {user && (
+        {/* {user && (
           <p>
             {user.email}{' '}
             <button onClick={() => signOut()}>Sign out</button>
           </p>
-        )}
+        )} */}
         <div className="hero-image">
           <h1 className="first-claim upperCase">Planujesz przeprowadzkę?</h1>
           <h1 className="second-claim upperCase">Daj sobie pomóc!</h1>
