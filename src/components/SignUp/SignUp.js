@@ -40,6 +40,16 @@ class SignUp extends Component {
         });
       };
 
+      // signUpWithGoogle (){
+      //   const provider = new firebase.auth.GoogleAuthProvider();
+      //   firebase
+      //   .auth()
+      //   .signInWithPopup(provider)
+      //   .then(function(result){
+      //     console.log(result);
+      //   })
+      // }
+
       handleSubmit = event => {
         event.preventDefault();
     
@@ -60,10 +70,10 @@ class SignUp extends Component {
                 isCarrier: this.state.isCarrier
 
               });
-            this.setState({ error: null, success: 'Konto zostało założone' });
+            this.setState({ ...initialState, error: null, success: 'Konto zostało założone' });
           })
           .catch(error => this.setState({ error: error, success: null }));
-          this.setState(initialState);
+          
       };
 
     render(){
@@ -85,11 +95,11 @@ class SignUp extends Component {
                     <input id="carrier" name="user-type" type="radio" onChange={this.changeRoleToCarrier}></input>
                     </label>
                 </div>
-                <input id="name" name="name" onChange={this.handleChange} placeholder="Imię" value={name}></input>
+                <input id="name" name="name" onChange={this.handleChange} placeholder="Imię" value={name} required></input>
 
-                <input id="surname" name="surname" onChange={this.handleChange} placeholder="Nazwisko" value={surname}></input>
+                <input id="surname" name="surname" onChange={this.handleChange} placeholder="Nazwisko" value={surname} required></input>
 
-                <input id="phone" name="phone" onChange={this.handleChange} placeholder="Telefon" value={phone}></input>
+                <input id="phone" name="phone" onChange={this.handleChange} placeholder="Telefon" value={phone} required></input>
 
                 {isCarrier?
                 <>
@@ -103,9 +113,9 @@ class SignUp extends Component {
                 <input type="password" id="password" name="password" onChange={this.handleChange}placeholder="Hasło" value={password}></input>
 
                 <button>Zarejestruj się</button>
-                <button>Zarejestruj się z Google</button>
+                {/* <button onClick={this.signUpWithGoogle}>Zarejestruj się z Google</button> */}
             </form>
-            <p>Mam już konto. <NavLink to="/sign-in">Zaloguj mnie!</NavLink></p>
+            <p>Mam już konto. <NavLink to="/signin">Zaloguj mnie!</NavLink></p>
             {error?<p className="sign-up_error">{error.message}</p>:<p className="sign-up_success">{success}</p>}
             </div>
             <Footer />
