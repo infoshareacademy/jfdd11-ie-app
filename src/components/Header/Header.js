@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { NavLink } from 'react-router-dom';
 
 import "./Header.css";
-
+import { withAuth } from '../../contexts/AuthContext';
 import logo from "./logo.png";
 import menu from "./menu-mobile.svg";
 
@@ -22,6 +22,7 @@ class Header extends Component {
   };
 
   render() {
+
     return (
       <nav className="menu">
         <img src={logo} alt="logo-MoveIt" className="logo" />
@@ -34,8 +35,8 @@ class Header extends Component {
           />
         </div>
         <ul className={`js-menu upperCase ${this.state.class}`}>
-            <li className="Link-Style"><NavLink to="/contacts">Home</NavLink></li>
-            <li className="Link-Style"><NavLink to="/contacts">Moje konto</NavLink></li>
+            <li className="Link-Style"><NavLink to="/">Home</NavLink></li>
+            <li className="Link-Style"><NavLink to="/signin">Logowanie</NavLink></li>
             <li className="Link-Style"><NavLink to="/contacts">Zaplanuj przeprowadzkę</NavLink></li>
             <li className="Link-Style"><NavLink to="/contacts">Moje przeprowadzki</NavLink></li>
             <li className="Link-Style"><NavLink to="/faq">FAQ</NavLink></li>
@@ -46,4 +47,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default withAuth(Header);

@@ -4,13 +4,13 @@ import Logo from "./logo_footer.png";
 class Footer extends Component {
   render() {
     return (
-        <div className="global-settings">
+        <div className="footer-global-settings">
           <div className="footer-box">
-            <p className="moveIt">moveIt</p>
+            <p className="footer-moveIt">moveIt</p>
             <p>
-              Adres e-mail: <a className="send-email" href="mailto:support@move.it">support@move.it</a>
+              Adres e-mail: <a className="footer-send-email" href="mailto:support@move.it">support@move.it</a>
             </p>
-            <p className="copyright">Copyright © Move-It 2019</p>
+            <p className="footer-copyright">Copyright © Move-It 2019</p>
           </div>
           <img className="footer-logo" src={Logo} alt="moveIt logo - flying couch" />
         </div>

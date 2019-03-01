@@ -6,6 +6,12 @@
     cursor: pointer;
 }
 
+.logo {
+    margin: 20px;
+    width: 200px;
+}
+
+
 .menu {
     height: 80px;
     background: #fff;
