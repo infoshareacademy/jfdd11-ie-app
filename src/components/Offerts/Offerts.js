@@ -42,7 +42,7 @@ componentDidMount() {
                     <td className="offert-table-data">
                         <p className="offert-title">{offert.name}</p>
                         <ul className="offert-list">
-                            <li><b>Ilość mebli: </b>{offert.countFurniture}</li>
+                            <li><b>Ilość mebli: </b>{offert.furnitures.length}</li>
                             <li><b>Wystawiający: </b>{client && client.first_name} {client && client.last_name}</li>
                             <li><b>Termin: </b>{offert.date}</li>
                             <li><b>Dystans: </b>{offert.distance} km</li>

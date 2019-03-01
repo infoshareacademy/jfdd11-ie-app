@@ -1,9 +1,22 @@
 {
   "-LZe7JQmzHNxL9MHwjd1": {
     "name": "Lorem ipsum lorem ipsum lorem ipsum",
-    "countFurniture": 12,
+    "furnitures": [
+      {
+        "name": "Sofa",
+        "width": 180,
+        "height": 60,
+        "deepness": 120
+      },
+      {
+        "name": "Szafa",
+        "width": 120,
+        "height": 160,
+        "deepness": 220
+      }
+    ],
     "date": "12-03-2019",
-    "distance": 12,
+    "hour": "12:00",
     "isElevator": true,
     "bringFurnitures": false,
     "floorNumber": 3,
@@ -11,9 +24,34 @@
   },
   "-LZe7JQnym_0c0m6lTs0": {
     "name": "Lorem ipsum lorem ipsum lorem ipsum",
-    "countFurniture": 8,
+    "furnitures": [
+      {
+        "name": "Sofa",
+        "width": 180,
+        "height": 60,
+        "deepness": 120
+      },
+      {
+        "name": "Szafa",
+        "width": 120,
+        "height": 160,
+        "deepness": 220
+      },
+      {
+        "name": "Sofa",
+        "width": 180,
+        "height": 60,
+        "deepness": 120
+      },
+      {
+        "name": "Szafa",
+        "width": 120,
+        "height": 160,
+        "deepness": 220
+      }
+    ],
     "date": "12-03-2019",
-    "distance": 421,
+    "hour": "12:00",
     "isElevator": false,
     "bringFurnitures": true,
     "floorNumber": 0,
@@ -21,9 +59,58 @@
   },
   "-LZe7JQoQVlbsSH0SDVK": {
     "name": "Lorem ipsum lorem ipsum lorem ipsum",
-    "countFurniture": 87,
+    "furnitures": [
+      {
+        "name": "Sofa",
+        "width": 180,
+        "height": 60,
+        "deepness": 120
+      },
+      {
+        "name": "Szafa",
+        "width": 120,
+        "height": 160,
+        "deepness": 220
+      },
+      {
+        "name": "Szafa",
+        "width": 120,
+        "height": 160,
+        "deepness": 220
+      },
+      {
+        "name": "Sofa",
+        "width": 180,
+        "height": 60,
+        "deepness": 120
+      },
+      {
+        "name": "Szafa",
+        "width": 120,
+        "height": 160,
+        "deepness": 220
+      },
+      {
+        "name": "Szafa",
+        "width": 120,
+        "height": 160,
+        "deepness": 220
+      },
+      {
+        "name": "Sofa",
+        "width": 180,
+        "height": 60,
+        "deepness": 120
+      },
+      {
+        "name": "Szafa",
+        "width": 120,
+        "height": 160,
+        "deepness": 220
+      }
+    ],
     "date": "12-03-2019",
-    "distance": 52,
+    "hour": "12:00",
     "isElevator": true,
     "bringFurnitures": false,
     "floorNumber": 10,
@@ -31,9 +118,40 @@
   },
   "-LZe7JQpJf8skG2jN3du": {
     "name": "Lorem ipsum lorem ipsum lorem ipsum",
-    "countFurniture": 12,
+    "furnitures": [
+      {
+        "name": "Sofa",
+        "width": 180,
+        "height": 60,
+        "deepness": 120
+      },
+      {
+        "name": "Szafa",
+        "width": 120,
+        "height": 160,
+        "deepness": 220
+      },
+      {
+        "name": "Szafa",
+        "width": 120,
+        "height": 160,
+        "deepness": 220
+      },
+      {
+        "name": "Sofa",
+        "width": 180,
+        "height": 60,
+        "deepness": 120
+      },
+      {
+        "name": "Szafa",
+        "width": 120,
+        "height": 160,
+        "deepness": 220
+      }
+    ],
     "date": "12-03-2019",
-    "distance": 65,
+    "hour": "12:00",
     "isElevator": false,
     "bringFurnitures": true,
     "floorNumber": 3,
@@ -41,9 +159,22 @@
   },
   "-LZe7JQq7qfUdEOOBPoK": {
     "name": "Lorem ipsum lorem ipsum lorem ipsum",
-    "countFurniture": 42,
+    "furnitures": [
+      {
+        "name": "Sofa",
+        "width": 180,
+        "height": 60,
+        "deepness": 120
+      },
+      {
+        "name": "Szafa",
+        "width": 120,
+        "height": 160,
+        "deepness": 220
+      }
+    ],
     "date": "12-03-2019",
-    "distance": 21,
+    "hour": "12:00",
     "isElevator": true,
     "bringFurnitures": false,
     "floorNumber": 1,
@@ -51,9 +182,22 @@
   },
   "-LZe7JQrHGWJdnyyi42L": {
     "name": "Lorem ipsum lorem ipsum lorem ipsum",
-    "countFurniture": 11,
+    "furnitures": [
+      {
+        "name": "Sofa",
+        "width": 180,
+        "height": 60,
+        "deepness": 120
+      },
+      {
+        "name": "Szafa",
+        "width": 120,
+        "height": 160,
+        "deepness": 220
+      }
+    ],
     "date": "12-03-2019",
-    "distance": 12,
+    "hour": "12:00",
     "isElevator": false,
     "bringFurnitures": true,
     "floorNumber": 3,
@@ -61,9 +205,22 @@
   },
   "-LZe7JQsrkBCc-OR1pL3": {
     "name": "Lorem ipsum lorem ipsum lorem ipsum",
-    "countFurniture": 8,
+    "furnitures": [
+      {
+        "name": "Sofa",
+        "width": 180,
+        "height": 60,
+        "deepness": 120
+      },
+      {
+        "name": "Szafa",
+        "width": 120,
+        "height": 160,
+        "deepness": 220
+      }
+    ],
     "date": "12-03-2019",
-    "distance": 12,
+    "hour": "12:00",
     "isElevator": false,
     "bringFurnitures": true,
     "floorNumber": 3,
@@ -71,9 +228,22 @@
   },
   "-LZe7JQsrkBCc-OR1pL4": {
     "name": "Lorem ipsum lorem ipsum lorem ipsum",
-    "countFurniture": 14,
+    "furnitures": [
+      {
+        "name": "Sofa",
+        "width": 180,
+        "height": 60,
+        "deepness": 120
+      },
+      {
+        "name": "Szafa",
+        "width": 120,
+        "height": 160,
+        "deepness": 220
+      }
+    ],
     "date": "12-03-2019",
-    "distance": 12,
+    "hour": "12:00",
     "isElevator": true,
     "bringFurnitures": true,
     "floorNumber": 3,
@@ -81,9 +251,22 @@
   },
   "-LZe7JQtz3pnsRJXm416": {
     "name": "Lorem ipsum lorem ipsum lorem ipsum",
-    "countFurniture": 6,
+    "furnitures": [
+      {
+        "name": "Sofa",
+        "width": 180,
+        "height": 60,
+        "deepness": 120
+      },
+      {
+        "name": "Szafa",
+        "width": 120,
+        "height": 160,
+        "deepness": 220
+      }
+    ],
     "date": "12-03-2019",
-    "distance": 12,
+    "hour": "12:00",
     "isElevator": true,
     "bringFurnitures": true,
     "floorNumber": 3,
@@ -91,9 +274,22 @@
   },
   "-LZe7JQu3ylyxtYgo7A6": {
     "name": "Lorem ipsum lorem ipsum lorem ipsum",
-    "countFurniture": 3,
+    "furnitures": [
+      {
+        "name": "Sofa",
+        "width": 180,
+        "height": 60,
+        "deepness": 120
+      },
+      {
+        "name": "Szafa",
+        "width": 120,
+        "height": 160,
+        "deepness": 220
+      }
+    ],
     "date": "12-03-2019",
-    "distance": 12,
+    "hour": "12:00",
     "isElevator": true,
     "bringFurnitures": false,
     "floorNumber": 3,
