@@ -1,0 +1,20 @@
+Struktura prezentacji
+
+1. Home (dodać buttony do widoku (zarejestruj się, zaloguj się).
+
+2. Przechodzimy ekran rejestracji i go omawiamy.
+
+3. Pokazanie widoku zalogowany/niezalogowany z widoku menu.
+
+4. Wylogowanie się i pokazanie ekranu logowania ( Context + Auth).
+
+5. Zbiorcze aukcje.
+
+6. Pojedyncza aukcja + dodanie oferty do aukcji.
+
+7. Moje złożone oferty.
+
+8. Moje konto, edytuj i operacje na koncie.
+
+9. FAQ.
+
