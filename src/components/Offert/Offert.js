@@ -35,6 +35,9 @@ class Offert extends Component {
       <div className="Offert">
         <h1 className="offert-header">Oferta</h1>
         <h2 className="offert-title">{this.state.offert.name}</h2>
+        <a href="#make-offert">
+          <button>Złóż ofertę</button>
+        </a>
         <p>
           Wystawiający: {this.state.client.first_name}{" "}
           {this.state.client.last_name}
@@ -75,7 +78,7 @@ class Offert extends Component {
           ))}
         </div>
 
-        <h2>Złóż ofertę: </h2>
+        <h2 id="make-offert">Złóż ofertę: </h2>
         <label htmlFor="price">Proponowana cena:</label>
         <input type="text" name="price" placeholder="Cena" />
         <label htmlFor="description">Uwagi:</label>
