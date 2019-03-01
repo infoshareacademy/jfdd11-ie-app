@@ -12,3 +12,8 @@ html {
   color: #f8c512;
   color: #fff;
 }
+
+strong {
+  font-weight: bold;
+  color:black;
+}
