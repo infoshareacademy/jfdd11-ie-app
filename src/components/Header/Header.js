@@ -37,6 +37,7 @@ class Header extends Component {
         <ul className={`js-menu upperCase ${this.state.class}`}>
             <li className="Link-Style"><NavLink to="/">Home</NavLink></li>
             <li className="Link-Style"><NavLink to="/signin">Logowanie</NavLink></li>
+            <li className="Link-Style"><NavLink to="/myAccount">Moje konto</NavLink></li>
             <li className="Link-Style"><NavLink to="/contacts">Zaplanuj przeprowadzkę</NavLink></li>
             <li className="Link-Style"><NavLink to="/contacts">Moje przeprowadzki</NavLink></li>
             <li className="Link-Style"><NavLink to="/faq">FAQ</NavLink></li>
