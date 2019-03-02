@@ -83,27 +83,29 @@ class SignUp extends Component {
             <div className="sign-up_root">
             <Header/>
             <div className="sign-up_main">
+            <div className="sign-up_welcome-message">
             <h1>Zarejestruj się!</h1>
             <p>Do czego chcesz użyć</p>
-            <p>moveIt</p>
+            <span>moveIt</span>
+            </div>
             <form onSubmit={this.handleSubmit}>
                 <div className="sign-up_checkboxes">
-                    <label htmlFor="user">Chcę się przeprowadzić
-                    <input id="user" name="user-type" type="radio" onChange={this.changeRoleToUser}></input>
-                    </label>
-                    <label htmlFor="carrier">Chcę pomóc innym w przeprowadzce
+                    
+                    <input id="user" name="user-type" type="radio" onChange={this.changeRoleToUser} required></input>
+                    <label htmlFor="user">Chcę się przeprowadzić</label>
+                 
                     <input id="carrier" name="user-type" type="radio" onChange={this.changeRoleToCarrier}></input>
-                    </label>
+                    <label htmlFor="carrier">Chcę pomóc innym w przeprowadzce</label>
                 </div>
-                <input id="name" name="name" onChange={this.handleChange} placeholder="Imię" value={name} required></input>
+                <input id="name" name="name" type="text" onChange={this.handleChange} placeholder="Imię" value={name} required></input>
 
-                <input id="surname" name="surname" onChange={this.handleChange} placeholder="Nazwisko" value={surname} required></input>
+                <input id="surname" name="surname" type="text" onChange={this.handleChange} placeholder="Nazwisko" value={surname} required></input>
 
-                <input id="phone" name="phone" onChange={this.handleChange} placeholder="Telefon" value={phone} required></input>
+                <input id="phone" name="phone" type="text" onChange={this.handleChange} placeholder="Telefon" value={phone} required></input>
 
                 {isCarrier?
                 <>
-                <input id="company" name="company" onChange={this.handleChange} placeholder="Nazwa firmy" value={company}></input>
+                <input id="company" name="company" type="text" onChange={this.handleChange} placeholder="Nazwa firmy" value={company}></input>
                 </>
                 :
                 null}
@@ -112,10 +114,12 @@ class SignUp extends Component {
 
                 <input type="password" id="password" name="password" onChange={this.handleChange}placeholder="Hasło" value={password}></input>
 
-                <button>Zarejestruj się</button>
+                <button>ZAREJESTRUJ SIĘ</button>
                 {/* <button onClick={this.signUpWithGoogle}>Zarejestruj się z Google</button> */}
             </form>
+            <div className="sign-up_sign-in">
             <p>Mam już konto. <NavLink to="/signin">Zaloguj mnie!</NavLink></p>
+            </div>
             {error?<p className="sign-up_error">{error.message}</p>:<p className="sign-up_success">{success}</p>}
             </div>
             <Footer />
