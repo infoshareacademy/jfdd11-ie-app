@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from 'react-router-dom';
 import "./Footer.css";
 import Logo from "./logo_footer.png";
 class Footer extends Component {
@@ -12,7 +13,7 @@ class Footer extends Component {
             </p>
             <p className="footer-copyright">Copyright © Move-It 2019</p>
           </div>
-          <img className="footer-logo" src={Logo} alt="moveIt logo - flying couch" />
+          <NavLink to="/"><img className="footer-logo" src={Logo} alt="moveIt logo - flying couch" /></NavLink>
         </div>
     );
   }
