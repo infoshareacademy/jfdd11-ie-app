@@ -8,7 +8,6 @@ import SignIn from "../SignIn";
 import { SignOut } from '../SignOut/SignOut';
 
 
-
 import Offerts from '../Offerts';
 import Offert from '../Offert';
 

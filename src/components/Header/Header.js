@@ -42,8 +42,7 @@ const signOut = this.props.authContext.signOut;
         <li className="header_user-email " onClick={signOut}><NavLink to="/">Wyloguj się</NavLink></li>
         <li className="Link-Style"><NavLink to="/">Home</NavLink></li>
         <li className="Link-Style"><NavLink to="/myAccount">Moje konto</NavLink></li>
-        <li className="Link-Style"><NavLink to="/contacts">Zaplanuj przeprowadzkę</NavLink></li>
-        <li className="Link-Style"><NavLink to="/contacts">Moje przeprowadzki</NavLink></li>
+        <li className="Link-Style"><NavLink to="/offerts">Oferty przeprowadzek</NavLink></li>
         <li className="Link-Style"><NavLink to="/faq">FAQ</NavLink></li>
         </ul>
         :
@@ -51,6 +50,7 @@ const signOut = this.props.authContext.signOut;
         <li className="Link-Style"><NavLink to="/">Home</NavLink></li>
         <li className="Link-Style"><NavLink to="/signin">Logowanie</NavLink></li>
         <li className="Link-Style"><NavLink to="/sign-up">Rejestracja</NavLink></li>
+        <li className="Link-Style"><NavLink to="/offerts">Oferty przeprowadzek</NavLink></li>
         <li className="Link-Style"><NavLink to="/faq">FAQ</NavLink></li>
         </ul>
         }
