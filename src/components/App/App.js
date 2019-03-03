@@ -9,6 +9,9 @@ import { SignOut } from '../SignOut/SignOut';
 
 
 
+import Offerts from '../Offerts';
+import Offert from '../Offert';
+
 class App extends Component {
   render() {
     return (
@@ -21,6 +24,8 @@ class App extends Component {
       <Route exact path="/signin" component={SignIn} />  
       <Route exact path="/myAccount" component={MyAccount} />
       <Route path="/sign-out" component={SignOut} />
+      <Route exact path="/offerts" component={Offerts} />
+      <Route path="/offerts/:offertId" component={Offert} />
         </div>
       </Router>
       </>
