@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 import "./SignIn.css";
 import { withAuth } from "../../contexts/AuthContext";
@@ -52,9 +52,9 @@ class SignIn extends Component {
           <p style={{ color: "green" }}>{this.state.success}</p>
         )}
 
-        <div className="signin-page">
+        <div className="signin-page text-big">
           <h2 className="upperCase white-text">Logowanie</h2>
-          <p className="upperCase white-text margin-bottom">
+          <p className="upperCase white-text margin-bottom-small text-big">
             Wypełnij poniższe dane, aby się zalogować
           </p>
           <div />
@@ -75,12 +75,15 @@ class SignIn extends Component {
               />
             </div>
             <div className="signin-buttons-box">
-            <div className="sigin-register-area">
-                <p>Nie masz jeszcze konta?</p>
-                <NavLink to="/sign-up"><button className="signin-register-button">REJESTRACJA</button></NavLink>
-              </div>
               <button className="signin-login-button">ZALOGUJ SIĘ</button>
-
+              <div className="sigin-register-area">
+                <p className="text">Nie masz jeszcze konta?</p>
+                <NavLink to="/sign-up">
+                  <button className="signin-register-button">
+                    REJESTRACJA
+                  </button>
+                </NavLink>
+              </div>
             </div>
           </form>
         </div>
