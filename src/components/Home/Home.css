@@ -20,6 +20,10 @@
     margin-bottom: 80px;
 }
 
+.margin-bottom-small {
+    margin-bottom: 40px;
+}
+
 .first-claim {
     font-size: 30px;
     font-weight: 800;
@@ -42,4 +46,28 @@
     font-size: 25px;
     font-weight: 500;
     line-height: 35px;
+}
+
+.home_buttons-box {
+    display: flex;
+    
+}
+
+.home-login-button {
+    border-radius:20px;
+    border: none;
+    background-color: #323232;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    width:80%;
+    padding: 12px;
+    margin-top: 30px;
+    margin: 20px;
+    transform: 3s;
+    cursor: pointer;
+}
+
+.home-login-button:hover {
+    color: #f8c512;
 }
