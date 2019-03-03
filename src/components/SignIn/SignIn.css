@@ -11,14 +11,23 @@
 }
 
 .signin-page h2 {
-    font-size: 18px;
+    font-size: 26px;
     font-weight: 900;
     margin-bottom: 20px;
+    margin-top: 60px;
 }
 
 .signin-page p {
     font-weight: 500;
+
+}
+
+.text {
     font-size: 14px;
+} 
+
+.text-big {
+    font-size: 18px;
 }
 
 .signin-form {
@@ -47,16 +56,17 @@
     border: none;
     background-color: #323232;
     color: #fff;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 700;
-    width:40%;
     padding: 10px;
     margin-top: 30px;
-    margin: 20px;
+    /* margin: 20px; */
 }
 
 .signin-buttons-box {
     display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
 }
 
 .sigin-register-area {
@@ -74,7 +84,7 @@
     border: none;
     background-color: #fff;
     color: #323232;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 700;
     width:90%;
     padding: 10px;
