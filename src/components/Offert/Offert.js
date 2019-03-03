@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+
 import "./Offert.css";
 
 class Offert extends Component {
@@ -36,34 +37,35 @@ class Offert extends Component {
         <h1 className="offert-header">Oferta</h1>
         <h2 className="offert-title">{this.state.offert.name}</h2>
         <a href="#make-offert">
-          <button>Złóż ofertę</button>
+          <button className="Offert_offert-button">Złóż ofertę</button>
         </a>
-        <p>
-          Wystawiający: {this.state.client.first_name}{" "}
+        <p className="Offert_offert-information-all">
+          <span className="Offert_offert-information">Wystawiający: </span> {this.state.client.first_name}{" "}
           {this.state.client.last_name}
         </p>
         <ul>
-          <li>Termin: {this.state.offert.date}</li>
-          <li>Godzina: {this.state.offert.hour}</li>
-          <li>
-            Usługa z wniesieniem:{" "}
+          <li className="Offert_offert-information-all"><span className="Offert_offert-information">Termin: </span>{this.state.offert.date}</li>
+          <li className="Offert_offert-information-all"><span className="Offert_offert-information">Godzina: </span>{this.state.offert.hour}</li>
+          <li className="Offert_offert-information-all"><span className="Offert_offert-information">
+            Usługa z wniesieniem: </span>{" "}
             {this.state.offert.bringFurnitures ? "TAK" : "NIE"}
           </li>
-          <li>
-            Budynek z windą: {this.state.offert.isElevator ? "TAK" : "NIE"}
+          <li className="Offert_offert-information-all"><span className="Offert_offert-information">
+            Budynek z windą: </span> {this.state.offert.isElevator ? "TAK" : "NIE"}
           </li>
         </ul>
-        <div className="offert-furnitures">
-          <h2>MEBLE:</h2>
+       
+        <div className="offert-furnitures"><span className="Offert_bottom-line"></span>
+          <h2 className="Offert_furnitures-title">MEBLE: </h2>
           {this.state.offert.furnitures.map(furniture => (
             <>
-              <p>{furniture.name} - Wymiary:</p>
+              <p className="Offert_furnitures-type">{furniture.name} - Wymiary:</p>
               <table>
                 <thead>
                   <tr>
-                    <th>Głębokość</th>
-                    <th>Szerokość</th>
-                    <th>Wysokość</th>
+                    <th className="Offert_furnitures-information">Głębokość</th>
+                    <th className="Offert_furnitures-information"> Szerokość</th>
+                    <th className="Offert_furnitures-information">Wysokość</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -77,13 +79,16 @@ class Offert extends Component {
             </>
           ))}
         </div>
-
-        <h2 id="make-offert">Złóż ofertę: </h2>
-        <label htmlFor="price">Proponowana cena:</label>
+        
+        <div className="Offert_form">
+        <span className="Offert_bottom-line"></span>
+        <h2 className="Offert_form-title" id="make-offert">Złóż ofertę: </h2>
+        <label className="Offert_form-title" htmlFor="price">Proponowana cena: </label>
         <input type="text" name="price" placeholder="Cena" />
-        <label htmlFor="description">Uwagi:</label>
-        <textarea name="description" placeholder="Uwagi" />
-        <button>Wyślij</button>
+       <div className="Offert_form-title"><label  htmlFor="description"> Uwagi: </label>
+        <textarea  name="description" placeholder="Uwagi" /></div>
+        <button className="Offert_form-button">Wyślij</button>
+      </div>
       </div>
     );
   }

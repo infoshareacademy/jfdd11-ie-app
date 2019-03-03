@@ -3,7 +3,7 @@
     text-transform: uppercase;
     font-size: 20px;
     background-color: #f8c512;
-    padding: 20px;
+    padding: 30px;
     font-weight: bold;
     margin-bottom: 20px;
     box-shadow: 0px 1px 5px #000; 
@@ -15,6 +15,7 @@
     background-color: rgb(224, 224, 224);
     display: block;
     border-radius: 90%;
+   
 }
 
 .offert-title {
@@ -22,6 +23,9 @@
     font-weight: bold;
     text-transform: uppercase;
     font-size: 22px;
+    padding-bottom: 15px;
+   padding-right: 20px;
+    
 }
 
 .offerts-table {
@@ -29,12 +33,14 @@
 }
 
 .offert-table-data {
-    padding: 10px;
+    padding-left: 20px;
+    padding-right:20px;
 }
 
 .offert-list li {
     text-transform: uppercase;
     margin: 10px;
+    padding-bottom: 5px;
 }
 
 .offert-button {
@@ -46,4 +52,7 @@
     color: white;
     text-transform: uppercase;
     font-weight: bold;
+    margin-bottom: 10px;
+    margin-top:10px;
+    
 }
