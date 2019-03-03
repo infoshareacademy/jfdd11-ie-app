@@ -6,6 +6,7 @@ import Home from "../Home";
 import SignUp from "../SignUp";
 import SignIn from "../SignIn";
 import { SignOut } from '../SignOut/SignOut';
+import MyAuctions from '../MyAuctions';
 
 
 
@@ -21,6 +22,7 @@ class App extends Component {
       <Route exact path="/signin" component={SignIn} />  
       <Route exact path="/myAccount" component={MyAccount} />
       <Route path="/sign-out" component={SignOut} />
+      <Route path="/myauctions" component={MyAuctions} />
         </div>
       </Router>
       </>

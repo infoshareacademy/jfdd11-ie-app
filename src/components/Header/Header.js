@@ -42,7 +42,7 @@ const signOut = this.props.authContext.signOut;
         <li className="Link-Style"><NavLink to="/">Home</NavLink></li>
         <li className="Link-Style"><NavLink to="/myAccount">Moje konto</NavLink></li>
         <li className="Link-Style"><NavLink to="/contacts">Zaplanuj przeprowadzkę</NavLink></li>
-        <li className="Link-Style"><NavLink to="/contacts">Moje przeprowadzki</NavLink></li>
+        <li className="Link-Style"><NavLink to="/myauctions">Moje przeprowadzki</NavLink></li>
         <li className="Link-Style"><NavLink to="/faq">FAQ</NavLink></li>
         <li className="header_user-email">{user.email}</li>
         <li className="Link-Style" onClick={signOut}><NavLink to="/">Wyloguj się</NavLink></li>
