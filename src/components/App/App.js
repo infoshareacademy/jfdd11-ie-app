@@ -11,6 +11,7 @@ import MyAuctions from '../MyAuctions';
 
 import Offerts from '../Offerts';
 import Offert from '../Offert';
+import { WorkInProgress } from '../WorkInProgress/WorkInProgress';
 
 class App extends Component {
   render() {
@@ -27,6 +28,7 @@ class App extends Component {
       <Route path="/myauctions" component={MyAuctions} />
       <Route exact path="/offerts" component={Offerts} />
       <Route path="/offerts/:offertId" component={Offert} />
+      <Route path="/work-in-progress" component={WorkInProgress}/>
         </div>
       </Router>
       </>

@@ -13,8 +13,7 @@ import Header from "../Header";
 
 const styles = theme => ({
   root: {
-    width: "100%",
-    minHeight: "100vh"
+    width: "100%"
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
