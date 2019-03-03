@@ -64,7 +64,8 @@ class FAQ extends Component {
           target={0}
         />
         <Header />
-        <div className={classes.main}>Najczęściej zadawane pytania</div>
+        <h1 className="offert-header">Najczęściej zadawane pytania</h1>
+        {/* <div className={classes.main}>Najczęściej zadawane pytania</div> */}
         <div className={classes.root}>
           {this.state.faq.map(item => (
             <ExpansionPanel>

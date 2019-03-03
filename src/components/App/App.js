@@ -9,6 +9,8 @@ import { SignOut } from '../SignOut/SignOut';
 import MyAuctions from '../MyAuctions';
 
 
+import Offerts from '../Offerts';
+import Offert from '../Offert';
 
 class App extends Component {
   render() {
@@ -23,6 +25,8 @@ class App extends Component {
       <Route exact path="/myAccount" component={MyAccount} />
       <Route path="/sign-out" component={SignOut} />
       <Route path="/myauctions" component={MyAuctions} />
+      <Route exact path="/offerts" component={Offerts} />
+      <Route path="/offerts/:offertId" component={Offert} />
         </div>
       </Router>
       </>
