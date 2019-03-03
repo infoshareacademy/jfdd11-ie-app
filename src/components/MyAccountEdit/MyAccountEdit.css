@@ -1,0 +1,9 @@
+.MyAccountEdit_title {
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
