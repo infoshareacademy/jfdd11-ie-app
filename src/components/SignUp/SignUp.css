@@ -1,9 +1,96 @@
-.sign-up_main{
-    padding-top: 100px;
+.sign-up_root{
+    height: 100vh;
 }
+.sign-up_main{
+    background: url(./background.png) right center, linear-gradient(#f8c512, #edb60d) ;
+    padding-top: 100px;
+    text-align: center;
+    
+}
+.sign-up_welcome-message{
+    text-align: center;
+}
+.sign-up_welcome-message h1{
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+.sign-up_welcome-message p{
+    font-size: 18px;
+    font-weight: 700;
+}
+.sign-up_welcome-message span{
+    color: white;
+    font-size: 20px;
+    font-weight: 900;
+}
+.sign-up_main form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sign-up_main form input[type = text]{
+    width: 70%;
+    line-height: 25px;
+    border: none;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    border-radius: 10px;
+}
+.sign-up_main form input[type = email]{
+    width: 70%;
+    line-height: 25px;
+    border: none;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    border-radius: 10px;
+}
+.sign-up_main form input[type = password]{
+    width: 70%;
+    line-height: 25px;
+    border: none;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    border-radius: 10px;
+}
+.sign-up_main form button{
+    border-radius: 20px;
+    border: none;
+    background-color: #323232;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 10px;
+    margin-top: 20px;
+}
+.sign-up_checkboxes{
+    display: flex;
+    justify-content: center;
+}
+.sign-up_checkboxes label{
+    text-align: center;
+    padding: 50px 10px 50px 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.sign-up_checkboxes input{
+    opacity: 0;
+}
+.sign-up_checkboxes input:checked + label{
+    color: white;
+    font-weight: 800;
+}
+.sign-up_sign-in{
+    padding: 20px 0 20px 0;
+}
+.sign-up_sign-in a{
+    color: white;
+    text-decoration: none;
+}
+
 .sign-up_error{
     color: red;
 }
-sign-up_success{
+.sign-up_success{
     color: green;
 }

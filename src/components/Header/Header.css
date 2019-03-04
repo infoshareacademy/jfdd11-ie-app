@@ -1,7 +1,7 @@
 .js-toggler {
     width: 30px;
     border: none;
-    margin-right: 20px;
+    margin-right: 40px;
     margin-top: 25px;
     cursor: pointer;
 }
@@ -37,9 +37,8 @@
 }
 
 .Link-Style {
-    padding-bottom: 10px;
-    padding-top: 10px;
-
+    padding-bottom: 12px;
+    padding-top: 12px;
     font-size: 22px;
 }
 
@@ -54,4 +53,14 @@
     flex-direction: column;
     align-items: center;
     z-index: 999;
+}
+.header_user-email{
+    padding-top: 10px;
+    color: #f8c512;
+}
+
+.header_user-email a {
+    text-decoration: none;
+    padding-top: 10px;
+    color: #f8c512;
 }
