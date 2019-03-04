@@ -1,66 +1,66 @@
 .js-toggler {
-    width: 30px;
-    border: none;
-    margin-right: 40px;
-    margin-top: 25px;
-    cursor: pointer;
+  width: 30px;
+  border: none;
+  margin-right: 40px;
+  margin-top: 25px;
+  cursor: pointer;
 }
 
 .logo {
-    margin: 20px;
-    width: 200px;
+  margin: 20px;
+  width: 200px;
 }
 
-
 .menu {
-    height: 80px;
-    background: #fff;
-    position: fixed;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    z-index: 999;
+  height: 80px;
+  background: #fff;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 999;
+  box-shadow: 0px 1px 5px rgb(105, 105, 105);
 }
 
 .js-menu {
-    display: none;
-    top: 80px;
-    position: absolute;
-    right: 0;
-    background: #fff;
-    left: 0;
-    z-index: 999999;
+  display: none;
+  top: 80px;
+  position: absolute;
+  right: 0;
+  background: #fff;
+  left: 0;
+  z-index: 999999;
 }
 
 .upperCase {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .Link-Style {
-    padding-bottom: 12px;
-    padding-top: 12px;
-    font-size: 22px;
+  padding-bottom: 12px;
+  padding-top: 12px;
+  font-size: 22px;
 }
 
 .Link-Style a {
-    text-decoration: none;
-    color: #323232;
+  text-decoration: none;
+  color: #323232;
 }
 
 .expanded {
-    display: initial;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 999;
+  display: initial;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 999;
 }
-.header_user-email{
-    padding-top: 10px;
-    color: #f8c512;
+.header_user-email {
+  padding-top: 10px;
+  color: #f8c512;
 }
 
 .header_user-email a {
-    text-decoration: none;
-    padding-top: 10px;
-    color: #f8c512;
+  text-decoration: none;
+  padding-top: 10px;
+  color: #f8c512;
 }
