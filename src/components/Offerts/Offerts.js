@@ -61,10 +61,6 @@ class Offerts extends Component {
                             {offert.date}
                           </li>
                           <li>
-                            <b>Dystans: </b>
-                            {offert.distance} km
-                          </li>
-                          <li>
                             <b>Budynek z windą: </b>
                             {offert.isElevator ? "Tak" : "Nie"}
                           </li>
