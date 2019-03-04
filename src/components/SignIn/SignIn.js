@@ -76,6 +76,7 @@ class SignIn extends Component {
             </div>
             <div className="signin-buttons-box">
               <button className="signin-login-button">ZALOGUJ SIĘ</button>
+              
               <div className="sigin-register-area">
                 <p className="text">Nie masz jeszcze konta?</p>
                 <NavLink to="/sign-up">
@@ -83,10 +84,14 @@ class SignIn extends Component {
                     REJESTRACJA
                   </button>
                 </NavLink>
+                
               </div>
+
             </div>
+            {this.state.error?<p className="sign-up_error">{this.state.error.message}</p>:<p className="sign-up_success">{this.state.success}</p>}
           </form>
         </div>
+        
         <Footer />
       </div>
     );
