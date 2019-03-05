@@ -1,10 +1,11 @@
 .sign-up_root{
+    height: 100vh;
 }
 .sign-up_main{
     background: url(./background.png) right center, linear-gradient(#f8c512, #edb60d) ;
     padding-top: 100px;
     text-align: center;
-    height: 90vh;
+    
 }
 .sign-up_welcome-message{
     text-align: center;
@@ -90,6 +91,6 @@
 .sign-up_error{
     color: red;
 }
-sign-up_success{
+.sign-up_success{
     color: green;
 }
