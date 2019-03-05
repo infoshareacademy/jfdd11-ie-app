@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { Route, Redirect } from "react-router";
 
+
 import "./SignIn.css";
 import { withAuth } from "../../contexts/AuthContext";
 import Header from "./../Header";
@@ -14,7 +15,7 @@ class SignIn extends Component {
     email: "",
     password: "",
     error: null,
-    success: true
+    success: null
   };
 
   handleChange = event => {
@@ -37,6 +38,7 @@ class SignIn extends Component {
       //   window.location.href = `/myAccount`
       // ))
       .catch(error => this.setState({ error: error, success: null }));
+      
   };
 
   render() {
@@ -81,7 +83,7 @@ class SignIn extends Component {
             </div>
             <div className="signin-buttons-box">
               <button className="signin-login-button">ZALOGUJ SIĘ</button>
-
+              
               <div className="sigin-register-area">
                 <p className="text">Nie masz jeszcze konta?</p>
                 <NavLink to="/sign-up">
@@ -89,17 +91,18 @@ class SignIn extends Component {
                     REJESTRACJA
                   </button>
                 </NavLink>
+                
               </div>
-            </div>
 
-            {this.state.success ? (
-               <p>Logowanie udało się</p> 
-            ) : (
-              <p>ELOELO</p>
-            )}
+            </div>
+           
+          {this.state.error && <p>{this.state.error.message}</p>}
+          {this.state.success && <Redirect to="/" />}
+           
+            {/* {this.state.error?<p className="sign-up_error">{this.state.error.message}</p>:<p className="sign-up_success">{this.state.success}</p>} */}
           </form>
         </div>
-
+        
         <Footer />
       </div>
     );
