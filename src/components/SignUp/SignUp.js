@@ -79,6 +79,12 @@ class SignUp extends Component {
     render(){
       console.log(this.state.error)
       const {name, surname, phone, isCarrier, company, email, password, error, success} = this.state;
+      const errors = {
+        invalidEmail: "Niepoprawny adres e-mail.",
+        weakPassword: "Niepoprawne hasło. Hasło powinno mieć conajmniej 6 znaków.",
+        emailAlreadyInUse: "Istnieje już konto o takim adresie e-mail.",
+        other: "Coś poszło nie tak. Spóbuj ponownie za chwilę"
+      }
         return(
             <div className="sign-up_root">
             <Header/>
@@ -120,7 +126,21 @@ class SignUp extends Component {
             <div className="sign-up_sign-in">
             <p>Mam już konto. <NavLink to="/signin">Zaloguj mnie!</NavLink></p>
             </div>
-            {error?<p className="sign-up_error">{error.message}</p>:<p className="sign-up_success">{success}</p>}
+            {error?
+            <p className="sign-up_error">
+            {error.code === "auth/invalid-email"?
+            errors.invalidEmail
+            :
+            error.code==="auth/weak-password"?
+            errors.weakPassword
+            :
+            error.code==="auth/email-already-in-use"?
+            errors.emailAlreadyInUse
+            :
+            errors.other}
+          </p>
+            :
+            <p className="sign-up_success">{success}</p>}
             </div>
             <Footer />
             </div>
