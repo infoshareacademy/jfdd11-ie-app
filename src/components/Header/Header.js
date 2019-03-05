@@ -40,7 +40,7 @@ const signOut = this.props.authContext.signOut;
         <ul className={`js-menu upperCase ${this.state.class}`}>
         <li className="header_user-email">{user.email}</li>
         <li className="header_user-email " onClick={signOut}><NavLink to="/">Wyloguj się</NavLink></li>
-        <li className="Link-Style"><NavLink to="/">Home</NavLink></li>
+        <li className="Link-Style"><NavLink to="/">Strona główna</NavLink></li>
         <li className="Link-Style"><NavLink to="/myAccount">Moje konto</NavLink></li>
         <li className="Link-Style"><NavLink to="/work-in-progress">Zaplanuj przeprowadzkę</NavLink></li>
         <li className="Link-Style"><NavLink to="/work-in-progress">Moje przeprowadzki</NavLink></li>
@@ -49,7 +49,7 @@ const signOut = this.props.authContext.signOut;
         </ul>
         :
         <ul className={`js-menu upperCase ${this.state.class}`}>
-        <li className="Link-Style"><NavLink to="/">Home</NavLink></li>
+        <li className="Link-Style"><NavLink to="/">Strona główna</NavLink></li>
         <li className="Link-Style"><NavLink to="/signin">Logowanie</NavLink></li>
         <li className="Link-Style"><NavLink to="/sign-up">Rejestracja</NavLink></li>
         <li className="Link-Style"><NavLink to="/faq">FAQ</NavLink></li>
