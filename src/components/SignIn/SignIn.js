@@ -5,6 +5,8 @@ import "./SignIn.css";
 import { withAuth } from "../../contexts/AuthContext";
 import Header from "./../Header";
 import Footer from "./../Footer";
+import { white } from "ansi-colors";
+import Home from "../Home/Home";
 
 class SignIn extends Component {
   state = {
@@ -25,13 +27,16 @@ class SignIn extends Component {
 
     const { signIn } = this.props.authContext;
     signIn(this.state.email, this.state.password)
-      .then(data =>
-        this.setState({
-          error: null,
-          success: "Logowanie przebiegło pomyślnie"
-        })
-      )
+      // .then(data =>
+      //   this.setState({
+      //     error: null,
+      //     success: "Logowanie przebiegło pomyślnie"
+      //   }))
+      .then(data => (
+        window.location.href = `/myAccount`
+      ))
       .catch(error => this.setState({ error: error, success: null }));
+      
   };
 
   render() {
