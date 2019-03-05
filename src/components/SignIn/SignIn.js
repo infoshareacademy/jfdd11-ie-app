@@ -32,7 +32,7 @@ class SignIn extends Component {
       //     error: null,
       //     success: "Logowanie przebiegło pomyślnie"
       //   }))
-      .then(data => this.setState(
+      .then(data => (
         window.location.href = `/myAccount`
       ))
       .catch(error => this.setState({ error: error, success: null }));
