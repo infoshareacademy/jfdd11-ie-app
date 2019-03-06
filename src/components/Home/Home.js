@@ -20,7 +20,7 @@ class Home extends Component {
           </p>
         )} */}
         <div className="hero-image">
-          <h1 className="first-claim upperCase">Planujesz przeprowadzkę?</h1>
+          <h1 className="first-claim upperCase">Planujesz przeprowadzkę ?</h1>
           <h1 className="second-claim upperCase">Daj sobie pomóc!</h1>
 
           <p className="title-hero-image margin-bottom-small">

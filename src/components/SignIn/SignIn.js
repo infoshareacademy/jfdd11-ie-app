@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import { Route, Redirect } from "react-router";
+
 
 import "./SignIn.css";
 import { withAuth } from "../../contexts/AuthContext";
@@ -27,14 +29,11 @@ class SignIn extends Component {
 
     const { signIn } = this.props.authContext;
     signIn(this.state.email, this.state.password)
-      // .then(data =>
-      //   this.setState({
-      //     error: null,
-      //     success: "Logowanie przebiegło pomyślnie"
-      //   }))
-      .then(data => (
-        window.location.href = `/myAccount`
-      ))
+      .then(data =>
+        this.setState({
+          error: null,
+          success: 1
+        }))
       .catch(error => this.setState({ error: error, success: null }));
       
   };
@@ -93,7 +92,11 @@ class SignIn extends Component {
               </div>
 
             </div>
-            {this.state.error?<p className="sign-up_error">{this.state.error.message}</p>:<p className="sign-up_success">{this.state.success}</p>}
+           
+          {this.state.error && <p>Twoja rejestracja przebiegła niepomyślnie</p>}
+          {this.state.success && <Redirect to="/myAccount" />}
+           
+            {/* {this.state.error?<p className="sign-up_error">{this.state.error.message}</p>:<p className="sign-up_success">{this.state.success}</p>} */}
           </form>
         </div>
         

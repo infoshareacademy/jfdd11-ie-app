@@ -27,7 +27,7 @@ const signOut = this.props.authContext.signOut;
     return (
       <nav className="menu">
         <NavLink to="/"><img src={logo} alt="logo-MoveIt" className="logo" /></NavLink>
-        <div>
+        <div className="menu-absolute">
           <img
             src={menu}
             alt="icon-hamburger-menu"
