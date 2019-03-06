@@ -65,7 +65,7 @@ class MyAccount extends Component {
    
 
         const mapMark=this.state.opinions.map(opinion=>parseInt(opinion.mark))
-       
+        const averageOpinion = mapMark.reduce((sum,current)=>sum+current/mapMark.length ,0 )
 
   
 
@@ -82,7 +82,7 @@ class MyAccount extends Component {
          <div className="MyAccount_information"><span className="MyAccount_information-title">Telefon:</span> {this.state.phone}</div>
         </div>
         <div className="MyAccount_marks">
-      <div className="MyAccount_starts-average"> Ocena ( {mapMark.reduce((sum,current)=>sum+current/mapMark.length ,0 )} ) <StarsAverage average={mapMark.reduce((sum,current)=>sum+current/mapMark.length ,0 )} /> </div>
+      <div className="MyAccount_starts-average"> Ocena ( {averageOpinion.toFixed(2)} ) <StarsAverage average={mapMark.reduce((sum,current)=>sum+current/mapMark.length ,0 )} /> </div>
         </div>
         <div className="MyAccount_opinions">
         <h2 className = "MyAccount_opinions-title">OPINIE</h2><hr></hr>
