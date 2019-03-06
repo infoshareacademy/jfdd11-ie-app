@@ -45,27 +45,28 @@ class Offerts extends Component {
                   return (
                     <tr key={offert.id}>
                       <td className="offert-table-data">
-                        <p className="offert-title">{offert.name}</p>
+                        <p className="offerts-title">{offert.name}</p>
                         <ul className="offert-list">
+                        <li>
+                           <b>
+                            {client && client.first_name}{" "}
+                            {client && client.last_name}</b>
+                          </li>
                           <li>
-                            <b>Ilość mebli: </b>
+                            <b>Meble: </b>
                             {offert.furnitures.length}
                           </li>
+                          
                           <li>
-                            <b>Wystawiający: </b>
-                            {client && client.first_name}{" "}
-                            {client && client.last_name}
-                          </li>
-                          <li>
-                            <b>Termin: </b>
+                            <b>Data: </b>
                             {offert.date}
                           </li>
                           <li>
-                            <b>Budynek z windą: </b>
+                            <b>Winda: </b>
                             {offert.isElevator ? "Tak" : "Nie"}
                           </li>
                           <li>
-                            <b>Usługa z wniesieniem: </b>
+                            <b>Wniesienie: </b>
                             {offert.bringFurnitures ? "Tak" : "Nie"}
                           </li>
                           <li>
@@ -75,9 +76,7 @@ class Offerts extends Component {
                               </button>
                             </Link>
                           </li>
-                          <li>
-                            <span className="bottom-line" />
-                          </li>
+
                         </ul>
                       </td>
                     </tr>
