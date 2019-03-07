@@ -37,7 +37,7 @@ const signOut = this.props.authContext.signOut;
         </div>
         
         {user?
-        <ul className={`js-menu upperCase ${this.state.class}`}>
+        <ul className={`js-menu-upgrade upperCase ${this.state.class}`}>
         <li className="header_user-email">{user.email}</li>
         <li className="header_user-email " onClick={signOut}><NavLink to="/">Wyloguj się</NavLink></li>
         <li className="Link-Style"><NavLink to="/">Strona główna</NavLink></li>
