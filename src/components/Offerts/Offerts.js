@@ -43,7 +43,7 @@ class Offerts extends Component {
                 {this.state.offerts.map(offert => {
                   const client = this.state.clients[offert.clientId];
                   return (
-                    <tr key={offert.id}>
+                    <tr key={offert.id} className="Offerts_table">
                       <td className="offert-table-data">
                         <p className="offerts-title">{offert.name}</p>
                         <ul className="offert-list">
@@ -63,10 +63,6 @@ class Offerts extends Component {
                           <li>
                             <b>Data: </b>
                             <span className="Offerts_list-information">{offert.date}</span>
-                          </li>
-                          <li>
-                            <b>Winda: </b>
-                            <span className="Offerts_list-information"> {offert.isElevator ? "Tak" : "Nie"}</span>
                           </li>
                           <li>
                             <b>Wniesienie: </b>

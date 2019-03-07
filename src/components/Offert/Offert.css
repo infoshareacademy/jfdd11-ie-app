@@ -51,6 +51,8 @@ li, ul {
 .Offert_offert-information-all{
     padding-top: 20px;
     margin-left: 20px;
+    margin-right: 20px;
+    text-transform: uppercase;
 }
 
 .Offert_furnitures-title{
@@ -70,26 +72,29 @@ li, ul {
 }
 
 .offert-furnitures{
+    margin-top:20px;
     padding-left: 20px;
     padding-right: 20px;
+    background-color: #f8c512;
 }
 
 .Offert_furnitures-type{
     padding-bottom: 15px;
     font-weight: bold;
-    padding-top: 40px;
+    padding-top: 25px;
     text-transform: uppercase;
 }
 
 .Offert_furnitures-information{
     padding-right: 20px;
     padding-bottom: 10px;
-    font-weight: bold;
+   
 }
 
 .Offert_form{
     padding-left: 20px;
     padding-right: 20px;
+    
 }
 
 .Offert_form-title{
@@ -118,13 +123,39 @@ li, ul {
 
 .Offert_furnitures-details{
     line-height:25px;
-    
+    font-weight: bold;
+
   }
 
+  
 .Ofert_first-section{
-    background-image: url(./iconmonstr-delivery.png);
+    background-image: url();
     background-repeat: no-repeat;
-    background-position: 230px bottom;
+    background-position: 95% bottom;
     background-size: 40%;
    
+}
+
+.Offert_furniture-title-main{
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 22px;
+    text-align: center;
+    padding-top: 22px;
+}
+
+.Offert_last-section{
+    padding-bottom: 20px;
+}
+
+.Offert_title-section-secound{
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 18px;
+    text-align: center;
+    padding-top: 22px;
+    padding-bottom: 10px;
+}
+.Offert_main-section{
+    background-color: #EDEDED;
 }
