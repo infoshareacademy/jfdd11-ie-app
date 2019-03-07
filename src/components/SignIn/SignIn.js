@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import { Route, Redirect } from "react-router";
+
 
 import "./SignIn.css";
 import { withAuth } from "../../contexts/AuthContext";
 import Header from "./../Header";
 import Footer from "./../Footer";
+import { white } from "ansi-colors";
+import Home from "../Home/Home";
 
 class SignIn extends Component {
   state = {
@@ -28,10 +32,10 @@ class SignIn extends Component {
       .then(data =>
         this.setState({
           error: null,
-          success: "Logowanie przebiegło pomyślnie"
-        })
-      )
+          success: 1
+        }))
       .catch(error => this.setState({ error: error, success: null }));
+      
   };
 
   render() {
@@ -76,6 +80,7 @@ class SignIn extends Component {
             </div>
             <div className="signin-buttons-box">
               <button className="signin-login-button">ZALOGUJ SIĘ</button>
+              
               <div className="sigin-register-area">
                 <p className="text">Nie masz jeszcze konta?</p>
                 <NavLink to="/sign-up">
@@ -83,10 +88,18 @@ class SignIn extends Component {
                     REJESTRACJA
                   </button>
                 </NavLink>
+                
               </div>
+
             </div>
+           
+          {this.state.error && <p>Twoja rejestracja przebiegła niepomyślnie</p>}
+          {this.state.success && <Redirect to="/myAccount" />}
+           
+            {/* {this.state.error?<p className="sign-up_error">{this.state.error.message}</p>:<p className="sign-up_success">{this.state.success}</p>} */}
           </form>
         </div>
+        
         <Footer />
       </div>
     );

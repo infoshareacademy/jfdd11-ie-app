@@ -49,6 +49,7 @@
 .signin-form input {
     padding-left: 20px;
     width: 100%;
+    border-radius: 10px;
 }
 
 .signin-login-button {
