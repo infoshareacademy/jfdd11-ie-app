@@ -49,28 +49,28 @@ class Offerts extends Component {
                         <ul className="offert-list">
                         <li>
                            <b>
-                            {client && client.first_name}{" "}
-                            {client && client.last_name}</b>
+                           <span className="Offerts_list-information"> {client && client.first_name}{" "}
+                            {client && client.last_name}</span></b>
                           </li>
-                          <li><b>Miasto: </b>
-                          Gdańsk
+                          <li><b>Miasto: </b><span className="Offerts_list-information">
+                          Gdańsk</span>
                             </li>
                           <li>
                             <b>Meble: </b>
-                            {offert.furnitures.length}
+                            <span className="Offerts_list-information">{offert.furnitures.length}</span>
                           </li>
                           
                           <li>
                             <b>Data: </b>
-                            {offert.date}
+                            <span className="Offerts_list-information">{offert.date}</span>
                           </li>
                           <li>
                             <b>Winda: </b>
-                            {offert.isElevator ? "Tak" : "Nie"}
+                            <span className="Offerts_list-information"> {offert.isElevator ? "Tak" : "Nie"}</span>
                           </li>
                           <li>
                             <b>Wniesienie: </b>
-                            {offert.bringFurnitures ? "Tak" : "Nie"}
+                            <span className="Offerts_list-information">{offert.bringFurnitures ? "Tak" : "Nie"}</span>
                           </li>
                           <li>
                             <Link to={`/offerts/${offert.id}`}>

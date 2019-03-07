@@ -65,5 +65,8 @@
 }
 
 b{
-  font-weight: bold;
+  font-weight: lighter;
+}
+.Offerts_list-information{
+  font-weight: bold
 }
