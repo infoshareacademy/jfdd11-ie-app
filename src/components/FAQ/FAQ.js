@@ -84,6 +84,8 @@ class FAQ extends Component {
             </ExpansionPanel>
           ))}
         </div>
+        <div className="faq_gap"> 
+        </div>
         <Footer/>
       </>
     );
