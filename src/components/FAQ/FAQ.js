@@ -10,6 +10,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ScrollTop from "react-scrolltop-button";
 import Footer from "../Footer"
 import Header from "../Header";
+import "./FAQ.css";
 
 const styles = theme => ({
   root: {
@@ -85,6 +86,7 @@ class FAQ extends Component {
           ))}
         </div>
         <div className="faq_gap"> 
+           
         </div>
         <Footer/>
       </>

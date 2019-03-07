@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { NavLink } from 'react-router-dom';
 
 import "./Header.css";
+
 import { withAuth } from '../../contexts/AuthContext';
 import logo from "./logo.png";
 import menu from "./menu-mobile.svg";

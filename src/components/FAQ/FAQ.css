@@ -1,11 +1,7 @@
-*{
-    color: red;
-}
+
 
 .faq_gap {
-    margin-top: 20px;
-    height: 20px;
     width: 100%;
-    background-color: #fff;
     box-sizing: border-box;
+    height: 20px;
 }
