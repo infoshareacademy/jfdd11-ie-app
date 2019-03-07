@@ -49,6 +49,8 @@ class Offert extends Component {
             
           </p>
           <ul>
+          <li className="Offert_offert-information-all"><span className="Offert_offert-information">Adres odbioru: </span><div>Krzemowa 7G/10 80-065 Gdańsk</div></li>
+            <li className="Offert_offert-information-all" ><span className="Offert_offert-information">Adres doatawy: </span><div>Kołobrzeska 10/5 80-096 Gdańsk</div></li>
           <li className="Offert_offert-information-all">
               <span className="Offert_offert-information">Meble: </span>
               {this.state.offert.furnitures.length}
@@ -61,6 +63,7 @@ class Offert extends Component {
               <span className="Offert_offert-information">Godzina: </span>
               {this.state.offert.hour}
             </li>
+            
             <li className="Offert_offert-information-all">
               <span className="Offert_offert-information">
                 Winda:{" "}

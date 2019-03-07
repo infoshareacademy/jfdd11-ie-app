@@ -10,17 +10,17 @@
 
  tr:nth-child(even){
    background-color:#f8c512;
-   background-image: url(./iconmonstr-hom.png);
+   background-image: url(./iconmonstr-home3.png);
   background-repeat: no-repeat;
-  background-position: right bottom;
-  background-size: 30%;
+  background-position: 85% bottom;
+  background-size: 40%;
  }
 
  tr:nth-child(odd){
-  background-image: url(./iconmonstr-prod2.png);
+  background-image: url(./iconmonstr-productminl.png);
   background-repeat: no-repeat;
-  background-position: right bottom;
-  background-size: 30%;
+  background-position: 85% bottom;
+  background-size: 40%;
  }
 .offerts-title {
   color:black;

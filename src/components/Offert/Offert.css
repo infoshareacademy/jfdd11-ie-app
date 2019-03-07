@@ -13,7 +13,7 @@ li, ul {
     background-color: #f8c512;
     padding: 110px 30px 30px 30px;
     font-weight: bold;
-    box-shadow: 
+    box-shadow: 0px 1px 5px rgb(105, 105, 105);
 }
 
 .offert-title {
@@ -22,12 +22,12 @@ li, ul {
     text-transform: uppercase;
     font-size: 22px;
     text-align: center;
-  
    padding-top:22px;
+   padding-bottom: 22px;
 }
 
 .Offert_offert-button{
-    background-color: #f8c512;
+    background-color: rgb(59, 57, 57);
     border-radius: 15px;
     border-style: none;
     padding: 9px;
@@ -38,6 +38,8 @@ li, ul {
     margin-bottom: 15px;
     margin-top:15px;
     margin-left:20px;
+    padding-left: 20px;
+    padding-right: 20px;
    
 }
 
@@ -120,9 +122,9 @@ li, ul {
   }
 
 .Ofert_first-section{
-    background-image: url(./iconmonstr-delivery-12-240.png);
+    background-image: url(./iconmonstr-delivery.png);
     background-repeat: no-repeat;
-    background-position: 180px bottom;
+    background-position: 230px bottom;
     background-size: 40%;
    
 }

@@ -52,6 +52,9 @@ class Offerts extends Component {
                             {client && client.first_name}{" "}
                             {client && client.last_name}</b>
                           </li>
+                          <li><b>Miasto: </b>
+                          Gdańsk
+                            </li>
                           <li>
                             <b>Meble: </b>
                             {offert.furnitures.length}
