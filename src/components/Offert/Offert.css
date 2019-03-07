@@ -11,24 +11,23 @@ li, ul {
     text-transform: uppercase;
     font-size: 20px;
     background-color: #f8c512;
-    padding: 20px;
+    padding: 110px 30px 30px 30px;
     font-weight: bold;
-    margin: 0 0 20px 0;
-    box-shadow: 0px 1px 5px #000; 
+    box-shadow: 0px 1px 5px rgb(105, 105, 105);
 }
 
 .offert-title {
-    color: #f8c512;
+    color:black;
     font-weight: bold;
     text-transform: uppercase;
     font-size: 22px;
     text-align: center;
-   padding-left: 20px;
-   
+   padding-top:22px;
+   padding-bottom: 22px;
 }
 
 .Offert_offert-button{
-    background-color: #f8c512;
+    background-color: rgb(59, 57, 57);
     border-radius: 15px;
     border-style: none;
     padding: 9px;
@@ -39,6 +38,8 @@ li, ul {
     margin-bottom: 15px;
     margin-top:15px;
     margin-left:20px;
+    padding-left: 20px;
+    padding-right: 20px;
    
 }
 
@@ -48,19 +49,21 @@ li, ul {
 }
 
 .Offert_offert-information-all{
-    padding-top: 15px;
+    padding-top: 20px;
     margin-left: 20px;
+    margin-right: 20px;
+    text-transform: uppercase;
 }
 
 .Offert_furnitures-title{
     text-transform: uppercase;
     font-weight: bolder;
-    padding-top: 15px;
+
     
 }
 
 .Offert_bottom-line{
-    margin-top:15px;
+    margin-top:35px;
     height: 2px;
     background-color: rgb(224, 224, 224);
     display: block;
@@ -69,26 +72,29 @@ li, ul {
 }
 
 .offert-furnitures{
+    margin-top:20px;
     padding-left: 20px;
     padding-right: 20px;
+    background-color: #f8c512;
 }
 
 .Offert_furnitures-type{
     padding-bottom: 15px;
     font-weight: bold;
-    padding-top: 15px;
+    padding-top: 25px;
     text-transform: uppercase;
 }
 
 .Offert_furnitures-information{
     padding-right: 20px;
     padding-bottom: 10px;
-    font-weight: bold;
+   
 }
 
 .Offert_form{
     padding-left: 20px;
     padding-right: 20px;
+    
 }
 
 .Offert_form-title{
@@ -112,4 +118,44 @@ li, ul {
     padding-right: 30px;
    
    
+}
+
+
+.Offert_furnitures-details{
+    line-height:25px;
+    font-weight: bold;
+
+  }
+
+  
+.Ofert_first-section{
+    background-image: url();
+    background-repeat: no-repeat;
+    background-position: 95% bottom;
+    background-size: 40%;
+   
+}
+
+.Offert_furniture-title-main{
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 22px;
+    text-align: center;
+    padding-top: 22px;
+}
+
+.Offert_last-section{
+    padding-bottom: 20px;
+}
+
+.Offert_title-section-secound{
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 18px;
+    text-align: center;
+    padding-top: 22px;
+    padding-bottom: 10px;
+}
+.Offert_main-section{
+    background-color: #EDEDED;
 }
