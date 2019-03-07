@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router";
 import { NavLink } from "react-router-dom";
 
 import Footer from "../Footer";
 import Header from "../Header";
 
 import "./SignUp.css";
+import User from "./user.svg";
+import Truck from "./truck.svg";
 import firebase from "firebase";
 
 const initialState = {
@@ -144,7 +145,10 @@ class SignUp extends Component {
                     required
                     
                   />
-                  <label htmlFor="user">Chcę się przeprowadzić</label>
+                  <label htmlFor="user">
+                  <img src={User} alt={"user icon"} style={{width: "100px", height: "100px"}}/>
+                  Chcę się przeprowadzić
+                  </label>
 
                   <input
                     id="carrier"
@@ -153,6 +157,7 @@ class SignUp extends Component {
                     onChange={this.changeRoleToCarrier}
                   />
                   <label htmlFor="carrier">
+                  <img src={Truck} alt={"truck icon"} style={{width: "100px", height: "100px"}}/>
                     Chcę pomóc innym w przeprowadzce
                   </label>
                 </div>
