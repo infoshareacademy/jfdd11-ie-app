@@ -91,35 +91,6 @@ li, ul {
    
 }
 
-.Offert_form{
-    padding-left: 20px;
-    padding-right: 20px;
-    
-}
-
-.Offert_form-title{
-    padding-top: 15px;
-    padding-bottom: 15px;
-    font-weight:  bold;
-}
-
-.Offert_form-button{
-    background-color: #f8c512;
-    border-radius: 15px;
-    border-style: none;
-    padding: 9px;
-    font-size: 12px;
-    color: white;
-    text-transform: uppercase;
-    font-weight: bold;
-    margin-bottom: 15px;
-    margin-top:15px;
-    padding-left: 30px;
-    padding-right: 30px;
-   
-   
-}
-
 
 .Offert_furnitures-details{
     line-height:25px;
@@ -158,4 +129,80 @@ li, ul {
 }
 .Offert_main-section{
     background-color: #EDEDED;
+}
+
+
+
+.Offert_form{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 80px;
+    transition: all 0.8s ease-in-out;
+    transform: translateX(100vw);
+    background: url(./background.png) right center, linear-gradient(#f8c512, #edb60d);
+    z-index: 999;
+    padding: 20px;
+    box-shadow: 0px 1px 5px rgb(105, 105, 105);
+}
+
+.Offert_form input {
+    padding: 10px;
+    width: 90%;
+    border-radius: 20px;
+    border: none;
+    font-size: 14px;
+    font-family: 'Catamaran', sans-serif;
+}
+
+.Offert_form textarea {
+    padding: 10px;
+    width: 90%;
+    border-radius: 20px;
+    border: none;
+    font-size: 14px;
+    font-family: 'Catamaran', sans-serif;
+}
+
+
+.offert-box-buttons {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.offert-back {
+    color: #323232;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.expanded-offert {
+    transform: translateX(0);
+}
+
+.Offert_form-title{
+    font-size: 25px;
+    font-weight: 500;
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.Offert_form-button{
+    background-color: #323232;
+    border-radius: 15px;
+    border-style: none;
+    padding: 9px;
+    font-size: 12px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top:15px;
+    padding-left: 30px;
+    padding-right: 30px;
+   
+   
 }
