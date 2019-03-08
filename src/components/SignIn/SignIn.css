@@ -80,6 +80,17 @@
     margin-bottom: 5px;
 }
 
+.singn-fail {
+    color: #323232;
+    font-size: 14px;
+    font-weight: 700;
+    background: #fff;
+    opacity: 0.8;
+    padding: 10px;
+    position: absolute;
+    top: 450px;
+}
+
 .signin-register-button{
     border-radius:20px;
     border: none;

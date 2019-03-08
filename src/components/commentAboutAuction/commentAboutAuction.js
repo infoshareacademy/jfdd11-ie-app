@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Header from "../Header";
 import Footer from "../Footer";
 
-import './commentAboutAuctions.css'
+import './commentAboutAuction.css'
 
 class commentAboutAuction extends Component {
   render() {

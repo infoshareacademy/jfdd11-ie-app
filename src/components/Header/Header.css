@@ -61,6 +61,7 @@ display: initial;
   align-items: center;
   top: 80px;
   height: 350px;
+  z-index: 9999;
   transform: translateX(100vw);
 
 }
