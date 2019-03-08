@@ -1,10 +1,11 @@
 import firebase from 'firebase';
 
 
-export const getUsersPromise = () =>
+
+export const getUserPromise = () =>
   firebase
     .database()
-    .ref('contacts')
+    .ref('user')
     .once('value')
     .then(snapshot => snapshot.val())
     .then(data =>
@@ -19,7 +20,7 @@ export const getUsersPromise = () =>
 export const updateUserPromise = (id, name, surname, phone, email, company) =>
   firebase
     .database()
-    .ref('contacts')
+    .ref('user')
     .child(id)
     .update({
       name,
