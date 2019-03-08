@@ -40,6 +40,8 @@
     line-height: 25px;
     border: none;
     margin-bottom: 10px;
+        font-size: 14px;
+        font-family: 'Catamaran', sans-serif;
 }
 
 .signin-form button {
