@@ -4,6 +4,7 @@ import Pickup from "./Pickup";
 import Deliver from "./Deliver";
 import DateOfRemoval from "./DateOfRemoval";
 import Success from "./Success";
+import FurnitureForm from "./FurnitureForm";
 
 class MainForm extends Component {
   state = {
@@ -26,14 +27,17 @@ class MainForm extends Component {
     bringFurnitures: false,
     comments: "",
     dateOfRemoval: "",
-    hourOfRemoval: ""
+    hourOfRemoval: "",
+    offert: {
+      carrierId: "",
+      price: ""
+    }
   };
 
-  addFurnitures = () => {};
-
-  handleFurnitureAdd = () => {
+  handleFurnitureAdd = furniture => {
+    console.log(furniture);
     this.setState({
-      furnitures: [...this.state.furnitures, emptyFurniture]
+      furnitures: [...this.state.furnitures, furniture]
     });
   };
 
@@ -72,10 +76,11 @@ class MainForm extends Component {
         return (
           <Furnitures
             nextStep={this.nextStep}
-            handleChange={this.handleChange}
             furnitures={furnitures}
             handleFurnitureAdd={this.handleFurnitureAdd}
-          />
+          >
+            <FurnitureForm addFurniture={this.handleFurnitureAdd} />
+          </Furnitures>
         );
       case 2:
         return (

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import FurnitureForm from "./FurnitureForm";
 
 class Furnitures extends Component {
   saveAndContinue = event => {
@@ -11,58 +12,28 @@ class Furnitures extends Component {
     this.props.handleFurnitureAdd();
   };
 
-  state = {
-    name: "",
-    width: 0,
-    height: 0,
-    deepness: 0
-  };
-
   handleChange = input => event => {
     this.setState({ [input]: event.target.value });
   };
 
   render() {
-    const { furnitures } = this.state;
+    const { furnitures } = this.props;
 
     return (
       <>
         <h1>Dodaj zamówienie</h1>
-        <form>
-          <h2>Lista mebli:</h2>
-          {furnitures.map(furniture => (
-            <>
-              <label>Mebel</label>
-              <input
-                placeholder="name"
-                defaultValue={furniture.name}
-                onChange={this.props.handleChange("name")}
-              />
-              <label>Szerokość</label>
-              <input
-                placeholder="width"
-                defaultValue={furniture.width}
-                onChange={this.props.handleChange("width")}
-              />
-              <label>Wysokość</label>
-              <input
-                placeholder="height"
-                defaultValue={furniture.height}
-                onChange={this.props.handleChange("height")}
-              />
-              <label>Głębokość</label>
-              <input
-                placeholder="deepness"
-                defaultValue={furniture.deepness}
-                onChange={this.props.handleChange("deepness")}
-              />
-            </>
-          ))}
-          <button type={"button"} onClick={this.addFurniture}>
-            Dodaj kolejny mebel
-          </button>
-          <button onClick={this.saveAndContinue}>Dalej</button>
-        </form>
+        {furnitures.map(furniture => (
+          <>
+            <ul>
+              <li>Mebel: {furniture.name} cm</li>
+              <li>Długość: {furniture.height} cm</li>
+              <li>Szerokość: {furniture.width} cm</li>
+              <li>Głębokość: {furniture.deepness} cm</li>
+            </ul>
+          </>
+        ))}
+        {this.props.children}
+        <button onClick={this.saveAndContinue}>Dalej</button>
       </>
     );
   }
