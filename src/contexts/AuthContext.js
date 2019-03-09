@@ -4,8 +4,8 @@ import firebase from 'firebase';
 // The argument passed to `createContext` is being used only
 // if given context provider is not available within VDOM
 // tree above the Consumer.
-export const AuthContext = React.createContext({ user: null });
-const { Provider, Consumer } = AuthContext;
+export const authContext = React.createContext({ user: null });
+const { Provider, Consumer } = authContext;
 
 export default class AuthContextProvider extends Component {
   state = {
