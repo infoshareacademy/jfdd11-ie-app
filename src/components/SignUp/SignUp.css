@@ -46,6 +46,8 @@
     margin-bottom: 10px;
     padding-left: 20px;
     border-radius: 10px;
+    font-size: 14px;
+    font-family: 'Catamaran', sans-serif;
 }
 .sign-up_main form input[type = password]{
     width: 70%;
@@ -100,7 +102,14 @@
 }
 
 .sign-up_error{
-    color: red;
+        width: 90%;
+        margin: 0 auto;
+        color: #323232;
+        font-size: 14px;
+        font-weight: 700;
+        background: #fff;
+        opacity: 0.8;
+        padding: 10px;
 }
 .sign-up_success{
     position:absolute;
@@ -130,6 +139,5 @@
     z-index: 999; 
 }
 .disabled{
-    opacity: 0.5;
-    height: 85vh;
+    filter: blur(15px);
 }

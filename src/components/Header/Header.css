@@ -49,7 +49,21 @@ display: initial;
   align-items: center;
   top: 80px;
   height: 184px;
-  transform: translateX(-100vw);
+  transform: translateX(100vw);
+}
+.js-menu-upgrade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  transition: all .6s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 80px;
+  height: 350px;
+  z-index: 9999;
+  transform: translateX(100vw);
+
 }
 
 .expanded {

@@ -88,6 +88,10 @@ class SignUp extends Component {
       .catch(error => this.setState({ error: error, success: null }));
   };
 
+  disableSubmit = event => {
+    event.preventDefault();
+  }
+
   render() {
     const {
       name,
@@ -113,9 +117,122 @@ class SignUp extends Component {
           <>
             <div className="sign-up_root disabled">
               <Header />
-              <div className="sign-up_main disabled" />
+
+              <div className="sign-up_main">
+                <div className="sign-up_welcome-message">
+                  <h1>Zarejestruj się!</h1>
+                  <p>Do czego chcesz użyć</p>
+                  <span>moveIt</span>
+                </div>
+                <p className="sign-up_pick-role">Wybierz swoją rolę: *</p>
+                <form onSubmit={this.disableSubmit}>
+                  <div className="sign-up_checkboxes">
+                    <input
+                      id="user"
+                      name="user-type"
+                      type="radio"
+                      onChange={this.changeRoleToUser}
+                      required
+                    />
+                    <label htmlFor="user">
+                      <img
+                        src={User}
+                        alt={"user icon"}
+                        style={{ width: "100px", height: "100px" }}
+                      />
+                      Chcę się przeprowadzić
+                    </label>
+
+                    <input
+                      id="carrier"
+                      name="user-type"
+                      type="radio"
+                      
+                    />
+                    <label htmlFor="carrier">
+                      <img
+                        src={Truck}
+                        alt={"truck icon"}
+                        style={{ width: "100px", height: "100px" }}
+                      />
+                      Chcę pomóc innym w przeprowadzce
+                    </label>
+                  </div>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    
+                    placeholder="Imię *"
+                    value={name}
+                    required
+                  />
+
+                  <input
+                    id="surname"
+                    name="surname"
+                    type="text"
+                    
+                    placeholder="Nazwisko *"
+                    value={surname}
+                    required
+                  />
+
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="text"
+                    
+                    placeholder="Telefon *"
+                    value={phone}
+                    required
+                  />
+
+                  {isCarrier ? (
+                    <>
+                      <input
+                        id="company"
+                        name="company"
+                        type="text"
+                        
+                        placeholder="Nazwa firmy"
+                        value={company}
+                      />
+                    </>
+                  ) : null}
+
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    
+                    placeholder="E-mail *"
+                    value={email}
+                  />
+
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    
+                    placeholder="Hasło *"
+                    value={password}
+                  />
+                  <p style={{ color: "white", fontSize: 12 }}>
+                    * - pola obowiązkowe
+                  </p>
+                  <button>ZAREJESTRUJ SIĘ</button>
+                  {/* <button onClick={this.signUpWithGoogle}>Zarejestruj się z Google</button> */}
+                </form>
+                <div className="sign-up_sign-in">
+                  <p>
+                    Mam już konto. Zaloguj mnie!
+                  </p>
+                </div>
+              </div>
               <Footer />
             </div>
+
             <div className="sign-up_success">
               <p>Rejestracja powiodła się!</p>
               <button onClick={() => this.props.history.push("/myAccount")}>
@@ -123,130 +240,135 @@ class SignUp extends Component {
               </button>
             </div>
           </>
-        ) : (
-          <div className="sign-up_root">
-            <Header />
+        ) : <div className="sign-up_root">
+        <Header />
 
-            <div className="sign-up_main">
-              <div className="sign-up_welcome-message">
-                <h1>Zarejestruj się!</h1>
-                <p>Do czego chcesz użyć</p>
-                <span>moveIt</span>
-              </div>
-              <p className="sign-up_pick-role">Wybierz swoją rolę: *</p>
-              <form onSubmit={this.handleSubmit}>
-                <div className="sign-up_checkboxes">
-                
-                  <input
-                    id="user"
-                    name="user-type"
-                    type="radio"
-                    onChange={this.changeRoleToUser}
-                    required
-                    
-                  />
-                  <label htmlFor="user">
-                  <img src={User} alt={"user icon"} style={{width: "100px", height: "100px"}}/>
-                  Chcę się przeprowadzić
-                  </label>
-
-                  <input
-                    id="carrier"
-                    name="user-type"
-                    type="radio"
-                    onChange={this.changeRoleToCarrier}
-                  />
-                  <label htmlFor="carrier">
-                  <img src={Truck} alt={"truck icon"} style={{width: "100px", height: "100px"}}/>
-                    Chcę pomóc innym w przeprowadzce
-                  </label>
-                </div>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  onChange={this.handleChange}
-                  placeholder="Imię *"
-                  value={name}
-                  required
-                />
-
-                <input
-                  id="surname"
-                  name="surname"
-                  type="text"
-                  onChange={this.handleChange}
-                  placeholder="Nazwisko *"
-                  value={surname}
-                  required
-                />
-
-                <input
-                  id="phone"
-                  name="phone"
-                  type="text"
-                  onChange={this.handleChange}
-                  placeholder="Telefon *"
-                  value={phone}
-                  required
-                />
-
-                {isCarrier ? (
-                  <>
-                    <input
-                      id="company"
-                      name="company"
-                      type="text"
-                      onChange={this.handleChange}
-                      placeholder="Nazwa firmy"
-                      value={company}
-                    />
-                  </>
-                ) : null}
-
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  onChange={this.handleChange}
-                  placeholder="E-mail *"
-                  value={email}
-                />
-
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  onChange={this.handleChange}
-                  placeholder="Hasło *"
-                  value={password}
-                />
-                <p style={{ color: "white", fontSize: 12 }}>
-                  * - pola obowiązkowe
-                </p>
-                <button>ZAREJESTRUJ SIĘ</button>
-                {/* <button onClick={this.signUpWithGoogle}>Zarejestruj się z Google</button> */}
-              </form>
-              <div className="sign-up_sign-in">
-                <p>
-                  Mam już konto. <NavLink to="/signin">Zaloguj mnie!</NavLink>
-                </p>
-              </div>
-              {error ? (
-                <p className="sign-up_error">
-                  {error.code === "auth/invalid-email"
-                    ? errors.invalidEmail
-                    : error.code === "auth/weak-password"
-                    ? errors.weakPassword
-                    : error.code === "auth/email-already-in-use"
-                    ? errors.emailAlreadyInUse
-                    : errors.other}
-                </p>
-              ) : null}
-            </div>
-            <Footer />
+        <div className="sign-up_main">
+          <div className="sign-up_welcome-message">
+            <h1>Zarejestruj się!</h1>
+            <p>Do czego chcesz użyć</p>
+            <span>moveIt</span>
           </div>
-        )}
+          <p className="sign-up_pick-role">Wybierz swoją rolę: *</p>
+          <form onSubmit={this.handleSubmit}>
+            <div className="sign-up_checkboxes">
+              <input
+                id="user"
+                name="user-type"
+                type="radio"
+                onChange={this.changeRoleToUser}
+                required
+              />
+              <label htmlFor="user">
+                <img
+                  src={User}
+                  alt={"user icon"}
+                  style={{ width: "100px", height: "100px" }}
+                />
+                Chcę się przeprowadzić
+              </label>
+
+              <input
+                id="carrier"
+                name="user-type"
+                type="radio"
+                onChange={this.changeRoleToCarrier}
+              />
+              <label htmlFor="carrier">
+                <img
+                  src={Truck}
+                  alt={"truck icon"}
+                  style={{ width: "100px", height: "100px" }}
+                />
+                Chcę pomóc innym w przeprowadzce
+              </label>
+            </div>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              onChange={this.handleChange}
+              placeholder="Imię *"
+              value={name}
+              required
+            />
+
+            <input
+              id="surname"
+              name="surname"
+              type="text"
+              onChange={this.handleChange}
+              placeholder="Nazwisko *"
+              value={surname}
+              required
+            />
+
+            <input
+              id="phone"
+              name="phone"
+              type="text"
+              onChange={this.handleChange}
+              placeholder="Telefon *"
+              value={phone}
+              required
+            />
+
+            {isCarrier ? (
+              <>
+                <input
+                  id="company"
+                  name="company"
+                  type="text"
+                  onChange={this.handleChange}
+                  placeholder="Nazwa firmy"
+                  value={company}
+                />
+              </>
+            ) : null}
+
+            <input
+              id="email"
+              name="email"
+              type="email"
+              onChange={this.handleChange}
+              placeholder="E-mail *"
+              value={email}
+            />
+
+            <input
+              type="password"
+              id="password"
+              name="password"
+              onChange={this.handleChange}
+              placeholder="Hasło *"
+              value={password}
+            />
+            <p style={{ color: "white", fontSize: 12 }}>
+              * - pola obowiązkowe
+            </p>
+            <button>ZAREJESTRUJ SIĘ</button>
+            {/* <button onClick={this.signUpWithGoogle}>Zarejestruj się z Google</button> */}
+          </form>
+          <div className="sign-up_sign-in">
+            <p>
+              Mam już konto. <NavLink to="/signin">Zaloguj mnie!</NavLink>
+            </p>
+          </div>
+          {error ? (
+            <p className="sign-up_error">
+              {error.code === "auth/invalid-email"
+                ? errors.invalidEmail
+                : error.code === "auth/weak-password"
+                ? errors.weakPassword
+                : error.code === "auth/email-already-in-use"
+                ? errors.emailAlreadyInUse
+                : errors.other}
+            </p>
+          ) : null}
+        </div>
+        <Footer />
+      </div>}
+        
       </>
     );
   }

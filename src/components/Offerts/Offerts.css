@@ -5,25 +5,32 @@
   background-color: #f8c512;
   padding: 110px 30px 30px 30px;
   font-weight: bold;
-  margin-bottom: 20px;
   box-shadow: 0px 1px 5px rgb(105, 105, 105);
 }
 
-.bottom-line {
-  width: 90vw;
-  height: 2px;
-  background-color: rgb(224, 224, 224);
-  display: block;
-  border-radius: 90%;
-}
+ .Offerts_table:nth-child(even){
+   background-color:#f8c512;
+   background-image: url(./iconmonstr-home3.png);
+  background-repeat: no-repeat;
+  background-position: 85% bottom;
+  background-size: 40%;
+ }
 
-.offert-title {
-  color: #f8c512;
+ .Offerts_table:nth-child(odd){
+  background-image: url(./iconmonstr-productminl.png);
+  background-repeat: no-repeat;
+  background-position: 85% bottom;
+  background-size: 40%;
+ }
+.offerts-title {
+  color:black;
   font-weight: bold;
   text-transform: uppercase;
   font-size: 22px;
   padding-bottom: 15px;
   padding-right: 20px;
+  text-align: center;
+  padding-top: 22px;
 }
 
 .offerts-table {
@@ -33,6 +40,7 @@
 .offert-table-data {
   padding-left: 20px;
   padding-right: 20px;
+  
 }
 
 .offert-list li {
@@ -41,15 +49,24 @@
   padding-bottom: 5px;
 }
 
+
+
 .offert-button {
-  background-color: #f8c512;
+  background-color:rgb(59, 57, 57);
   border-radius: 15px;
   border-style: none;
   padding: 9px;
   font-size: 12px;
-  color: white;
+  color:white;
   text-transform: uppercase;
   font-weight: bold;
   margin-bottom: 10px;
   margin-top: 10px;
+}
+
+b{
+  font-weight: lighter;
+}
+.Offerts_list-information{
+  font-weight: bold
 }
