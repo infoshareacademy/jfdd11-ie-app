@@ -26,6 +26,24 @@ li, ul {
    padding-bottom: 22px;
 }
 
+.Offert_offert-button-first{
+    background-color: rgb(59, 57, 57);
+    border-radius: 15px;
+    border-style: none;
+    padding: 9px;
+    font-size: 12px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top:15px;
+    margin-left: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+   
+}
+
+
 .Offert_offert-button{
     background-color: rgb(59, 57, 57);
     border-radius: 15px;
@@ -37,7 +55,6 @@ li, ul {
     font-weight: bold;
     margin-bottom: 15px;
     margin-top:15px;
-    margin-left:20px;
     padding-left: 20px;
     padding-right: 20px;
    
@@ -76,6 +93,7 @@ li, ul {
     padding-left: 20px;
     padding-right: 20px;
     background-color: #f8c512;
+    background-image: url("./background.png")
 }
 
 .Offert_furnitures-type{
@@ -125,10 +143,25 @@ li, ul {
     font-size: 18px;
     text-align: center;
     padding-top: 22px;
-    padding-bottom: 10px;
+    padding-bottom: 22px;
+    background-color: #ededed;
 }
+
+.Offert_title-section-first{
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 18px;
+    text-align: center;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    background-color: #ededed;
+}
+
 .Offert_main-section{
-    background-color: #EDEDED;
+    background-image:url("./iconmonstr-delivery.png");
+    background-position: 85% 60%;
+    background-repeat: no-repeat;
+    background-size: 40%;
 }
 
 
@@ -203,6 +236,8 @@ li, ul {
     margin-top:15px;
     padding-left: 30px;
     padding-right: 30px;
-   
-   
+}
+
+.Offert_span{
+padding-bottom: 20px;
 }
