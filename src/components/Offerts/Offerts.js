@@ -43,30 +43,30 @@ class Offerts extends Component {
                 {this.state.offerts.map(offert => {
                   const client = this.state.clients[offert.clientId];
                   return (
-                    <tr key={offert.id}>
+                    <tr key={offert.id} className="Offerts_table">
                       <td className="offert-table-data">
-                        <p className="offert-title">{offert.name}</p>
+                        <p className="offerts-title">{offert.name}</p>
                         <ul className="offert-list">
+                        <li>
+                           <b>
+                           <span className="Offerts_list-information"> {client && client.first_name}{" "}
+                            {client && client.last_name}</span></b>
+                          </li>
+                          <li><b>Miasto: </b><span className="Offerts_list-information">
+                          Gdańsk</span>
+                            </li>
                           <li>
-                            <b>Ilość mebli: </b>
-                            {offert.furnitures.length}
+                            <b>Meble: </b>
+                            <span className="Offerts_list-information">{offert.furnitures.length}</span>
+                          </li>
+                          
+                          <li>
+                            <b>Data: </b>
+                            <span className="Offerts_list-information">{offert.date}</span>
                           </li>
                           <li>
-                            <b>Wystawiający: </b>
-                            {client && client.first_name}{" "}
-                            {client && client.last_name}
-                          </li>
-                          <li>
-                            <b>Termin: </b>
-                            {offert.date}
-                          </li>
-                          <li>
-                            <b>Budynek z windą: </b>
-                            {offert.isElevator ? "Tak" : "Nie"}
-                          </li>
-                          <li>
-                            <b>Usługa z wniesieniem: </b>
-                            {offert.bringFurnitures ? "Tak" : "Nie"}
+                            <b>Wniesienie: </b>
+                            <span className="Offerts_list-information">{offert.bringFurnitures ? "Tak" : "Nie"}</span>
                           </li>
                           <li>
                             <Link to={`/offerts/${offert.id}`}>
@@ -75,9 +75,7 @@ class Offerts extends Component {
                               </button>
                             </Link>
                           </li>
-                          <li>
-                            <span className="bottom-line" />
-                          </li>
+
                         </ul>
                       </td>
                     </tr>

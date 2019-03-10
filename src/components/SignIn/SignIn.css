@@ -40,6 +40,8 @@
     line-height: 25px;
     border: none;
     margin-bottom: 10px;
+        font-size: 14px;
+        font-family: 'Catamaran', sans-serif;
 }
 
 .signin-form button {
@@ -78,6 +80,17 @@
 
 .sigin-register-area p {
     margin-bottom: 5px;
+}
+
+.singn-fail {
+    color: #323232;
+    font-size: 14px;
+    font-weight: 700;
+    background: #fff;
+    opacity: 0.8;
+    padding: 10px;
+    position: absolute;
+    top: 450px;
 }
 
 .signin-register-button{

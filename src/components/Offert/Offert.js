@@ -7,8 +7,19 @@ import "./Offert.css";
 
 class Offert extends Component {
   state = {
+    classOffert: "",
     offert: null,
     client: []
+  };
+
+  toggleOffert = () => {
+    this.state.classOffert === ""
+      ? this.setState({
+          classOffert: "expanded-offert"
+        })
+      : this.setState({
+          classOffert: ""
+        });
   };
 
   componentDidMount() {
@@ -39,45 +50,80 @@ class Offert extends Component {
         <Header />
         <div className="Offert">
           <h1 className="offert-header">Oferta</h1>
-          <h2 className="offert-title">{this.state.offert.name}</h2>
-          <a href="#make-offert">
-            <button className="Offert_offert-button">Złóż ofertę</button>
-          </a>
-          <p className="Offert_offert-information-all">
-            <span className="Offert_offert-information">Wystawiający: </span>{" "}
-            {this.state.client.first_name} {this.state.client.last_name}
-          </p>
-          <ul>
-            <li className="Offert_offert-information-all">
-              <span className="Offert_offert-information">Termin: </span>
-              {this.state.offert.date}
-            </li>
-            <li className="Offert_offert-information-all">
-              <span className="Offert_offert-information">Godzina: </span>
-              {this.state.offert.hour}
-            </li>
-            <li className="Offert_offert-information-all">
+          <div className="Ofert_first-section">
+            <h2 className="offert-title">{this.state.offert.name}</h2>
+            <a href="#make-offert">
+            </a>
+            <h1 className="Offert_title-section-first">
+                Szczegóły miejsca odbioru
+              </h1>
+            <p className="Offert_offert-information-all">
               <span className="Offert_offert-information">
-                Usługa z wniesieniem:{" "}
-              </span>{" "}
-              {this.state.offert.bringFurnitures ? "TAK" : "NIE"}
-            </li>
-            <li className="Offert_offert-information-all">
-              <span className="Offert_offert-information">
-                Budynek z windą:{" "}
-              </span>{" "}
-              {this.state.offert.isElevator ? "TAK" : "NIE"}
-            </li>
-          </ul>
+                {this.state.client.first_name} {this.state.client.last_name}{" "}
+              </span>
+            </p>
+            <ul className="Offert_main-section">
+           
+              <li className="Offert_offert-information-all">
+                <span>
+                  Adres odbioru:{" "}
+                </span>
+                <div className="Offert_offert-information">Krzemowa 7G/10 80-065 Gdańsk</div>
+              </li>
+              <li className="Offert_offert-information-all">
+                <span>Winda: </span><span className="Offert_offert-information">{" "}
+                {this.state.offert.isElevator ? "TAK" : "NIE"}</span>
+              </li>
+              <li className="Offert_offert-information-all">
+                <span>Piętro: </span> <span className="Offert_offert-information"> 3</span>
+              </li>
+              <li className="Offert_offert-information-all">
+                <span>Data: </span><span className="Offert_offert-information">
+                {this.state.offert.date}</span>
+              </li>
+              <li className="Offert_offert-information-all">
+                <span>Godzina: </span>
+               <span className="Offert_offert-information">{this.state.offert.hour}</span> 
+              </li>
 
+              <li className="Offert_offert-information-all">
+                <span>Wniesienie: </span><span className="Offert_offert-information">{" "}
+                {this.state.offert.bringFurnitures ? "TAK" : "NIE"}</span>
+              </li>
+              <li className="Offert_offert-information-all">
+                <span >Uwagi: </span> <span className="Offert_offert-information">Sofa waży 30kg.</span><div className="Offert_span"></div>
+              </li>
+            </ul>
+            <div>
+              <h1 className="Offert_title-section-secound">
+                Szczegóły miejsca dostawy
+              </h1>
+              <li className="Offert_offert-information-all">
+                <span>Adres dostawy: </span>
+                <div className="Offert_offert-information">
+                  Kołobrzeska 10/5 80-096 Gdańsk
+                </div>
+              </li>
+              <li className="Offert_offert-information-all">
+                Winda:{" "}
+                <span className="Offert_offert-information">
+                  {" "}
+                  {this.state.offert.isElevator ? "TAK" : "NIE"}
+                </span>
+              </li>
+              <li className="Offert_offert-information-all">
+                Piętro: <span className="Offert_offert-information">2</span>
+              </li>
+            </div>
+          </div>
           <div className="offert-furnitures">
-            <span className="Offert_bottom-line" />
-            <h2 className="Offert_furnitures-title">MEBLE: </h2>
+            <h1 className="Offert_furniture-title-main">
+              <span>Meble: </span>
+            </h1>
+            <h2 className="Offert_furnitures-title"> </h2>
             {this.state.offert.furnitures.map(furniture => (
-              <>
-                <p className="Offert_furnitures-type">
-                  {furniture.name} - Wymiary:
-                </p>
+              <div className="Offert_last-section">
+                <p className="Offert_furnitures-type">{furniture.name}</p>
                 <table>
                   <thead>
                     <tr>
@@ -95,32 +141,46 @@ class Offert extends Component {
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{furniture.deepness}</td>
-                      <td>{furniture.width}</td>
-                      <td>{furniture.height}</td>
+                      <td className="Offert_furnitures-details">
+                        {furniture.deepness}
+                      </td>
+                      <td className="Offert_furnitures-details">
+                        {furniture.width}
+                      </td>
+                      <td className="Offert_furnitures-details">
+                        {furniture.height}
+                      </td>
                     </tr>
                   </tbody>
                 </table>
-              </>
+              </div>
             ))}
-          </div>
 
-          <div className="Offert_form">
-            <span className="Offert_bottom-line" />
-            <h2 className="Offert_form-title" id="make-offert">
-              Złóż ofertę:{" "}
-            </h2>
-            <label className="Offert_form-title" htmlFor="price">
-              Proponowana cena:{" "}
-            </label>
-            <input type="text" name="price" placeholder="Cena" />
-            <div className="Offert_form-title">
-              <label htmlFor="description"> Uwagi: </label>
-              <textarea name="description" placeholder="Uwagi" />
+            <a href="#make-offert">
+              <button
+                className="Offert_offert-button"
+                onClick={this.toggleOffert}
+              >
+                Złóż ofertę
+              </button>
+            </a>
+
+            <div className={`Offert_form ${this.state.classOffert}`}>
+              <p className="Offert_form-title" id="make-offert">
+                Złóż ofertę:{" "}
+                </p>
+              <input type="text" name="price" placeholder="Wpisz swoją wycenę..." />
+              <div className="Offert_form-title">
+                <textarea name="description" placeholder="Jeśli chcesz dodać komentarz do oferty, wpisz go tutaj..." />
+              </div>
+              <div className="offert-box-buttons">
+                <button className="Offert_form-button">Wyślij</button>
+                <p className="offert-back" onClick={this.toggleOffert}>Zwiń -> </p>
+              </div>
             </div>
-            <button className="Offert_form-button">Wyślij</button>
           </div>
         </div>
+
         <Footer />
       </>
     );
