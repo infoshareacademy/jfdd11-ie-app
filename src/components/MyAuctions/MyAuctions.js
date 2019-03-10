@@ -6,7 +6,7 @@ import firebase from "firebase";
 import { withAuth } from "../../contexts/AuthContext";
 import "./MyAuctions.css";
 
-class MyAuctions extends Component {
+class Myoffers extends Component {
   state = {
     auctions: [],
     userId: null,
@@ -28,10 +28,10 @@ class MyAuctions extends Component {
           })),
           offers: Object.entries(data)
             .map(([id, value]) => ({
-              auctionId: id,
+              offerId: id,
               ...value
             }))
-            .map(auction => Object.values(auction.offers))
+            .map(offer => Object.values(offer.offers))
             .flat()
         })
       );
@@ -50,26 +50,29 @@ class MyAuctions extends Component {
       );
   }
   render() {
-    console.log(this.state.userId);
+    console.log("user id: "+this.state.userId);
     console.log(this.state.auctions);
     console.log(this.state.offers);
     console.log(this.state.users);
     return (
-      <div className="my-auctions_root">
+      <div className="my-offers_root">
         <Header />
         <h1>Moje oferty</h1>
         <table className="offert-table">
           <thead />
           <tbody>
-            {this.state.auctions.map(auction => {
-              const client = this.state.users.find((user)=>user.id === auction.clientId);
+            {this.state.offers.map(offer => {
+              const client = this.state.users.find((user)=>user.id === offer.clientId);
+              const auction = this.state.auctions.find((auction) => auction.auctionId === offer.auctionId)
               console.log(client)
+              console.log(auction)
               return (
-                <tr key={auction.auctionId} className="Offerts_table">
+                <tr key={auction&&auction.auctionId} className="Offerts_table">
                   <td className="offert-table-data">
-                    <p className="offerts-title">{auction.name}</p>
+                    <p className="offerts-title">{auction&&auction.name}</p>
                     <ul className="offert-list">
                       <li>
+                        Imię i nazwisko:
                         <b>
                           <span className="Offerts_list-information">
                             {" "}
@@ -80,29 +83,35 @@ class MyAuctions extends Component {
                       </li>
                       <li>
                         <b>Miasto dostarczenia: </b>
-                        <span className="Offerts_list-information">{auction.deliveryAddress.city}</span>
+                        <span className="Offerts_list-information">{auction&&auction.deliveryAddress.city}</span>
                       </li>
                       <li>
-                        <b>Meble: </b>
+                        <b>Liczba mebli: </b>
                         <span className="Offerts_list-information">
-                          {Object.keys(auction.furnitures).length}
+                          {auction&&Object.keys(auction.furnitures).length}
                         </span>
                       </li>
 
                       <li>
                         <b>Data: </b>
                         <span className="Offerts_list-information">
-                          {auction.dateOfRemoval}
+                          {auction&&auction.dateOfRemoval}
                         </span>
                       </li>
                       <li>
-                        <b>Wniesienie: </b>
+                        <b>Usługa wniesienia: </b>
                         <span className="Offerts_list-information">
-                          {auction.bringFurnitures ? "Tak" : "Nie"}
+                          {auction&&auction.bringFurnitures ? "Tak" : "Nie"}
                         </span>
                       </li>
                       <li>
-                        <Link to={`/offerts/${auction.id}`}>
+                        Twoja oferta:
+                        <span className="Offerts_list-information">
+                          {offer&&offer.price} zł
+                        </span>
+                      </li>
+                      <li>
+                        <Link to={`/offerts/${offer.id}`}>
                           <button className="offert-button">
                             Zobacz ofertę
                           </button>
@@ -121,7 +130,7 @@ class MyAuctions extends Component {
 
         Obiekt zawiera zaproponowaną kwotę, datę złożenia oferty, nr id przewoźnika oraz czy oferta została przyjęta.
 
-        Widok MyAuctions pobiera offerts.json i wyszukuje w nim id przewoźnika (filter), następnie wyświetla znalezione dane oferty (+ dane autora aukcji).
+        Widok Myoffers pobiera offerts.json i wyszukuje w nim id przewoźnika (filter), następnie wyświetla znalezione dane oferty (+ dane autora aukcji).
         
         Przewoźnik może zobaczyć (odfiltrować) przyjęte oferty. Przyciski "przyjęte", "trwające" i "wszystkie".
 
@@ -135,4 +144,4 @@ class MyAuctions extends Component {
     );
   }
 }
-export default withAuth(MyAuctions);
+export default withAuth(Myoffers);
