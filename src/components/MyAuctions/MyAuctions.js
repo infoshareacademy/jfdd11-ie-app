@@ -20,27 +20,29 @@ class MyAuctions extends Component{
     .once("value")
     .then(snapshot => snapshot.val())
     .then(data =>this.setState({
-      user: this.props.authContext.user.uid,
+      userId: this.props.authContext.user.uid,
       auctions: Object.entries(data).map(([id, value]) => ({
         auctionId: id,
         ...value
-      }))
+      })),
+      offers: Object.entries(data).map(([id, value]) => ({
+        auctionId: id,
+        ...value
+      })).map(auction => Object.values(auction.offers)).flat()
     })
     
-  );
-        
+  )
     
   }
 render(){
+  console.log(this.state.userId)
   console.log(this.state.auctions)
-  
-  // const carrierId = user.uid;
-  console.log(this.state.user)
-  // const carrierOffers = this.state.auctions.filter(carrierId => carrierId === this.state.auctions.offers)
+  console.log(this.state.offers)
     return(
         <div className="my-auctions_root">
         <Header />
-        <p className="MyAuctions_offer">Twoja oferta: {this.state.auctions?this.state.auctions.map(auction => auction.offers.offer1.price)+" zł":"loading"}</p>
+        <p className="MyAuctions_offer">Twoja oferta}</p>
+        <p>ss</p>
         {/* 
         
         Przewoźnik licytując aukcję dodaje do offerts.json obiekt, który jest elementem tablicy. 
