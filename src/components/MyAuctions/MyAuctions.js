@@ -62,7 +62,8 @@ class MyAuctions extends Component {
           <thead />
           <tbody>
             {this.state.auctions.map(auction => {
-              const client = this.state.users.find(()=>this.state.users.id === auction.clientId);
+              const client = this.state.users.find((user)=>user.id === auction.clientId);
+              console.log(client)
               return (
                 <tr key={auction.auctionId} className="Offerts_table">
                   <td className="offert-table-data">
@@ -72,8 +73,8 @@ class MyAuctions extends Component {
                         <b>
                           <span className="Offerts_list-information">
                             {" "}
-                            {client && client.first_name}{" "}
-                            {client && client.last_name}
+                            {client && client.name}{" "}
+                            {client && client.surname}
                           </span>
                         </b>
                       </li>
