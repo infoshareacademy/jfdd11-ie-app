@@ -53,55 +53,50 @@ class Offert extends Component {
           <div className="Ofert_first-section">
             <h2 className="offert-title">{this.state.offert.name}</h2>
             <a href="#make-offert">
-              <button
-                className="Offert_offert-button"
-                onClick={this.toggleOffert}
-              >
-                Złóż ofertę
-              </button>
             </a>
+            <h1 className="Offert_title-section-first">
+                Szczegóły miejsca odbioru
+              </h1>
             <p className="Offert_offert-information-all">
               <span className="Offert_offert-information">
                 {this.state.client.first_name} {this.state.client.last_name}{" "}
               </span>
             </p>
             <ul className="Offert_main-section">
+           
               <li className="Offert_offert-information-all">
-                <span className="Offert_offert-information">
+                <span>
                   Adres odbioru:{" "}
                 </span>
-                <div>Krzemowa 7G/10 80-065 Gdańsk</div>
+                <div className="Offert_offert-information">Krzemowa 7G/10 80-065 Gdańsk</div>
               </li>
               <li className="Offert_offert-information-all">
-                <span className="Offert_offert-information">Winda: </span>{" "}
-                {this.state.offert.isElevator ? "TAK" : "NIE"}
+                <span>Winda: </span><span className="Offert_offert-information">{" "}
+                {this.state.offert.isElevator ? "TAK" : "NIE"}</span>
               </li>
               <li className="Offert_offert-information-all">
-                <span className="Offert_offert-information">Piętro: </span> 3
+                <span>Piętro: </span> <span className="Offert_offert-information"> 3</span>
               </li>
               <li className="Offert_offert-information-all">
-                <span className="Offert_offert-information">Data: </span>
-                {this.state.offert.date}
+                <span>Data: </span><span className="Offert_offert-information">
+                {this.state.offert.date}</span>
               </li>
               <li className="Offert_offert-information-all">
-                <span className="Offert_offert-information">Godzina: </span>
-                {this.state.offert.hour}
+                <span>Godzina: </span>
+               <span className="Offert_offert-information">{this.state.offert.hour}</span> 
               </li>
 
               <li className="Offert_offert-information-all">
-                <span className="Offert_offert-information">Wniesienie: </span>{" "}
-                {this.state.offert.bringFurnitures ? "TAK" : "NIE"}
+                <span>Wniesienie: </span><span className="Offert_offert-information">{" "}
+                {this.state.offert.bringFurnitures ? "TAK" : "NIE"}</span>
               </li>
               <li className="Offert_offert-information-all">
-                <span className="Offert_offert-information">Uwagi: </span> Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod et dolore magna aliqua. Ut enim ad minim veniam, quis
-                nostrud exercitation ullamco laboris nisi ut aliquip consequat.
+                <span >Uwagi: </span> <span className="Offert_offert-information">Sofa waży 30kg.</span><div className="Offert_span"></div>
               </li>
             </ul>
             <div>
               <h1 className="Offert_title-section-secound">
-                Szczegóły miejsca odbioru
+                Szczegóły miejsca dostawy
               </h1>
               <li className="Offert_offert-information-all">
                 <span>Adres dostawy: </span>
