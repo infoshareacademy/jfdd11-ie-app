@@ -27,18 +27,17 @@ class MainForm extends Component {
     bringFurnitures: false,
     comments: "",
     dateOfRemoval: "",
-    hourOfRemoval: "",
-    offert: {
-      carrierId: "",
-      price: ""
-    }
+    hourOfRemoval: ""
   };
 
   handleFurnitureAdd = furniture => {
-    console.log(furniture);
     this.setState({
       furnitures: [...this.state.furnitures, furniture]
     });
+  };
+
+  handleSubmit = () => {
+    const { step, offert, ...data } = this.state;
   };
 
   nextStep = () => {
@@ -114,6 +113,10 @@ class MainForm extends Component {
         );
       case 5:
         return <Success />;
+      case 6:
+        return <Success />;
+      default:
+        break;
     }
   }
 }

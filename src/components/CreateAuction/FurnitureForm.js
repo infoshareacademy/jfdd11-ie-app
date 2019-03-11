@@ -5,7 +5,8 @@ class FurnitureForm extends Component {
     name: "",
     width: null,
     height: null,
-    deepness: null
+    deepness: null,
+    count: 1
   };
 
   handleSubmit = event => {
@@ -43,6 +44,12 @@ class FurnitureForm extends Component {
           <input
             placeholder="Głębokość"
             defaultValue={furniture.deepness}
+            onChange={this.handleChange("deepness")}
+          />
+          <label>Ilość</label>
+          <input
+            placeholder="Ilość"
+            defaultValue={furniture.count}
             onChange={this.handleChange("deepness")}
           />
 

@@ -25,10 +25,11 @@ class Furnitures extends Component {
         {furnitures.map(furniture => (
           <>
             <ul>
-              <li>Mebel: {furniture.name} cm</li>
+              <li>Mebel: {furniture.name}</li>
               <li>Długość: {furniture.height} cm</li>
               <li>Szerokość: {furniture.width} cm</li>
               <li>Głębokość: {furniture.deepness} cm</li>
+              <li>Ilość: {furniture.count}</li>
             </ul>
           </>
         ))}
