@@ -54,7 +54,7 @@ class Myoffers extends Component {
         <table className="offert-table">
           <thead />
           <tbody>
-            {this.state.offers.map(offer => {
+            {this.state.offers.filter(offer => offer.carrierId === this.state.userId).map(offer => {
               const client = this.state.users.find(
                 user => user.id === offer.clientId
               );
@@ -109,6 +109,11 @@ class Myoffers extends Component {
                         Twoja oferta:
                         <span className="Offerts_list-information">
                           {offer && offer.price} zł
+                        </span>
+                      </li>
+                      <li>
+                        <span className="Offerts_list-information">
+                          {offer.chosen?"Twoja oferta została zaakceptowana":"Twoja oferta oczekuje na akceptację"}
                         </span>
                       </li>
                       <li>
