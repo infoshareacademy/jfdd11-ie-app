@@ -4,11 +4,10 @@ import { getAuctionsPromise } from "../../serivices";
 import { Link } from "react-router-dom";
 import Header from "../Header";
 import Footer from "../Footer";
-import firebase from "firebase";
 import { withAuth } from "../../contexts/AuthContext";
 import "./MyAuctions.css";
 
-class Myoffers extends Component {
+class MyAuctions extends Component {
   state = {
     auctions: [],
     userId: null,
@@ -43,6 +42,7 @@ class Myoffers extends Component {
     );
   }
   render() {
+    console.log(this.props.match.params)
     console.log("user id: " + this.state.userId);
     console.log(this.state.auctions);
     console.log(this.state.offers);
@@ -117,7 +117,7 @@ class Myoffers extends Component {
                         </span>
                       </li>
                       <li>
-                        <Link to={`/offerts/${offer.id}`}>
+                        <Link to={`/myauctions/${offer.offerId}`}>
                           <button className="offert-button">
                             Szczegóły
                           </button>
@@ -136,7 +136,7 @@ class Myoffers extends Component {
 
         Obiekt zawiera zaproponowaną kwotę, datę złożenia oferty, nr id przewoźnika oraz czy oferta została przyjęta.
 
-        Widok Myoffers pobiera offerts.json i wyszukuje w nim id przewoźnika (filter), następnie wyświetla znalezione dane oferty (+ dane autora aukcji).
+        Widok MyAuctions pobiera offerts.json i wyszukuje w nim id przewoźnika (filter), następnie wyświetla znalezione dane oferty (+ dane autora aukcji).
         
         Przewoźnik może zobaczyć (odfiltrować) przyjęte oferty. Przyciski "przyjęte", "trwające" i "wszystkie".
 
@@ -150,4 +150,4 @@ class Myoffers extends Component {
     );
   }
 }
-export default withAuth(Myoffers);
+export default withAuth(MyAuctions);
