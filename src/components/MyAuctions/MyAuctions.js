@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { getUsersPromise, getOffersPromise } from "../../serivices";
+import { getAuctionsPromise } from "../../serivices";
 import { Link } from "react-router-dom";
 import Header from "../Header";
 import Footer from "../Footer";
@@ -14,43 +16,34 @@ class Myoffers extends Component {
     users: []
   };
   componentDidMount() {
-    firebase
-      .database()
-      .ref("auctions")
-      .once("value")
-      .then(snapshot => snapshot.val())
-      .then(data =>
-        this.setState({
-          userId: this.props.authContext.user.uid,
-          auctions: Object.entries(data).map(([id, value]) => ({
-            auctionId: id,
-            ...value
-          })),
-          offers: Object.entries(data)
-            .map(([id, value]) => ({
-              offerId: id,
-              ...value
-            }))
-            .map(offer => Object.values(offer.offers))
-            .flat()
-        })
-      );
-    firebase
-      .database()
-      .ref("users")
-      .once("value")
-      .then(snapshot => snapshot.val())
-      .then(data =>
-        this.setState({
-          users: Object.entries(data).map(([id, value]) => ({
-            id,
-            ...value
-          }))
-        })
-      );
+    getAuctionsPromise().then(data =>
+      this.setState({
+        userId: this.props.authContext.user.uid,
+        auctions: Object.entries(data).map(([id, value]) => ({
+          auctionId: id,
+          ...value
+        }))
+      })
+    );
+    getOffersPromise().then(data =>
+      this.setState({
+        offers: Object.entries(data).map(([id, value]) => ({
+          offerId: id,
+          ...value
+        }))
+      })
+    );
+    getUsersPromise().then(data =>
+      this.setState({
+        users: Object.entries(data).map(([id, value]) => ({
+          id,
+          ...value
+        }))
+      })
+    );
   }
   render() {
-    console.log("user id: "+this.state.userId);
+    console.log("user id: " + this.state.userId);
     console.log(this.state.auctions);
     console.log(this.state.offers);
     console.log(this.state.users);
@@ -62,52 +55,60 @@ class Myoffers extends Component {
           <thead />
           <tbody>
             {this.state.offers.map(offer => {
-              const client = this.state.users.find((user)=>user.id === offer.clientId);
-              const auction = this.state.auctions.find((auction) => auction.auctionId === offer.auctionId)
-              console.log(client)
-              console.log(auction)
+              const client = this.state.users.find(
+                user => user.id === offer.clientId
+              );
+              const auction = this.state.auctions.find(
+                auction => auction.auctionId === offer.auctionId
+              );
+              console.log(client);
+              console.log(auction);
               return (
-                <tr key={auction&&auction.auctionId} className="Offerts_table">
+                <tr
+                  key={auction && auction.auctionId}
+                  className="Offerts_table"
+                >
                   <td className="offert-table-data">
-                    <p className="offerts-title">{auction&&auction.name}</p>
+                    <p className="offerts-title">{auction && auction.name}</p>
                     <ul className="offert-list">
                       <li>
                         Imię i nazwisko:
                         <b>
                           <span className="Offerts_list-information">
                             {" "}
-                            {client && client.name}{" "}
-                            {client && client.surname}
+                            {client && client.name} {client && client.surname}
                           </span>
                         </b>
                       </li>
                       <li>
                         <b>Miasto dostarczenia: </b>
-                        <span className="Offerts_list-information">{auction&&auction.deliveryAddress.city}</span>
+                        <span className="Offerts_list-information">
+                          {auction && auction.deliveryAddress.city}
+                        </span>
                       </li>
                       <li>
                         <b>Liczba mebli: </b>
                         <span className="Offerts_list-information">
-                          {auction&&Object.keys(auction.furnitures).length}
+                          {auction && Object.keys(auction.furnitures).length}
                         </span>
                       </li>
 
                       <li>
                         <b>Data: </b>
                         <span className="Offerts_list-information">
-                          {auction&&auction.dateOfRemoval}
+                          {auction && auction.dateOfRemoval}
                         </span>
                       </li>
                       <li>
                         <b>Usługa wniesienia: </b>
                         <span className="Offerts_list-information">
-                          {auction&&auction.bringFurnitures ? "Tak" : "Nie"}
+                          {auction && auction.bringFurnitures ? "Tak" : "Nie"}
                         </span>
                       </li>
                       <li>
                         Twoja oferta:
                         <span className="Offerts_list-information">
-                          {offer&&offer.price} zł
+                          {offer && offer.price} zł
                         </span>
                       </li>
                       <li>
