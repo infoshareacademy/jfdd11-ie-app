@@ -22,14 +22,53 @@
   box-shadow: 0px 1px 5px rgb(105, 105, 105);
 }
 
-.js-menu {
-  display: none;
-  top: 80px;
+.menu-absolute {
   position: absolute;
   right: 0;
-  background: #fff;
+}
+
+/* ul {
+display: none;
+}  */
+
+.menu li {
+display: none;
+}
+
+.expanded li {
+display: initial;
+}
+
+.js-menu {
+  position: absolute;
   left: 0;
-  z-index: 999999;
+  right: 0;
+  transition: all .6s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 80px;
+  height: 184px;
+  transform: translateX(100vw);
+}
+.js-menu-upgrade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  transition: all .6s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 80px;
+  height: 350px;
+  z-index: 9999;
+  transform: translateX(100vw);
+
+}
+
+.expanded {
+  transform: translateX(0);
+  background: #fff;
 }
 
 .upperCase {
@@ -47,13 +86,7 @@
   color: #323232;
 }
 
-.expanded {
-  display: initial;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 999;
-}
+
 .header_user-email {
   padding-top: 10px;
   color: #f8c512;

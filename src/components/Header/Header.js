@@ -26,10 +26,8 @@ class Header extends Component {
     const signOut = this.props.authContext.signOut;
     return (
       <nav className="menu">
-        <NavLink to="/">
-          <img src={logo} alt="logo-MoveIt" className="logo" />
-        </NavLink>
-        <div>
+        <NavLink to="/"><img src={logo} alt="logo-MoveIt" className="logo" /></NavLink>
+        <div className="menu-absolute">
           <img
             src={menu}
             alt="icon-hamburger-menu"
