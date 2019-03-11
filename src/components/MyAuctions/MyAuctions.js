@@ -114,7 +114,7 @@ class Myoffers extends Component {
                       <li>
                         <Link to={`/offerts/${offer.id}`}>
                           <button className="offert-button">
-                            Zobacz ofertę
+                            Szczegóły
                           </button>
                         </Link>
                       </li>
