@@ -50,9 +50,9 @@ class FurnitureForm extends Component {
             defaultValue={furniture.deepness}
             onChange={this.handleChange("deepness")}
           /></div></div>
-
-          <button className="FurnitureForm_button" type={"submit"}>Zapisz </button>
+ <button className="FurnitureForm_button" type={"submit"}>Zapisz </button>
         </form>
+       
       </>
     );
   }

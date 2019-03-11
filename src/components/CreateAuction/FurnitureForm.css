@@ -28,7 +28,9 @@ padding-bottom: 22px;
     padding-left: 20px;
     text-transform: uppercase;
     background-color: #f8c512;
-    background-image: url("./background.png")
+    background-image: url("./background.png");
+    padding-top:10px;
+    padding-bottom: 10px;
 }
 
 .FurnitureForm_information-details{
