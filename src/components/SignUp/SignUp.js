@@ -234,9 +234,10 @@ class SignUp extends Component {
             </div>
 
             <div className="sign-up_success">
-              <p>Rejestracja powiodła się!</p>
+              <p>Twoja rejestracja w <span>MoveIt </span>powiodła się!</p>
+              <p>Twoje konto jest aktywne i możesz korzystać z aplikacji.</p>
               <button onClick={() => this.props.history.push("/myAccount")}>
-                OK
+                Przejdź do swojego konta
               </button>
             </div>
           </>

@@ -89,8 +89,10 @@
     background: #fff;
     opacity: 0.8;
     padding: 10px;
-    position: absolute;
-    top: 450px;
+    margin: 0 auto;
+    position:absolute;
+    top: 480px;
+    width:90%;
 }
 
 .signin-register-button{
