@@ -20,6 +20,7 @@ class MyAccount extends Component {
       phone: "",
     
     },
+    users: [],
     opinions: [],
     editedUserId: null
   };
@@ -38,8 +39,8 @@ class MyAccount extends Component {
 
   updateUser = ( company, name, surname,  email, phone) => {
     debugger
-    updateUserPromise( company, name, surname, email, phone)
-      .then(this.syncUser)
+    updateUserPromise(this.state.user.id, company, name, surname, email, phone)
+      .then(() => this.syncProfile(this.state.user.id, email))
       .then(() =>
         this.setState({
           editedUserId: null,
@@ -48,27 +49,22 @@ class MyAccount extends Component {
   };
   
   syncUser = () =>
-    getUserPromise().then(user => this.setState({ user }));
+    getUserPromise().then(users => this.setState({ users }));
 
-
-  componentDidMount() {
-    this.syncUser()
-    firebase.auth().onAuthStateChanged(currentUser => {
-      if (currentUser !== null) {
-        const userId = currentUser.uid;
-        const email = currentUser.email;
-
-        firebase
+  syncProfile = (userId, email) => {
+    firebase
           .database()
           .ref(`users/${userId}`)
           .once("value")
           .then(snapshot => snapshot.val())
           .then(user => {
+            console.log(user)
             if (user === null) {
               return;
             }
             this.setState({
               user: {
+                id: userId,
                 company: user.company,
                 name: user.name,
                 surname: user.surname,
@@ -78,6 +74,17 @@ class MyAccount extends Component {
               }
             });
           });
+  }
+
+  componentDidMount() {
+    this.syncUser()
+    firebase.auth().onAuthStateChanged(currentUser => {
+      if (currentUser !== null) {
+        console.log(currentUser.uid)
+        const userId = currentUser.uid;
+        const email = currentUser.email;
+
+        this.syncProfile(userId, email)
       }
     });
 
@@ -94,12 +101,15 @@ class MyAccount extends Component {
   }
 
   render() {
+    console.log(this.state.user)
     const mapMark = this.state.opinions.map(opinion => parseInt(opinion.mark));
     const { editedUserId } = this.state;
     const averageOpinion = mapMark.reduce(
       (sum, current) => sum + current / mapMark.length,
       0
     );
+
+    console.log(this.state.user, editedUserId)
 
     return (
       <div className="MyAccount_All">
