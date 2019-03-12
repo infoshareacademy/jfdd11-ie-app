@@ -9,7 +9,7 @@
 }
 
 .MyAccountEdit_input{
-    width: 30%;
+    width: 70%;
     line-height: 15px;
     border: none;
     margin-bottom: 5px;
@@ -28,3 +28,8 @@
     text-transform: uppercase;
     height: 25px;
     margin-left: 200px;}
+
+    .MyAccount_information-email{
+    color: black;
+    text-transform: uppercase;
+    }

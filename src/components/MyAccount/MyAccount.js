@@ -38,7 +38,6 @@ class MyAccount extends Component {
   };
 
   updateUser = ( company, name, surname,  email, phone) => {
-    debugger
     updateUserPromise(this.state.user.id, company, name, surname, email, phone)
       .then(() => this.syncProfile(this.state.user.id, email))
       .then(() =>
@@ -58,7 +57,6 @@ class MyAccount extends Component {
           .once("value")
           .then(snapshot => snapshot.val())
           .then(user => {
-            console.log(user)
             if (user === null) {
               return;
             }
@@ -80,7 +78,6 @@ class MyAccount extends Component {
     this.syncUser()
     firebase.auth().onAuthStateChanged(currentUser => {
       if (currentUser !== null) {
-        console.log(currentUser.uid)
         const userId = currentUser.uid;
         const email = currentUser.email;
 
@@ -101,7 +98,6 @@ class MyAccount extends Component {
   }
 
   render() {
-    console.log(this.state.user)
     const mapMark = this.state.opinions.map(opinion => parseInt(opinion.mark));
     const { editedUserId } = this.state;
     const averageOpinion = mapMark.reduce(
@@ -109,7 +105,7 @@ class MyAccount extends Component {
       0
     );
 
-    console.log(this.state.user, editedUserId)
+ 
 
     return (
       <div className="MyAccount_All">
@@ -148,7 +144,7 @@ class MyAccount extends Component {
               </button>{" "}
             </h1>
             <div>
-              <img
+              <img 
                 className="MyAccount_user-photo"
                 src="https://robohash.org/perferendisfugiatvoluptas.bmp?size=100x100&set=set1"
                 alt="moje zdjęcie"
@@ -164,12 +160,12 @@ class MyAccount extends Component {
               {this.state.user.surname}
             </div>
             <div className="MyAccount_information">
-              <span className="MyAccount_information-title">E-mail:</span>{" "}
-              {this.state.user.email}
-            </div>
-            <div className="MyAccount_information">
               <span className="MyAccount_information-title">Telefon:</span>{" "}
               {this.state.user.phone}
+            </div>
+            <div className="MyAccount_information">
+              <span className="MyAccount_information-title">E-mail:</span>{" "}
+              {this.state.user.email}
             </div>
           </div>
         )}

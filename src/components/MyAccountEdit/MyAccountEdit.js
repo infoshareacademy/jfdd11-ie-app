@@ -61,7 +61,7 @@ class MyAccountEdit extends Component {
           />
         </div>
         <div className="MyAccount_information">
-          <span className="MyAccount_information-title">Imie: </span>
+          <span className="MyAccount_information-title"></span>
           <input
             className="MyAccountEdit_input"
             value={this.state.name}
@@ -70,7 +70,7 @@ class MyAccountEdit extends Component {
           />
         </div>
         <div className="MyAccount_information">
-          <span className="MyAccount_information-title">Nazwisko: </span>{" "}
+          <span className="MyAccount_information-title"></span>{" "}
           <input
             className="MyAccountEdit_input"
             value={this.state.surname}
@@ -78,23 +78,19 @@ class MyAccountEdit extends Component {
             onChange={this.handleChange}
           />
         </div>
+        
         <div className="MyAccount_information">
-          <span className="MyAccount_information-title">E-mail: </span>{" "}
-          <input
-            className="MyAccountEdit_input"
-            value={this.state.email}
-            name="email"
-            onChange={this.handleChange}
-          />
-        </div>
-        <div className="MyAccount_information">
-          <span className="MyAccount_information-title">Telefon: </span>{" "}
+          <span className="MyAccount_information-title"></span>{" "}
           <input
             className="MyAccountEdit_input"
             value={this.state.phone}
             name="phone"
             onChange={this.handleChange}
           />
+        </div>
+        <div className="MyAccount_information">
+          <span className="MyAccount_information-title">E-mail: <span className="MyAccount_information-email">{this.state.email}</span> </span>{" "}
+        
         </div>
       </div>
     );
