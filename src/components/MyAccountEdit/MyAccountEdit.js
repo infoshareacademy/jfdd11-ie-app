@@ -25,7 +25,7 @@ class MyAccountEdit extends Component {
 
   handleSaveClick = () => {
     this.props.handleData(
-      this.props.user.id,
+      this.state.company,
       this.state.name,
       this.state.surname,
       this.state.email,
