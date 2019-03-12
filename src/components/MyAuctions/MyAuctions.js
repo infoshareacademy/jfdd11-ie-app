@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { getUsersPromise, getOffersPromise } from "../../serivices";
-import { getAuctionsPromise } from "../../serivices";
 import { Link } from "react-router-dom";
 import Header from "../Header";
 import Footer from "../Footer";
@@ -9,52 +7,27 @@ import "./MyAuctions.css";
 
 class MyAuctions extends Component {
   state = {
-    auctions: [],
-    userId: null,
-    offers: [],
-    users: []
+    auctions: this.props.authContext.auctions,
+    userId: this.props.authContext.user.uid,
+    offers: this.props.authContext.offers,
+    users: this.props.authContext.users
   };
-  componentDidMount() {
-    getAuctionsPromise().then(data =>
-      this.setState({
-        userId: this.props.authContext.user.uid,
-        auctions: Object.entries(data).map(([id, value]) => ({
-          auctionId: id,
-          ...value
-        }))
-      })
-    );
-    getOffersPromise().then(data =>
-      this.setState({
-        offers: Object.entries(data).map(([id, value]) => ({
-          offerId: id,
-          ...value
-        }))
-      })
-    );
-    getUsersPromise().then(data =>
-      this.setState({
-        users: Object.entries(data).map(([id, value]) => ({
-          id,
-          ...value
-        }))
-      })
-    );
-  }
   render() {
-    console.log(this.props.match.params)
+    const filterdOffers = this.state.offers.filter(offer => offer.carrierId === this.state.userId)
+    
     console.log("user id: " + this.state.userId);
     console.log(this.state.auctions);
     console.log(this.state.offers);
     console.log(this.state.users);
+    console.log(filterdOffers);
     return (
       <div className="my-offers_root">
         <Header />
         <h1>Moje oferty</h1>
-        <table className="offert-table">
+        {filterdOffers!==[]?<table className="offert-table">
           <thead />
           <tbody>
-            {this.state.offers.filter(offer => offer.carrierId === this.state.userId).map(offer => {
+            {filterdOffers.map(offer => {
               const client = this.state.users.find(
                 user => user.id === offer.clientId
               );
@@ -129,7 +102,8 @@ class MyAuctions extends Component {
               );
             })}
           </tbody>
-        </table>
+        </table>:<h1 className="MyAuctions_offer">nie ma ofert</h1>}
+        
         {/* 
         
         Przewoźnik licytując aukcję dodaje do offerts.json obiekt, który jest elementem tablicy. 

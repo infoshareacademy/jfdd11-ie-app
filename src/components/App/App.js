@@ -27,7 +27,7 @@ class App extends Component {
             <Route exact path="/myAccount" component={MyAccount} />
             <Route path="/sign-out" component={SignOut} />
             <Route exact path="/myauctions" component={MyAuctions} />
-            <Route path="/myauction/:offerId" component={AuctionDetails}/>
+            <Route path="/myauctions/:offerId" component={AuctionDetails}/>
             <Route exact path="/offerts" component={Offerts} />
             <Route path="/offerts/:offertId" component={Offert} />
             <Route path="/work-in-progress" component={WorkInProgress} />

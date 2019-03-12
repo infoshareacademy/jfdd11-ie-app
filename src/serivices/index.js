@@ -6,6 +6,7 @@ export const getUsersPromise = () =>
       .ref("users")
       .once("value")
       .then(snapshot => snapshot.val())
+      
 
 export const getAuctionsPromise = () => 
     firebase
@@ -20,3 +21,4 @@ export const getOffersPromise = () =>
       .ref("offers")
       .once("value")
       .then(snapshot => snapshot.val())
+      
