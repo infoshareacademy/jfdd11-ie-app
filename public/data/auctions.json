@@ -2,9 +2,9 @@
   "-L_XWPSxPANtw86wTziK": {
     "name": "Curabitur at ipsum ac tellus semper interdum.",
     "comment": "Lorem ipsum.",
-    "furnitures": {
-      "id": { "name": "vestibulum", "width": 130, "height": 147, "depth": 95 }
-    },
+    "furnitures": [
+      { "name": "vestibulum", "width": 130, "height": 147, "depth": 95 }
+    ],
     "dateOfRemoval": "03/01/2019",
     "hourOfRemoval": "4:31",
     "deliveryAddress": {
@@ -27,9 +27,9 @@
   "-L_XWPT1NKt5abiV3zP4": {
     "name": "Duis bibendum.",
     "comment": "Lorem ipsum.",
-    "furnitures": {
-      "id": { "name": "quisque", "width": 89, "height": 113, "depth": 53 }
-    },
+    "furnitures": [
+      { "name": "quisque", "width": 89, "height": 113, "depth": 53 }
+    ],
     "dateOfRemoval": "11/01/2019",
     "hourOfRemoval": "3:06",
     "deliveryAddress": {
@@ -52,9 +52,7 @@
   "-L_XWPT64bqyo2uP4eGa": {
     "name": "Quisque id justo sit amet sapien dignissim vestibulum.",
     "comment": "Lorem ipsum.",
-    "furnitures": {
-      "id": { "name": "elit", "width": 144, "height": 58, "depth": 46 }
-    },
+    "furnitures": [{ "name": "elit", "width": 144, "height": 58, "depth": 46 }],
     "dateOfRemoval": "04/01/2019",
     "hourOfRemoval": "3:44",
     "deliveryAddress": {
@@ -77,9 +75,9 @@
   "-L_XWPTBJWuXgTrhVkW6": {
     "name": "Phasellus id sapien in sapien iaculis congue.",
     "comment": "Lorem ipsum.",
-    "furnitures": {
-      "id": { "name": "curae", "width": 78, "height": 146, "depth": 25 }
-    },
+    "furnitures": [
+      { "name": "curae", "width": 78, "height": 146, "depth": 25 }
+    ],
     "dateOfRemoval": "19/01/2019",
     "hourOfRemoval": "6:56",
     "deliveryAddress": {
@@ -102,9 +100,9 @@
   "-L_XWPTGCGrFPJPfyLan": {
     "name": "Etiam pretium iaculis justo.",
     "comment": "Lorem ipsum.",
-    "furnitures": {
-      "id": { "name": "vestibulum", "width": 72, "height": 111, "depth": 60 }
-    },
+    "furnitures": [
+      { "name": "vestibulum", "width": 72, "height": 111, "depth": 60 }
+    ],
     "dateOfRemoval": "18/01/2019",
     "hourOfRemoval": "11:30",
     "deliveryAddress": {
