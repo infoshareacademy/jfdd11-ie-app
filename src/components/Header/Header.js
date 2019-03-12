@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 import "./Header.css";
-import { withAuth } from '../../contexts/AuthContext';
+import { withAuth } from "../../contexts/AuthContext";
 import logo from "./logo.png";
 import menu from "./menu-mobile.svg";
 
@@ -22,11 +22,12 @@ class Header extends Component {
   };
 
   render() {
-
+    const user = this.props.authContext.user;
+    const signOut = this.props.authContext.signOut;
     return (
       <nav className="menu">
-        <img src={logo} alt="logo-MoveIt" className="logo" />
-        <div>
+        <NavLink to="/"><img src={logo} alt="logo-MoveIt" className="logo" /></NavLink>
+        <div className="menu-absolute">
           <img
             src={menu}
             alt="icon-hamburger-menu"
@@ -34,15 +35,48 @@ class Header extends Component {
             onClick={this.toggle}
           />
         </div>
-        <ul className={`js-menu upperCase ${this.state.class}`}>
-            <li className="Link-Style"><NavLink to="/">Home</NavLink></li>
-            <li className="Link-Style"><NavLink to="/signin">Logowanie</NavLink></li>
-            <li className="Link-Style"><NavLink to="/myAccount">Moje konto</NavLink></li>
-            <li className="Link-Style"><NavLink to="/contacts">Zaplanuj przeprowadzkę</NavLink></li>
-            <li className="Link-Style"><NavLink to="/contacts">Moje przeprowadzki</NavLink></li>
-            <li className="Link-Style"><NavLink to="/faq">FAQ</NavLink></li>
-            <li className="Link-Style"><NavLink to="/contacts">Wyloguj się</NavLink></li>
-        </ul>
+
+        {user ? (
+          <ul className={`js-menu upperCase ${this.state.class}`}>
+            <li className="header_user-email">{user.email}</li>
+            <li className="header_user-email " onClick={signOut}>
+              <NavLink to="/">Wyloguj się</NavLink>
+            </li>
+            <li className="Link-Style">
+              <NavLink to="/">Strona główna</NavLink>
+            </li>
+            <li className="Link-Style">
+              <NavLink to="/myAccount">Moje konto</NavLink>
+            </li>
+            <li className="Link-Style">
+              <NavLink to="/create-auction">Zaplanuj przeprowadzkę</NavLink>
+            </li>
+            <li className="Link-Style">
+              <NavLink to="/work-in-progress">Moje przeprowadzki</NavLink>
+            </li>
+            <li className="Link-Style">
+              <NavLink to="/offerts">Oferty przeprowadzek</NavLink>
+            </li>
+            <li className="Link-Style">
+              <NavLink to="/faq">FAQ</NavLink>
+            </li>
+          </ul>
+        ) : (
+          <ul className={`js-menu upperCase ${this.state.class}`}>
+            <li className="Link-Style">
+              <NavLink to="/">Strona główna</NavLink>
+            </li>
+            <li className="Link-Style">
+              <NavLink to="/signin">Logowanie</NavLink>
+            </li>
+            <li className="Link-Style">
+              <NavLink to="/sign-up">Rejestracja</NavLink>
+            </li>
+            <li className="Link-Style">
+              <NavLink to="/faq">FAQ</NavLink>
+            </li>
+          </ul>
+        )}
       </nav>
     );
   }

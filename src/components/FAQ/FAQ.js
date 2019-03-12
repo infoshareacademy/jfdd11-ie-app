@@ -10,11 +10,11 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ScrollTop from "react-scrolltop-button";
 import Footer from "../Footer"
 import Header from "../Header";
+import "./FAQ.css";
 
 const styles = theme => ({
   root: {
-    width: "100%",
-    minHeight: "100vh"
+    width: "100%"
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
@@ -64,7 +64,8 @@ class FAQ extends Component {
           target={0}
         />
         <Header />
-        <div className={classes.main}>Najczęściej zadawane pytania</div>
+        <h1 className="offert-header">Najczęściej zadawane pytania</h1>
+        {/* <div className={classes.main}>Najczęściej zadawane pytania</div> */}
         <div className={classes.root}>
           {this.state.faq.map(item => (
             <ExpansionPanel>
@@ -83,6 +84,9 @@ class FAQ extends Component {
               </ExpansionPanelDetails>
             </ExpansionPanel>
           ))}
+        </div>
+        <div className="faq_gap"> 
+           
         </div>
         <Footer/>
       </>

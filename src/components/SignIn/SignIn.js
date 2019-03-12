@@ -1,9 +1,13 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
+import { Route, Redirect } from "react-router";
 
 import "./SignIn.css";
 import { withAuth } from "../../contexts/AuthContext";
 import Header from "./../Header";
 import Footer from "./../Footer";
+import { white } from "ansi-colors";
+import Home from "../Home/Home";
 
 class SignIn extends Component {
   state = {
@@ -27,7 +31,7 @@ class SignIn extends Component {
       .then(data =>
         this.setState({
           error: null,
-          success: "Logowanie przebiegło pomyślnie"
+          success: 1
         })
       )
       .catch(error => this.setState({ error: error, success: null }));
@@ -51,9 +55,9 @@ class SignIn extends Component {
           <p style={{ color: "green" }}>{this.state.success}</p>
         )}
 
-        <div className="signin-page">
+        <div className="signin-page text-big">
           <h2 className="upperCase white-text">Logowanie</h2>
-          <p className="upperCase white-text margin-bottom">
+          <p className="upperCase white-text margin-bottom-small text-big">
             Wypełnij poniższe dane, aby się zalogować
           </p>
           <div />
@@ -74,15 +78,28 @@ class SignIn extends Component {
               />
             </div>
             <div className="signin-buttons-box">
-            <div className="sigin-register-area">
-                <p>Nie masz jeszcze konta?</p>
-                <button className="signin-register-button">REJESTRACJA</button>
-              </div>
               <button className="signin-login-button">ZALOGUJ SIĘ</button>
 
+              <div className="sigin-register-area">
+                <p className="text">Nie masz jeszcze konta?</p>
+                <NavLink to="/sign-up">
+                  <button className="signin-register-button">
+                    REJESTRACJA
+                  </button>
+                </NavLink>
+              </div>
             </div>
+
+            {this.state.error && (
+              <p className="singn-fail">
+                Logowanie nieudane. Podany login, lub hasło są nieprawidłowe.</p>
+            )}
+            {this.state.success && <Redirect to="/myAccount" />}
+
+            {/* {this.state.error?<p className="sign-up_error">{this.state.error.message}</p>:<p className="sign-up_success">{this.state.success}</p>} */}
           </form>
         </div>
+
         <Footer />
       </div>
     );
