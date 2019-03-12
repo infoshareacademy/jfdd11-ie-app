@@ -118,11 +118,10 @@
 }
 
 .MyAccount_edit-button {
-    opacity: 0.5;
     border-radius:20px;
     border: none;
-    background-color: gray;
-    color: lightgray;
+    background-color: #323232;
+    color: #fff;
     font-size: 12px;
     font-weight: 700;
     width:100px;
