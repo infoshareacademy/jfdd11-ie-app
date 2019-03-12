@@ -15,6 +15,7 @@ class StarsComment extends Component {
           starDimension="25px"
           starSpacing="5px"
           rating={this.props.rating}
+          changeRating={this.props.changeRating}
         />
       );
     }

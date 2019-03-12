@@ -2,37 +2,21 @@ import React, { Component } from "react";
 
 import Header from "../Header";
 import Footer from "../Footer";
-import Stars from "../Stars/StarsComment";
 import firebase from "firebase";
 
 import "./commentAboutAuction.css";
 import StarsComment from "../Stars/StarsComment";
-
 class commentAboutAuction extends Component {
+  state = {
+    rating: 0,
+    comment: '',
+  };
 
-
-  componentDidMount() {
-    firebase.auth().onAuthStateChanged(currentUser => {
-      if (currentUser !== null) {
-        const userId = currentUser.uid;
-        const email = currentUser.email;
-
-        firebase
-          .database()
-          .ref(`users/${userId}`)
-          .once('value')
-          .then(snapshot => snapshot.val())
-          .then(user => {
-            if (user === null) {
-              return;
-            }
-            this.setState({
-              auctionName: user.auctionName,
-              company:user.company,
-            });
-          });
-      }
+  changeRating = (newRating) => {
+    this.setState({
+      rating: newRating
     });
+  }
 
   render() {
     return (
@@ -57,10 +41,11 @@ class commentAboutAuction extends Component {
                 placeholder="Wpisz komentarz na temat realizacji usługi przez przewoźnika..."
               />
             </div>
-            <p className="comments-text">
-              Twoje ocena:
-            </p>
-            <StarsComment />
+            <p className="comments-text">Twoje ocena:</p>
+            <StarsComment
+              rating={this.state.rating}
+              changeRating={this.changeRating}
+            />
             <button className="comments-button comments-margin-bottom">
               Dodaj opinie
             </button>
