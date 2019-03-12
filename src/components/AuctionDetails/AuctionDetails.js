@@ -7,7 +7,7 @@ import "./AuctionDetails.css";
 class AuctionDetails extends Component {
   render() {
     console.log(this.props.match.params.offerId);
-    console.log(this.props.authContext.auctions);
+    console.log(this.props.authContext.auctions[0].furnitures);
     if (this.props.match.params.offerId === null) {
       return <p>Loading...</p>;
     }
@@ -101,7 +101,7 @@ class AuctionDetails extends Component {
               <span>Meble: </span>
             </h1>
             <h2 className="Offert_furnitures-title"> </h2>
-            {this.props.withAuth.auctions.furnitures.map(furniture => (
+            {this.props.authContext.auctions[0].furnitures.map(furniture => (
               <div className="Offert_last-section">
                 <p className="Offert_furnitures-type">{furniture.name}</p>
                 <table>
