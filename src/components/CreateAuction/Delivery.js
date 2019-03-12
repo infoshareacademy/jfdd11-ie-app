@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import "./Pickup.css";
 
-class Pickup extends Component {
+class Delivery extends Component {
   state = {
-    address: this.props.pickupAddress.address || "",
-    city: this.props.pickupAddress.city || "",
-    postalCode: this.props.pickupAddress.postalCode || "",
-    isElevator: this.props.pickupAddress.isElevator || "",
-    floor: this.props.pickupAddress.floor || ""
+    address: this.props.deliveryAddress.address || "",
+    city: this.props.deliveryAddress.city || "",
+    postalCode: this.props.deliveryAddress.postalCode || "",
+    isElevator: this.props.deliveryAddress.isElevator || "",
+    floor: this.props.deliveryAddress.floor || "",
   };
 
   saveAndContinue = () => {};
@@ -18,7 +18,7 @@ class Pickup extends Component {
   };
   addAddress = event => {
     event.preventDefault();
-    this.props.pickupAddressAdd(this.state);
+    this.props.deliveryAddressAdd(this.state);
     this.props.nextStep();
   };
 
@@ -34,7 +34,7 @@ class Pickup extends Component {
         <h1 className="Pickup_header">Dodawanie zamówienia</h1>
         <form onSubmit={this.addAddress}>
           <h1 className="Pickup_progress_bar">Pasek postępu</h1>
-          <h2 className="Pickup_list-title"> Szczegóły miejsca odbioru</h2>
+          <h2 className="Pickup_list-title"> Szczegóły miejsca dostawy</h2>
           <div className="Pickup_all-information">
             <div className="Pickup_information-details">
               <label>Adres: </label>
@@ -81,4 +81,4 @@ class Pickup extends Component {
   }
 }
 
-export default Pickup;
+export default Delivery;

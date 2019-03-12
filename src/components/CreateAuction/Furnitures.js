@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import FurnitureForm from "./FurnitureForm";
+import "./Furnitures.css";
 
 class Furnitures extends Component {
   saveAndContinue = event => {
@@ -20,22 +21,58 @@ class Furnitures extends Component {
     const { furnitures } = this.props;
 
     return (
-      <>
-        <h1>Dodaj zamówienie</h1>
+      <div className="Furnitures_All">
+        <h1 className="Furnitures_header">Dodawanie zamówienia</h1>
+        <div className="Furnitures_progress-bar">Pasek postępu</div>
+        <h2 className="Furnitures_list-title">Lista mebli:</h2>
+
         {furnitures.map(furniture => (
           <>
-            <ul>
-              <li>Mebel: {furniture.name}</li>
-              <li>Długość: {furniture.height} cm</li>
-              <li>Szerokość: {furniture.width} cm</li>
-              <li>Głębokość: {furniture.deepness} cm</li>
-              <li>Ilość: {furniture.count}</li>
+            <ul className="Furnitures_list">
+              <li>
+                Mebel:{" "}
+                <span className="Furnitures_information">
+                  {furniture.name}{" "}
+                </span>
+              </li>
+              <li>
+                Długość:{" "}
+                <span className="Furnitures_information">
+                  {furniture.height} cm
+                </span>
+              </li>
+              <li>
+                Szerokość:{" "}
+                <span className="Furnitures_information">
+                  {" "}
+                  {furniture.width} cm
+                </span>
+              </li>
+              <li>
+                Głębokość:{" "}
+                <span className="Furnitures_information">
+                  {" "}
+                  {furniture.deepness} cm
+                </span>
+              </li>
+              <li>
+                Ilość:{" "}
+                <span className="Furnitures_information">
+                  {" "}
+                  {furniture.count} szt.
+                </span>
+              </li>
             </ul>
           </>
         ))}
         {this.props.children}
-        <button onClick={this.saveAndContinue}>Dalej</button>
-      </>
+        <button
+          className="Furnitures_next-button"
+          onClick={this.saveAndContinue}
+        >
+          Dalej
+        </button>
+      </div>
     );
   }
 }
