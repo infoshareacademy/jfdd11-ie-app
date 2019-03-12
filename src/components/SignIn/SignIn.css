@@ -90,7 +90,9 @@
     opacity: 0.8;
     padding: 10px;
     margin: 0 auto;
-    /* top: 450px; */
+    position:absolute;
+    top: 480px;
+    width:90%;
 }
 
 .signin-register-button{

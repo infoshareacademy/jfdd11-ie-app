@@ -9,6 +9,31 @@ import "./commentAboutAuction.css";
 import StarsComment from "../Stars/StarsComment";
 
 class commentAboutAuction extends Component {
+
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(currentUser => {
+      if (currentUser !== null) {
+        const userId = currentUser.uid;
+        const email = currentUser.email;
+
+        firebase
+          .database()
+          .ref(`users/${userId}`)
+          .once('value')
+          .then(snapshot => snapshot.val())
+          .then(user => {
+            if (user === null) {
+              return;
+            }
+            this.setState({
+              auctionName: user.auctionName,
+              company:user.company,
+            });
+          });
+      }
+    });
+
   render() {
     return (
       <div className="comments-main-container">
