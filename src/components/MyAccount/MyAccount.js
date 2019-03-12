@@ -13,11 +13,12 @@ import MyAccountEdit from "../MyAccountEdit/MyAccountEdit";
 class MyAccount extends Component {
   state = {
     user: {
+      company: "",
       name: "",
       surname: "",
       email: "",
       phone: "",
-      company: ""
+    
     },
     opinions: [],
     editedUserId: null
@@ -35,8 +36,9 @@ class MyAccount extends Component {
     });
   };
 
-  updateUser = ( name, surname, phone, email, company) => {
-    updateUserPromise( name, surname, phone, email, company)
+  updateUser = ( company, name, surname,  email, phone) => {
+    debugger
+    updateUserPromise( company, name, surname, email, phone)
       .then(this.syncUser)
       .then(() =>
         this.setState({
@@ -67,11 +69,12 @@ class MyAccount extends Component {
             }
             this.setState({
               user: {
+                company: user.company,
                 name: user.name,
                 surname: user.surname,
                 email: email,
                 phone: user.phone,
-                company: user.company
+                
               }
             });
           });
