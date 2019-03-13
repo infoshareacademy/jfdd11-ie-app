@@ -40,7 +40,7 @@ class SignIn extends Component {
   render() {
     const { user, signOut } = this.props.authContext;
     return (
-      <div className="signin-main-container">
+      <div className="signin-main-container Width_480px Width_480px">
         <Header />
         {/* {user && (
           <p>

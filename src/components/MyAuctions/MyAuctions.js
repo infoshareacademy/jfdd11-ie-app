@@ -42,7 +42,7 @@ class MyAuctions extends Component {
     console.log(this.state.users);
     console.log(filterdOffers);
     return (
-      <div className="my-offers_root">
+      <div className="my-offers_root Width_480px">
         <Header />
         <h1 className="myAuctions_title">Moje oferty</h1>
         <div className="myAuctions_filters">

@@ -26,7 +26,7 @@ class commentAboutAuction extends Component {
 
   render() {
     return (
-      <div className="comments-main-container">
+      <div className="comments-main-container Width_480px">
         <Header />
         <div className="comments-body">
           <p className="comments-title">Oceń przewoźnika</p>

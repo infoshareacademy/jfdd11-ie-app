@@ -62,7 +62,7 @@ class Offert extends Component {
       return <p>Loading...</p>;
     }
     return (
-      <>
+      <div className="Width_480px">
         <Header />
         <div className="Offert">
           <h1 className="offert-header">Oferta</h1>
@@ -224,7 +224,7 @@ class Offert extends Component {
         </div>
 
         <Footer />
-      </>
+      </div>
     );
   }
 }

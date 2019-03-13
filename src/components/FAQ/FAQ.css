@@ -1,4 +1,8 @@
-
+.Width_480px{
+    max-width:480px;
+    height: auto;
+    margin: 0 auto;
+}
 
 .faq_gap {
     width: 100%;

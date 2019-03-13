@@ -26,7 +26,7 @@ function AuctionDetails(props) {
     return <p>Loading...</p>;
   }
   return (
-    <>
+    <div className="Width_480px">
       <Header />
       <div className="Offert">
         <h1 className="offert-header">Oferta</h1>
@@ -182,7 +182,7 @@ function AuctionDetails(props) {
       </div>
 
       <Footer />
-    </>
+    </div>
   );
 }
 export default withAuth(AuctionDetails);

@@ -170,6 +170,7 @@ li, ul {
     position: fixed;
     left: 0;
     right: 0;
+    max-width: 480px;
     top: 80px;
     transition: all 0.8s ease-in-out;
     transform: translateX(100vw);
@@ -213,6 +214,7 @@ li, ul {
 
 .expanded-offert {
     transform: translateX(0);
+    margin: 0 auto;
 }
 
 .Offert_form-title{

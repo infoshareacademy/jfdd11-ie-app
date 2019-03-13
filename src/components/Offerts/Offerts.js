@@ -32,7 +32,7 @@ class Offerts extends Component {
 
   render() {
     return (
-      <>
+      <div className="Width_480px">
         <Header />
         <div className="Offerts">
           <h1 className="offert-header">Oferty przeprowadzek</h1>
@@ -86,7 +86,7 @@ class Offerts extends Component {
           </div>
         </div>
         <Footer />
-      </>
+      </div>
     );
   }
 }

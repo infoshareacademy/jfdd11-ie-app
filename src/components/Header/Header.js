@@ -25,7 +25,8 @@ class Header extends Component {
     const user = this.props.authContext.user;
     const signOut = this.props.authContext.signOut;
     return (
-      <nav className="menu">
+      
+      <nav className="menu Width_480px">
         <NavLink to="/"><img src={logo} alt="logo-MoveIt" className="logo" /></NavLink>
         <div className="menu-absolute">
           <img
@@ -78,6 +79,7 @@ class Header extends Component {
           </ul>
         )}
       </nav>
+    
     );
   }
 }

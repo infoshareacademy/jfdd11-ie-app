@@ -17,7 +17,7 @@ class Pickup extends Component {
     const { bringFurnitures } = this.props;
 
     return (
-      <div className= "Pickup_all">
+      <div className= "Pickup_all Width_480px">
       
         <h1 className="Pickup_header">Dodawanie zamówienia</h1>
         <form>
