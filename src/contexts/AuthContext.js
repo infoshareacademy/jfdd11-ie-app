@@ -22,22 +22,29 @@ export default class AuthContextProvider extends Component {
     this.unsubscribe = firebase
       .auth()
       .onAuthStateChanged(user => this.setState({ user }));
-      getAuctionsPromise().then(data =>
+
+      firebase
+      .database()
+      .ref("auctions").on('value', snapshot =>{
+      const data = snapshot.val()
         this.setState({
           auctions: Object.entries(data).map(([id, value]) => ({
             auctionId: id,
             ...value
           }))
         })
-      );
-      getOffersPromise().then(data =>
+      });
+      firebase
+      .database()
+      .ref("offers").on('value', snapshot =>{
+      const data = snapshot.val()
         this.setState({
           offers: Object.entries(data).map(([id, value]) => ({
             offerId: id,
             ...value
           }))
         })
-      );
+      });
       getUsersPromise().then(data =>
         this.setState({
           users: Object.entries(data).map(([id, value]) => ({
