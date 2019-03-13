@@ -52,7 +52,7 @@ class Header extends Component {
               <NavLink to="/create-auction">Zaplanuj przeprowadzkę</NavLink>
             </li>
             <li className="Link-Style">
-              <NavLink to="/work-in-progress">Moje przeprowadzki</NavLink>
+              <NavLink to="/myauctions">Moje przeprowadzki</NavLink>
             </li>
             <li className="Link-Style">
               <NavLink to="/offerts">Oferty przeprowadzek</NavLink>
