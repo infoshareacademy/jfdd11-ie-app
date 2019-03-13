@@ -108,7 +108,7 @@ class MyAccount extends Component {
  
 
     return (
-      <div className="MyAccount_All">
+      <div className="MyAccount_All Width_480px">
         <Header />
         {this.state.user.id === editedUserId ? (
           <MyAccountEdit

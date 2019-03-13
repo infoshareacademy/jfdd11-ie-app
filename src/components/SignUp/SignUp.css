@@ -114,9 +114,9 @@
 .sign-up_success{
     position:absolute;
     top: 80px;
-    left:0;
+    /*left:0;*/
     height: 50%;
-    width: 100%;
+    max-width: 480px;
     background-color: white;
     display: flex;
     flex-direction: column;

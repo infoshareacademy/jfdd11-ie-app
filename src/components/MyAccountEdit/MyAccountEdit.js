@@ -35,7 +35,7 @@ class MyAccountEdit extends Component {
 
   render() {
     return (
-      <div className="MyAccount_carrier-information">
+      <div className="MyAccount_carrier-information Width_480px">
         <h1 className="MyAccountEdit_title">
           {this.props.extraButtons()}
           <button

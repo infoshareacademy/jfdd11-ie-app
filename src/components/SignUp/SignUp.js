@@ -112,7 +112,7 @@ class SignUp extends Component {
       other: "Coś poszło nie tak. Spóbuj ponownie za chwilę"
     };
     return (
-      <>
+      <div className="Width_480px">
         {success ? (
           <>
             <div className="sign-up_root disabled">
@@ -370,7 +370,7 @@ class SignUp extends Component {
         <Footer />
       </div>}
         
-      </>
+      </div>
     );
   }
 }

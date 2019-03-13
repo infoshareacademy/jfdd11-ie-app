@@ -19,7 +19,7 @@ console.log(user);
     return <p>Loading...</p>;
   }
   return (
-    <>
+    <div className="Width_480px">
       <Header />
       <div className="Offert">
         <h1 className="offert-header">Oferta</h1>
@@ -140,7 +140,7 @@ console.log(user);
       </div>
 
       <Footer />
-    </>
+    </div>
   );
 }
 export default withAuth(AuctionDetails);

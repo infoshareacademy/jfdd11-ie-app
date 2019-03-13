@@ -11,7 +11,7 @@ class Home extends Component {
   render() {
     // const { user, signOut } = this.props.authContext;
     return (
-      <div className="Main-Container">
+      <div className="Main-Container Width_480px">
         <Header />
         {/* {user && (
           <p>

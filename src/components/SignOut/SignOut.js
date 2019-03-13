@@ -6,7 +6,9 @@ import Footer from '../Footer';
 
 export function SignOut() {
     return(
-        <div className="sign-out_root">
+    
+        <div className="sign-out_root Width_480px"
+        >
         <Header />
         <div className="sign-out_main">
         <h1>Przepraszamy!</h1>
@@ -17,5 +19,6 @@ export function SignOut() {
         </div>
         <Footer />
         </div>
+      
     )
 }
