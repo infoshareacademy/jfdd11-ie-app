@@ -2,21 +2,27 @@ import React, { Component } from "react";
 
 import Header from "../Header";
 import Footer from "../Footer";
-import firebase from "firebase";
 
 import "./commentAboutAuction.css";
 import StarsComment from "../Stars/StarsComment";
+
 class commentAboutAuction extends Component {
   state = {
     rating: 0,
-    comment: '',
+    comment: ""
   };
 
-  changeRating = (newRating) => {
+  changeRating = newRating => {
     this.setState({
       rating: newRating
     });
-  }
+  };
+
+  addComment = event => {
+    this.setState({
+      comment: event.target.value
+    });
+  };
 
   render() {
     return (
@@ -37,15 +43,20 @@ class commentAboutAuction extends Component {
             </p>
             <div className="comments-copy">
               <textarea
-                name="description "
+                name="description"
+                value={this.state.comment}
+                onChange={this.addComment}
                 placeholder="Wpisz komentarz na temat realizacji usługi przez przewoźnika..."
               />
             </div>
-            <p className="comments-text">Twoje ocena:</p>
-            <StarsComment
-              rating={this.state.rating}
-              changeRating={this.changeRating}
-            />
+            <div>
+              <p className="comments-text">Twoje ocena:</p>
+              <StarsComment
+                rating={this.state.rating}
+                changeRating={this.changeRating}
+              />
+            </div>
+
             <button className="comments-button comments-margin-bottom">
               Dodaj opinie
             </button>

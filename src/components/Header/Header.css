@@ -51,6 +51,7 @@ display: initial;
   height: 184px;
   transform: translateX(100vw);
 }
+
 .js-menu-upgrade {
   position: absolute;
   left: 0;
@@ -60,7 +61,7 @@ display: initial;
   flex-direction: column;
   align-items: center;
   top: 80px;
-  height: 350px;
+  height: 400px;
   z-index: 9999;
   transform: translateX(100vw);
 
