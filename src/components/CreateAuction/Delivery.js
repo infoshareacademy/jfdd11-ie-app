@@ -6,7 +6,7 @@ class Delivery extends Component {
     address: this.props.deliveryAddress.address || "",
     city: this.props.deliveryAddress.city || "",
     postalCode: this.props.deliveryAddress.postalCode || "",
-    isElevator: this.props.deliveryAddress.isElevator || "",
+    isElevator: this.props.deliveryAddress.isElevator || false,
     floor: this.props.deliveryAddress.floor || "",
   };
 
@@ -27,7 +27,7 @@ class Delivery extends Component {
   };
 
   render() {
-    const { address } = this.state;
+    const { address, city, postalCode, isElevator, floor } = this.state;
 
     return (
       <div className="Pickup_all">
@@ -48,19 +48,28 @@ class Delivery extends Component {
             <div className="Pickup_information-details">
               {" "}
               <label>Miasto: </label>
-              <input className="Pickup_input2" placeholder="" />
+              <input className="Pickup_input2" placeholder=""
+                defaultValue={city}
+                onChange={this.handleChange("city")} />
             </div>
             <div className="Pickup_information-details">
               <label>Kod pocztowy:</label>
-              <input className="Pickup_input3" placeholder="" />
+              <input className="Pickup_input3" placeholder=""
+                defaultValue={postalCode}
+                onChange={this.handleChange("postalCode")} />
             </div>
             <div className="Pickup_information-details">
               <label>Piętro: </label>
-              <input className="Pickup_input4" />
+              <input className="Pickup_input4" 
+                defaultValue={floor}
+                onChange={this.handleChange("floor")} />
             </div>
             <div className="Pickup_information-details">
               <label>Winda: </label>
-              <input className="Pickup_input5" />
+              Tak<input type="radio" className="Pickup_input5" name="isElevator" 
+                onChange={this.handleChange("isElevator")} value="true" />
+              Nie<input type="radio" className="Pickup_input5" name="isElevator" 
+                onChange={this.handleChange("isElevator")} value="false" />
             </div>
 
             {this.props.children}
