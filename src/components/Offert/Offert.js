@@ -1,15 +1,18 @@
 import React, { Component } from "react";
+import firebase from "firebase";
 import Header from "../Header";
 import Footer from "../Footer";
 import "./Offert.css";
+import { withAuth } from "../../contexts/AuthContext";
 
 class Offert extends Component {
   state = {
     classOffert: "",
-    offert: null,
+    offert: [],
     client: [],
     price: "",
-    commentToPrice: ""
+    commentToPrice: "",
+    chosen: false
   };
 
   toggleOffert = () => {
@@ -35,15 +38,12 @@ class Offert extends Component {
   };
 
   componentDidMount() {
+    
     const { offertId } = this.props.match.params;
-    fetch(process.env.PUBLIC_URL + "/data/offerts.json")
-      .then(response => response.json())
-      .then(data =>
+    
         this.setState({
-          offert: data[offertId]
+          offert: this.props.authContext.auctions
         })
-      );
-
     fetch(process.env.PUBLIC_URL + "/data/clients.json")
       .then(response => response.json())
       .then(data =>
@@ -56,10 +56,11 @@ class Offert extends Component {
   //   firebase.database().ref("offers").child(offerId).remove()
   // }
   // ściągnąć offers z withAuth i porównać z auctionId. 
-
+  // .find(auction=>auction.auctionId === offertId)
   render() {
-    console.log(this.state.commentToPrice);
-    console.log(this.state.price);
+    
+    console.log(this.state.offert)
+    console.log(this.offertId)
     if (this.state.offert === null) {
       return <p>Loading...</p>;
     }
@@ -231,4 +232,4 @@ class Offert extends Component {
   }
 }
 
-export default Offert;
+export default withAuth(Offert);
