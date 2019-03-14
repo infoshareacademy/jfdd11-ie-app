@@ -4,6 +4,7 @@ import Header from "../Header";
 import Footer from "../Footer";
 import { withAuth } from "../../contexts/AuthContext";
 import "./AuctionDetails.css";
+import AuctionDetailsOffert from "../AuctionDetailsOffert/AuctionDetailsOffert";
 
 function AuctionDetails(props) {
   const offerId = props.match.params.offerId;
@@ -18,10 +19,7 @@ function AuctionDetails(props) {
   function removeOffer(offerId){
     firebase.database().ref("offers").child(offerId).remove()
   }
-  console.log(offerId);
-  console.log(offer);
-  console.log(auction);
-  console.log(user);
+
   if (offer === null) {
     return <p>Loading...</p>;
   }
@@ -32,34 +30,9 @@ function AuctionDetails(props) {
         <h1 className="offert-header">Oferta</h1>
         <div className="Ofert_first-section">
           <h2 className="offert-title">{offer&&offer.offerId}</h2>
-          <h1 className="Offert_title-section-secound">
-          Szczegóły Twojej oferty
-        </h1>
-        
-        
-        <li className="Offert_offert-information-all">
-          Twoja oferta:{" "}
-          <span className="Offert_offert-information">
-            {" "}
-            {offer&&offer.price + "zł"}
-          </span>
-        </li>
-        <li className="Offert_offert-information-all">
-          Data złożenia oferty:{" "}
-          <span className="Offert_offert-information">{offer&&offer.date}</span>
-        </li>
-        <li className="Offert_offert-information-all">
-          <span className="Offert_offert-information">
-            {offer&&offer.chosen
-              ? "Twoja oferta została zaakceptowana"
-              : "Twoja oferta nie została zaakceptowana"}
-          </span>
-        </li>
-        {offer.chosen?<li className="Offert_offert-information-all">
-          <button style={{opacity:0.15}} disabled className="offert-button">oferta została przyjęta</button>
-        </li>:<li className="Offert_offert-information-all">
-          <button className="offert-button">wycofaj ofertę</button>
-        </li>}
+          <AuctionDetailsOffert
+          offerId={offerId}
+          />
           <h1 className="Offert_title-section-first">
             Szczegóły miejsca odbioru
           </h1>
