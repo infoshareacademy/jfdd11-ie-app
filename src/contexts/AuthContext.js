@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
-import { getUsersPromise, getOffersPromise, getAuctionsPromise } from '../serivices';
+import { getUsersPromise, getOffersPromise, getAuctionsPromise, getCommentsPromise } from '../serivices';
 
 // The argument passed to `createContext` is being used only
 // if given context provider is not available within VDOM
@@ -15,7 +15,8 @@ export default class AuthContextProvider extends Component {
     signIn: (email, password) => firebase.auth().signInWithEmailAndPassword(email, password),
     users: [],
     offers: [],
-    auctions: []
+    auctions: [],
+    comments: []
   };
 
   componentDidMount() {
@@ -48,6 +49,14 @@ export default class AuthContextProvider extends Component {
       getUsersPromise().then(data =>
         this.setState({
           users: Object.entries(data).map(([id, value]) => ({
+            id,
+            ...value
+          }))
+        })
+      );
+      getCommentsPromise().then(data =>
+        this.setState({
+          comments: Object.entries(data).map(([id, value]) => ({
             id,
             ...value
           }))
