@@ -66,10 +66,8 @@ class Delivery extends Component {
             </div>
             <div className="Pickup_information-details">
               <label>Winda: </label>
-              Tak<input type="radio" className="Pickup_input5" name="isElevator" 
-                onChange={this.handleChange("isElevator")} value="true" />
-              Nie<input type="radio" className="Pickup_input5" name="isElevator" 
-                onChange={this.handleChange("isElevator")} value="false" />
+              <input type="checkbox" className="check" name="isElevator" 
+                onChange={this.handleChange("isElevator")} />
             </div>
 
             {this.props.children}
