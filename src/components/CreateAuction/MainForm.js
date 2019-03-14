@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Furnitures from "./Furnitures";
 import Pickup from "./Pickup";
-import Deliver from "./Deliver";
+import Delivery from "./Delivery";
 import DateOfRemoval from "./DateOfRemoval";
 import Success from "./Success";
 import FurnitureForm from "./FurnitureForm";
@@ -10,35 +10,34 @@ class MainForm extends Component {
   state = {
     step: 1,
     furnitures: [],
-    deliveryAddress: {
-      address: "",
-      city: "",
-      postalCode: "",
-      isElevator: false,
-      floor: 0
-    },
-    pickupAddress: {
-      address: "",
-      city: "",
-      postalCode: "",
-      isElevator: false,
-      floor: 0
-    },
+    deliveryAddress: {},
+    pickupAddress: {},
     bringFurnitures: false,
     comments: "",
     dateOfRemoval: "",
-    hourOfRemoval: "",
-    offert: {
-      carrierId: "",
-      price: ""
-    }
+    hourOfRemoval: ""
   };
 
   handleFurnitureAdd = furniture => {
-    console.log(furniture);
     this.setState({
       furnitures: [...this.state.furnitures, furniture]
     });
+  };
+
+  pickupAddressAdd = address => {
+    this.setState({
+      pickupAddress: address
+    });
+  };
+
+  deliveryAddressAdd = address => {
+    this.setState({
+      deliveryAddress: address
+    });
+  };
+
+  handleSubmit = () => {
+    const { step, offert, ...data } = this.state;
   };
 
   nextStep = () => {
@@ -87,19 +86,17 @@ class MainForm extends Component {
           <Pickup
             nextStep={this.nextStep}
             previousStep={this.previousStep}
-            handleChange={this.handleChange}
             pickupAddress={pickupAddress}
-            bringFurnitures={bringFurnitures}
+            pickupAddressAdd={this.pickupAddressAdd}
           />
         );
       case 3:
         return (
-          <Deliver
+          <Delivery
             nextStep={this.nextStep}
             previousStep={this.previousStep}
-            handleChange={this.handleChange}
             deliveryAddress={deliveryAddress}
-            comments={comments}
+            deliveryAddressAdd={this.deliveryAddressAdd}
           />
         );
       case 4:
@@ -114,6 +111,10 @@ class MainForm extends Component {
         );
       case 5:
         return <Success />;
+      case 6:
+        return <Success />;
+      default:
+        break;
     }
   }
 }
