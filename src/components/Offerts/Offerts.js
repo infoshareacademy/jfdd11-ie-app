@@ -9,7 +9,7 @@ import { withAuth } from "../../contexts/AuthContext";
 
 class Offerts extends Component {
   state = {
-    offerts: this.props.authContext.auctions,
+    auctions: this.props.authContext.auctions,
     clients: this.props.authContext.users
   };
 
@@ -23,12 +23,12 @@ class Offerts extends Component {
             <table className="offert-table">
               <thead />
               <tbody>
-                {this.state.offerts.map(offert => {
-                  const client = this.state.clients.find(person=>person.id===offert.clientId);
+                {this.state.auctions.map(auction => {
+                  const client = this.state.clients.find(person=>person.id===auction.clientId);
                   return (
-                    <tr key={offert.id} className="Offerts_table">
+                    <tr key={auction.id} className="Offerts_table">
                       <td className="offert-table-data">
-                        <p className="offerts-title">{offert.name}</p>
+                        <p className="offerts-title">{auction.name}</p>
                         <ul className="offert-list">
                         <li>
                            <b>
@@ -40,19 +40,19 @@ class Offerts extends Component {
                             </li>
                           <li>
                             <b>Meble: </b>
-                            <span className="Offerts_list-information">{offert.furnitures.length}</span>
+                            <span className="Offerts_list-information">{auction.furnitures.length}</span>
                           </li>
                           
                           <li>
                             <b>Data: </b>
-                            <span className="Offerts_list-information">{offert.dateOfRemoval}</span>
+                            <span className="Offerts_list-information">{auction.dateOfRemoval}</span>
                           </li>
                           <li>
                             <b>Wniesienie: </b>
-                            <span className="Offerts_list-information">{offert.bringFurnitures ? "Tak" : "Nie"}</span>
+                            <span className="Offerts_list-information">{auction.bringFurnitures ? "Tak" : "Nie"}</span>
                           </li>
                           <li>
-                            <Link to={`/offerts/${offert.auctionId}`}>
+                            <Link to={`/offerts/${auction.auctionId}`}>
                               <button className="offert-button">
                                 Zobacz ofertę
                               </button>

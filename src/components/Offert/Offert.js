@@ -7,7 +7,7 @@ import { withAuth } from "../../contexts/AuthContext";
 class Offert extends Component {
   state = {
     classOffert: "",
-    offert: this.props.authContext.auctions,
+    auction: this.props.authContext.auctions,
     client: this.props.authContext.users,
     price: "",
     commentToPrice: "",
@@ -42,13 +42,9 @@ class Offert extends Component {
   // .find(auction=>auction.auctionId === offertId)
   render() {
     const auctionId = this.props.match.params.offertId;
-    const singleAuction = this.state.offert.find(auction => auction.auctionId === auctionId)
+    const singleAuction = this.state.auction.find(auction => auction.auctionId === auctionId)
     const client = this.state.client.find(client=>client.id === singleAuction.clientId)
-    console.log(auctionId);
-    console.log(this.state.offert);
-    console.log(singleAuction);
-    console.log(client)
-    if (this.state.offert === null) {
+    if (this.state.auction === null) {
       return <p>Loading...</p>;
     }
     return (
