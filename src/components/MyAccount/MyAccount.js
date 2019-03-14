@@ -9,6 +9,7 @@ import firebase from "firebase";
 
 import { getUserPromise, updateUserPromise } from "../../services";
 import MyAccountEdit from "../MyAccountEdit/MyAccountEdit";
+import { withAuth } from "../../contexts/AuthContext.js";
 
 class MyAccount extends Component {
   state = {
@@ -17,11 +18,10 @@ class MyAccount extends Component {
       name: "",
       surname: "",
       email: "",
-      phone: "",
-    
+      phone: ""
     },
-    users: [],
-    opinions: [],
+    users: this.props.authContext.users,
+    opinions: this.props.authContext.comments,
     editedUserId: null
   };
 
@@ -37,75 +37,62 @@ class MyAccount extends Component {
     });
   };
 
-  updateUser = ( company, name, surname,  email, phone) => {
+  updateUser = (company, name, surname, email, phone) => {
     updateUserPromise(this.state.user.id, company, name, surname, email, phone)
       .then(() => this.syncProfile(this.state.user.id, email))
       .then(() =>
         this.setState({
-          editedUserId: null,
+          editedUserId: null
         })
       );
   };
-  
-  syncUser = () =>
-    getUserPromise().then(users => this.setState({ users }));
+
+  syncUser = () => getUserPromise().then(users => this.setState({ users }));
 
   syncProfile = (userId, email) => {
     firebase
-          .database()
-          .ref(`users/${userId}`)
-          .once("value")
-          .then(snapshot => snapshot.val())
-          .then(user => {
-            if (user === null) {
-              return;
-            }
-            this.setState({
-              user: {
-                id: userId,
-                company: user.company,
-                name: user.name,
-                surname: user.surname,
-                email: email,
-                phone: user.phone,
-                
-              }
-            });
-          });
-  }
+      .database()
+      .ref(`users/${userId}`)
+      .once("value")
+      .then(snapshot => snapshot.val())
+      .then(user => {
+        if (user === null) {
+          return;
+        }
+        this.setState({
+          user: {
+            id: userId,
+            company: user.company,
+            name: user.name,
+            surname: user.surname,
+            email: email,
+            phone: user.phone
+          }
+        });
+      });
+  };
 
   componentDidMount() {
-    this.syncUser()
+    this.syncUser();
     firebase.auth().onAuthStateChanged(currentUser => {
       if (currentUser !== null) {
         const userId = currentUser.uid;
         const email = currentUser.email;
 
-        this.syncProfile(userId, email)
+        this.syncProfile(userId, email);
       }
     });
-
-    fetch(process.env.PUBLIC_URL + "/data/carrierOpinions.json")
-      .then(response => response.json())
-      .then(data =>
-        this.setState({
-          opinions: Object.entries(data).map(([id, value]) => ({
-            id,
-            ...value
-          }))
-        })
-      );
+    
   }
 
   render() {
+    const comments = this.state.opinions.filter(opinion => opinion.carrierId === this.props.authContext.user.uid)
     const mapMark = this.state.opinions.map(opinion => parseInt(opinion.mark));
     const { editedUserId } = this.state;
     const averageOpinion = mapMark.reduce(
       (sum, current) => sum + current / mapMark.length,
       0
     );
-
- 
 
     return (
       <div className="MyAccount_All Width_480px">
@@ -144,13 +131,15 @@ class MyAccount extends Component {
               </button>{" "}
             </h1>
             <div>
-              <img 
+              <img
                 className="MyAccount_user-photo"
                 src="https://robohash.org/perferendisfugiatvoluptas.bmp?size=100x100&set=set1"
                 alt="moje zdjęcie"
               />
             </div>
-            <div className="MyAccount_company-name">{this.state.user.company}</div>
+            <div className="MyAccount_company-name">
+              {this.state.user.company}
+            </div>
             <div className="MyAccount_information">
               <span className="MyAccount_information-title">Imie:</span>{" "}
               {this.state.user.name}
@@ -183,15 +172,15 @@ class MyAccount extends Component {
           <div className="MyAccount_opinions">
             <h2 className="MyAccount_opinions-title">OPINIE</h2>
             <hr />
-            {this.state.opinions.map(opinion => (
+            {comments.map(opinion => (
               <div key={opinion.id}>
                 <h3 className="MyAccount_user-name">
-                  {opinion.user}
+                  {opinion.name+" "+opinion.surname}
                   <span className="MyAccount_mark-stars">
                     <Stars rating={opinion.mark} />
                   </span>
                 </h3>
-                <p className="MyAccount_users-opinion">{opinion.coment}</p>{" "}
+                <p className="MyAccount_users-opinion">{opinion.comment}</p>{" "}
                 <hr className="MyAccount_line" />{" "}
               </div>
             ))}
@@ -203,4 +192,4 @@ class MyAccount extends Component {
   }
 }
 
-export default MyAccount;
+export default withAuth(MyAccount);

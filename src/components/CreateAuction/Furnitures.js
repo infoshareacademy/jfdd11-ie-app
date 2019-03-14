@@ -27,19 +27,51 @@ class Furnitures extends Component {
         <h2 className ="Furnitures_list-title">Lista mebli:</h2>
         
         {furnitures.map(furniture => (
-          
           <>
-           
-            <ul className ="Furnitures_list">
-              <li>Mebel: <span className="Furnitures_information">{furniture.name} </span></li>
-              <li>Długość: <span className="Furnitures_information">{furniture.height} cm</span></li>
-              <li>Szerokość: <span className="Furnitures_information"> {furniture.width} cm</span></li>
-              <li>Głębokość: <span className="Furnitures_information"> {furniture.deepness} cm</span></li>
+            <ul className="Furnitures_list">
+              <li>
+                Mebel:{" "}
+                <span className="Furnitures_information">
+                  {furniture.name}{" "}
+                </span>
+              </li>
+              <li>
+                Długość:{" "}
+                <span className="Furnitures_information">
+                  {furniture.height} cm
+                </span>
+              </li>
+              <li>
+                Szerokość:{" "}
+                <span className="Furnitures_information">
+                  {" "}
+                  {furniture.width} cm
+                </span>
+              </li>
+              <li>
+                Głębokość:{" "}
+                <span className="Furnitures_information">
+                  {" "}
+                  {furniture.deepness} cm
+                </span>
+              </li>
+              <li>
+                Ilość:{" "}
+                <span className="Furnitures_information">
+                  {" "}
+                  {furniture.count} szt.
+                </span>
+              </li>
             </ul>
           </>
         ))}
         {this.props.children}
-        <button className="Furnitures_next-button" onClick={this.saveAndContinue}>Dalej</button>
+        <button
+          className="Furnitures_next-button"
+          onClick={this.saveAndContinue}
+        >
+          Dalej
+        </button>
       </div>
     );
   }

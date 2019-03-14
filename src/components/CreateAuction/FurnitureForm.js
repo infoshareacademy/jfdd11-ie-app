@@ -6,7 +6,8 @@ class FurnitureForm extends Component {
     name: "",
     width: null,
     height: null,
-    deepness: null
+    deepness: null,
+    count: null
   };
 
   handleSubmit = event => {
@@ -66,6 +67,9 @@ class FurnitureForm extends Component {
               Ilość:
               <input
                 className="FurnitureForm_input5"
+                placeholder="Ile sztuk"
+                defaultValue={furniture.count}
+                onChange={this.handleChange("count")}
               />
             </div>
           </div>

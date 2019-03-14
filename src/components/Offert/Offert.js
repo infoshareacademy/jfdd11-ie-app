@@ -52,6 +52,10 @@ class Offert extends Component {
         })
       );
   }
+  // addOfferToAuction = (price, comment, auctionId) => {
+  //   firebase.database().ref("offers").child(offerId).remove()
+  // }
+  // ściągnąć offers z withAuth i porównać z auctionId. 
 
   render() {
     console.log(this.state.commentToPrice);
