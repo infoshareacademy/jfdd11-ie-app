@@ -8,8 +8,8 @@ import { withAuth } from "../../contexts/AuthContext";
 class Offert extends Component {
   state = {
     classOffert: "",
-    offert: [],
-    client: [],
+    offert: this.props.authContext.auctions,
+    client: this.props.authContext.users,
     price: "",
     commentToPrice: "",
     chosen: false
@@ -37,30 +37,28 @@ class Offert extends Component {
     });
   };
 
-  componentDidMount() {
-    
-    const { offertId } = this.props.match.params;
-    
-        this.setState({
-          offert: this.props.authContext.auctions
-        })
-    fetch(process.env.PUBLIC_URL + "/data/clients.json")
-      .then(response => response.json())
-      .then(data =>
-        this.setState({
-          client: data[this.state.offert.clientId]
-        })
-      );
-  }
+  // componentDidMount() {
+  //   fetch(process.env.PUBLIC_URL + "/data/clients.json")
+  //     .then(response => response.json())
+  //     .then(data =>
+  //       this.setState({
+  //         client: data[this.state.offert.clientId]
+  //       })
+  //     );
+  // }
   // addOfferToAuction = (price, comment, auctionId) => {
   //   firebase.database().ref("offers").child(offerId).remove()
   // }
   // ściągnąć offers z withAuth i porównać z auctionId. 
   // .find(auction=>auction.auctionId === offertId)
   render() {
-    
-    console.log(this.state.offert)
-    console.log(this.offertId)
+    const auctionId = this.props.match.params.offertId;
+    const singleAuction = this.state.offert.find(auction => auction.auctionId === auctionId)
+    const client = this.state.client.find(client=>client.id === singleAuction.clientId)
+    console.log(auctionId);
+    console.log(this.state.offert);
+    console.log(singleAuction);
+    console.log(client)
     if (this.state.offert === null) {
       return <p>Loading...</p>;
     }
@@ -70,28 +68,28 @@ class Offert extends Component {
         <div className="Offert">
           <h1 className="offert-header">Oferta</h1>
           <div className="Ofert_first-section">
-            <h2 className="offert-title">{this.state.offert.name}</h2>
+            <h2 className="offert-title">{singleAuction.name}</h2>
             <a href="#make-offert" />
             <h1 className="Offert_title-section-first">
               Szczegóły miejsca odbioru
             </h1>
             <p className="Offert_offert-information-all">
               <span className="Offert_offert-information">
-                {this.state.client.first_name} {this.state.client.last_name}{" "}
+                {client.name} {client.surname}{" "}
               </span>
             </p>
             <ul className="Offert_main-section">
               <li className="Offert_offert-information-all">
                 <span>Adres odbioru: </span>
                 <div className="Offert_offert-information">
-                  Krzemowa 7G/10 80-065 Gdańsk
+                  {singleAuction.pickupAddress.city+" "+singleAuction.pickupAddress.address}
                 </div>
               </li>
               <li className="Offert_offert-information-all">
                 <span>Winda: </span>
                 <span className="Offert_offert-information">
                   {" "}
-                  {this.state.offert.isElevator ? "TAK" : "NIE"}
+                  {singleAuction.isElevator ? "TAK" : "NIE"}
                 </span>
               </li>
               <li className="Offert_offert-information-all">
@@ -101,13 +99,13 @@ class Offert extends Component {
               <li className="Offert_offert-information-all">
                 <span>Data: </span>
                 <span className="Offert_offert-information">
-                  {this.state.offert.date}
+                  {singleAuction.dateOfRemoval}
                 </span>
               </li>
               <li className="Offert_offert-information-all">
                 <span>Godzina: </span>
                 <span className="Offert_offert-information">
-                  {this.state.offert.hour}
+                  {singleAuction.hourOfRemoval}
                 </span>
               </li>
 
@@ -115,13 +113,13 @@ class Offert extends Component {
                 <span>Wniesienie: </span>
                 <span className="Offert_offert-information">
                   {" "}
-                  {this.state.offert.bringFurnitures ? "TAK" : "NIE"}
+                  {singleAuction.bringFurnitures ? "TAK" : "NIE"}
                 </span>
               </li>
               <li className="Offert_offert-information-all">
                 <span>Uwagi: </span>{" "}
                 <span className="Offert_offert-information">
-                  Sofa waży 30kg.
+                  {singleAuction.comment}
                 </span>
                 <div className="Offert_span" />
               </li>
@@ -133,14 +131,14 @@ class Offert extends Component {
               <li className="Offert_offert-information-all">
                 <span>Adres dostawy: </span>
                 <div className="Offert_offert-information">
-                  Kołobrzeska 10/5 80-096 Gdańsk
+                  {singleAuction.deliveryAddress.city+" "+singleAuction.deliveryAddress.address}
                 </div>
               </li>
               <li className="Offert_offert-information-all">
                 Winda:{" "}
                 <span className="Offert_offert-information">
                   {" "}
-                  {this.state.offert.isElevator ? "TAK" : "NIE"}
+                  {singleAuction.isElevator ? "TAK" : "NIE"}
                 </span>
               </li>
               <li className="Offert_offert-information-all">
@@ -153,7 +151,7 @@ class Offert extends Component {
               <span>Meble: </span>
             </h1>
             <h2 className="Offert_furnitures-title"> </h2>
-            {this.state.offert.furnitures.map(furniture => (
+            {singleAuction.furnitures.map(furniture => (
               <div className="Offert_last-section">
                 <p className="Offert_furnitures-type">{furniture.name}</p>
                 <table>
@@ -174,7 +172,7 @@ class Offert extends Component {
                   <tbody>
                     <tr>
                       <td className="Offert_furnitures-details">
-                        {furniture.deepness}
+                        {furniture.depth}
                       </td>
                       <td className="Offert_furnitures-details">
                         {furniture.width}
