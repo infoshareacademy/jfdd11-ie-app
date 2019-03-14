@@ -5,7 +5,7 @@ import Logo from "./logo_footer.png";
 class Footer extends Component {
   render() {
     return (
-        <div className="footer-global-settings">
+        <div className="footer-global-settings Width_480px">
           <div className="footer-box">
             <p className="footer-moveIt">moveIt</p>
             <p>

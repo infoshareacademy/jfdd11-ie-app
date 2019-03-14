@@ -53,7 +53,7 @@ class FAQ extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <>
+      <div className="Width_480px">
         <ScrollTop
           text="to top"
           distance={100}
@@ -89,7 +89,7 @@ class FAQ extends Component {
            
         </div>
         <Footer/>
-      </>
+      </div>
     );
   }
 }

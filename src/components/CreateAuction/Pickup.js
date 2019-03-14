@@ -30,7 +30,8 @@ class Pickup extends Component {
     const { address, city, postalCode, floor, isElevator } = this.state;
 
     return (
-      <div className="Pickup_all">
+      <div className= "Pickup_all Width_480px">
+      
         <h1 className="Pickup_header">Dodawanie zamówienia</h1>
         <form onSubmit={this.addAddress}>
           <h1 className="Pickup_progress_bar">Pasek postępu</h1>

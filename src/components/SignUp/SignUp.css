@@ -113,31 +113,45 @@
 }
 .sign-up_success{
     position:absolute;
-    top: 150px;
-    left:10%;
+    top: 80px;
+    /*left:0;*/
     height: 50%;
-    width: 80%;
+    max-width: 480px;
     background-color: white;
     display: flex;
     flex-direction: column;
     justify-content:center;
     align-items: center;
+    background: url(http://localhost:3000/static/media/background.57ea6210.png) right center, linear-gradient(#f8c512, #edb60d);
+    box-shadow: 0px 1px 5px rgb(105, 105, 105);
 }
 .sign-up_success p{
-    color: green;
+    font-size: 18px;
+    font-weight: 500;
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 15px;
+    color: #323232;
     z-index: 999;
+    margin: 0 auto;
 }
+
+.sign-up_success span {
+    font-weight: 700;
+}
+
 .sign-up_success button{
-    border-radius: 20px;
+    border-radius:20px;
     border: none;
     background-color: #323232;
     color: #fff;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 700;
+    width: 60%;
     padding: 10px;
     margin-top: 20px;
-    z-index: 999; 
 }
-.disabled{
-    filter: blur(15px);
-}
+/* .disabled{
+    filter: blur(3px);
+} */

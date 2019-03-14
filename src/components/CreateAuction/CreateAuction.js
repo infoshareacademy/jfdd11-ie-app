@@ -7,11 +7,11 @@ import MainForm from "./MainForm";
 class CreateAuction extends Component {
   render() {
     return (
-      <>
+      <div className="Width_480px">
       <Header/>
         <MainForm />
         <Footer />
-      </>
+      </div>
     );
   }
 }

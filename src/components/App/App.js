@@ -12,6 +12,8 @@ import Offerts from "../Offerts";
 import Offert from "../Offert";
 import { WorkInProgress } from "../WorkInProgress/WorkInProgress";
 import CreateAuction from "../CreateAuction/CreateAuction";
+import AuctionDetails from "../AuctionDetails";
+import commentAboutAuction from "../commentAboutAuction";
 
 class App extends Component {
   render() {
@@ -25,10 +27,11 @@ class App extends Component {
             <Route exact path="/signin" component={SignIn} />
             <Route exact path="/myAccount" component={MyAccount} />
             <Route path="/sign-out" component={SignOut} />
-            <Route path="/myauctions" component={MyAuctions} />
+            <Route exact path="/myauctions" component={MyAuctions} />
+            <Route path="/myauctions/:offerId" component={AuctionDetails}/>
             <Route exact path="/offerts" component={Offerts} />
             <Route path="/offerts/:offertId" component={Offert} />
-            <Route path="/work-in-progress" component={WorkInProgress} />
+            <Route path="/comment-about-auction" component={commentAboutAuction} />
             <Route path="/create-auction" component={CreateAuction} />
           </div>
         </Router>

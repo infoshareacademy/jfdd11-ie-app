@@ -21,11 +21,11 @@ class Furnitures extends Component {
     const { furnitures } = this.props;
 
     return (
-      <div className="Furnitures_All">
-        <h1 className="Furnitures_header">Dodawanie zamówienia</h1>
-        <div className="Furnitures_progress-bar">Pasek postępu</div>
-        <h2 className="Furnitures_list-title">Lista mebli:</h2>
-
+      <div className="Furnitures_All Width_480px">
+        <h1 className='Furnitures_header'>Dodawanie zamówienia</h1>
+        <div className ="Furnitures_progress-bar">Pasek postępu</div>
+        <h2 className ="Furnitures_list-title">Lista mebli:</h2>
+        
         {furnitures.map(furniture => (
           <>
             <ul className="Furnitures_list">

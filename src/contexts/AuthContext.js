@@ -1,23 +1,67 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
+import { getUsersPromise, getOffersPromise, getAuctionsPromise, getCommentsPromise } from '../serivices';
 
 // The argument passed to `createContext` is being used only
 // if given context provider is not available within VDOM
 // tree above the Consumer.
-export const AuthContext = React.createContext({ user: null });
-const { Provider, Consumer } = AuthContext;
+export const authContext = React.createContext({ user: null });
+const { Provider, Consumer } = authContext;
 
 export default class AuthContextProvider extends Component {
   state = {
     user: null,
     signOut: () => firebase.auth().signOut(),
-    signIn: (email, password) => firebase.auth().signInWithEmailAndPassword(email, password)
+    signIn: (email, password) => firebase.auth().signInWithEmailAndPassword(email, password),
+    users: [],
+    offers: [],
+    auctions: [],
+    comments: []
   };
 
   componentDidMount() {
     this.unsubscribe = firebase
       .auth()
       .onAuthStateChanged(user => this.setState({ user }));
+
+      firebase
+      .database()
+      .ref("auctions").on('value', snapshot =>{
+      const data = snapshot.val()
+        this.setState({
+          auctions: Object.entries(data).map(([id, value]) => ({
+            auctionId: id,
+            ...value
+          }))
+        })
+      });
+      firebase
+      .database()
+      .ref("offers").on('value', snapshot =>{
+      const data = snapshot.val()
+        this.setState({
+          offers: Object.entries(data).map(([id, value]) => ({
+            offerId: id,
+            ...value
+          }))
+        })
+      });
+      getUsersPromise().then(data =>
+        this.setState({
+          users: Object.entries(data).map(([id, value]) => ({
+            id,
+            ...value
+          }))
+        })
+      );
+      getCommentsPromise().then(data =>
+        this.setState({
+          comments: Object.entries(data).map(([id, value]) => ({
+            id,
+            ...value
+          }))
+        })
+      );
   }
 
   componentWillUnmount() {

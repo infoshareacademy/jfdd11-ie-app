@@ -23,7 +23,7 @@ class FurnitureForm extends Component {
     const furniture = this.state;
 
     return (
-      <>
+      <div className="Width_480px">
         <div className="FurnitureForm_title"> Dodaj mebel: </div>
         <form onSubmit={this.handleSubmit}>
           <div className="FurnitureForm_information">
@@ -77,7 +77,7 @@ class FurnitureForm extends Component {
             Zapisz{" "}
           </button>
         </form>
-      </>
+      </div>
     );
   }
 }

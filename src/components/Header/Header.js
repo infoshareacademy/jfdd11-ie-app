@@ -25,7 +25,8 @@ class Header extends Component {
     const user = this.props.authContext.user;
     const signOut = this.props.authContext.signOut;
     return (
-      <nav className="menu">
+      
+      <nav className="menu Width_480px">
         <NavLink to="/"><img src={logo} alt="logo-MoveIt" className="logo" /></NavLink>
         <div className="menu-absolute">
           <img
@@ -37,7 +38,7 @@ class Header extends Component {
         </div>
 
         {user ? (
-          <ul className={`js-menu upperCase ${this.state.class}`}>
+          <ul className={`js-menu-upgrade upperCase ${this.state.class}`}>
             <li className="header_user-email">{user.email}</li>
             <li className="header_user-email " onClick={signOut}>
               <NavLink to="/">Wyloguj się</NavLink>
@@ -52,7 +53,7 @@ class Header extends Component {
               <NavLink to="/create-auction">Zaplanuj przeprowadzkę</NavLink>
             </li>
             <li className="Link-Style">
-              <NavLink to="/work-in-progress">Moje przeprowadzki</NavLink>
+              <NavLink to="/myauctions">Moje przeprowadzki</NavLink>
             </li>
             <li className="Link-Style">
               <NavLink to="/offerts">Oferty przeprowadzek</NavLink>
@@ -78,6 +79,7 @@ class Header extends Component {
           </ul>
         )}
       </nav>
+    
     );
   }
 }

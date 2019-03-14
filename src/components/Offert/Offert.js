@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import firebase from "firebase";
 import Header from "../Header";
 import Footer from "../Footer";
 
@@ -9,7 +9,9 @@ class Offert extends Component {
   state = {
     classOffert: "",
     offert: null,
-    client: []
+    client: [],
+    price: "",
+    commentToPrice: ""
   };
 
   toggleOffert = () => {
@@ -20,6 +22,18 @@ class Offert extends Component {
       : this.setState({
           classOffert: ""
         });
+  };
+
+  addPrice = event => {
+    this.setState({
+      price: event.target.value
+    });
+  };
+
+  addCommentToPrice = event => {
+    this.setState({
+      commentToPrice: event.target.value
+    });
   };
 
   componentDidMount() {
@@ -40,58 +54,77 @@ class Offert extends Component {
         })
       );
   }
+  // addOfferToAuction = (price, comment, auctionId) => {
+  //   firebase.database().ref("offers").child(offerId).remove()
+  // }
+  // ściągnąć offers z withAuth i porównać z auctionId. 
 
   render() {
+    console.log(this.state.commentToPrice);
+    console.log(this.state.price);
     if (this.state.offert === null) {
       return <p>Loading...</p>;
     }
     return (
-      <>
+      <div className="Width_480px">
         <Header />
         <div className="Offert">
           <h1 className="offert-header">Oferta</h1>
           <div className="Ofert_first-section">
             <h2 className="offert-title">{this.state.offert.name}</h2>
-            <a href="#make-offert">
-            </a>
+            <a href="#make-offert" />
             <h1 className="Offert_title-section-first">
-                Szczegóły miejsca odbioru
-              </h1>
+              Szczegóły miejsca odbioru
+            </h1>
             <p className="Offert_offert-information-all">
               <span className="Offert_offert-information">
                 {this.state.client.first_name} {this.state.client.last_name}{" "}
               </span>
             </p>
             <ul className="Offert_main-section">
-           
               <li className="Offert_offert-information-all">
-                <span>
-                  Adres odbioru:{" "}
+                <span>Adres odbioru: </span>
+                <div className="Offert_offert-information">
+                  Krzemowa 7G/10 80-065 Gdańsk
+                </div>
+              </li>
+              <li className="Offert_offert-information-all">
+                <span>Winda: </span>
+                <span className="Offert_offert-information">
+                  {" "}
+                  {this.state.offert.isElevator ? "TAK" : "NIE"}
                 </span>
-                <div className="Offert_offert-information">Krzemowa 7G/10 80-065 Gdańsk</div>
               </li>
               <li className="Offert_offert-information-all">
-                <span>Winda: </span><span className="Offert_offert-information">{" "}
-                {this.state.offert.isElevator ? "TAK" : "NIE"}</span>
+                <span>Piętro: </span>{" "}
+                <span className="Offert_offert-information"> 3</span>
               </li>
               <li className="Offert_offert-information-all">
-                <span>Piętro: </span> <span className="Offert_offert-information"> 3</span>
-              </li>
-              <li className="Offert_offert-information-all">
-                <span>Data: </span><span className="Offert_offert-information">
-                {this.state.offert.date}</span>
+                <span>Data: </span>
+                <span className="Offert_offert-information">
+                  {this.state.offert.date}
+                </span>
               </li>
               <li className="Offert_offert-information-all">
                 <span>Godzina: </span>
-               <span className="Offert_offert-information">{this.state.offert.hour}</span> 
+                <span className="Offert_offert-information">
+                  {this.state.offert.hour}
+                </span>
               </li>
 
               <li className="Offert_offert-information-all">
-                <span>Wniesienie: </span><span className="Offert_offert-information">{" "}
-                {this.state.offert.bringFurnitures ? "TAK" : "NIE"}</span>
+                <span>Wniesienie: </span>
+                <span className="Offert_offert-information">
+                  {" "}
+                  {this.state.offert.bringFurnitures ? "TAK" : "NIE"}
+                </span>
               </li>
               <li className="Offert_offert-information-all">
-                <span >Uwagi: </span> <span className="Offert_offert-information">Sofa waży 30kg.</span><div className="Offert_span"></div>
+                <span>Uwagi: </span>{" "}
+                <span className="Offert_offert-information">
+                  Sofa waży 30kg.
+                </span>
+                <div className="Offert_span" />
               </li>
             </ul>
             <div>
@@ -168,21 +201,34 @@ class Offert extends Component {
             <div className={`Offert_form ${this.state.classOffert}`}>
               <p className="Offert_form-title" id="make-offert">
                 Złóż ofertę:{" "}
-                </p>
-              <input type="text" name="price" placeholder="Wpisz swoją wycenę..." />
+              </p>
+              <input
+                type="text"
+                name="price"
+                value={this.state.price}
+                onChange={this.addPrice}
+                placeholder="Wpisz swoją wycenę..."
+              />
               <div className="Offert_form-title">
-                <textarea name="description" placeholder="Jeśli chcesz dodać komentarz do oferty, wpisz go tutaj..." />
+                <textarea
+                  name="description"
+                  value={this.state.commentToPrice}
+                  onChange={this.addCommentToPrice}
+                  placeholder="Jeśli chcesz dodać komentarz do oferty, wpisz go tutaj..."
+                />
               </div>
               <div className="offert-box-buttons">
                 <button className="Offert_form-button">Wyślij</button>
-                <p className="offert-back" onClick={this.toggleOffert}>Zwiń -> </p>
+                <p className="offert-back" onClick={this.toggleOffert}>
+                  Zwiń ->{" "}
+                </p>
               </div>
             </div>
           </div>
         </div>
 
         <Footer />
-      </>
+      </div>
     );
   }
 }
