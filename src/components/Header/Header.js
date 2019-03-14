@@ -39,10 +39,6 @@ class Header extends Component {
 
         {user ? (
           <ul className={`js-menu-upgrade upperCase ${this.state.class}`}>
-            <li className="header_user-email">{user.email}</li>
-            <li className="header_user-email " onClick={signOut}>
-              <NavLink to="/">Wyloguj się</NavLink>
-            </li>
             <li className="Link-Style">
               <NavLink to="/">Strona główna</NavLink>
             </li>
@@ -60,6 +56,10 @@ class Header extends Component {
             </li>
             <li className="Link-Style">
               <NavLink to="/faq">FAQ</NavLink>
+            </li>
+            <li className="header_user-email lowerCase login-shadow ">{user.email}</li>
+            <li className="header_user-email " onClick={signOut}>
+              <NavLink to="/">Wyloguj się</NavLink>
             </li>
           </ul>
         ) : (

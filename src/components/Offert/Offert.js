@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import firebase from "firebase";
 import Header from "../Header";
 import Footer from "../Footer";
-
 import "./Offert.css";
 
 class Offert extends Component {
