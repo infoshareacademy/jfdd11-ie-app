@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import firebase from "firebase";
 import Header from "../Header";
 import Footer from "../Footer";
 import "./Offert.css";
@@ -36,16 +35,6 @@ class Offert extends Component {
       commentToPrice: event.target.value
     });
   };
-
-  // componentDidMount() {
-  //   fetch(process.env.PUBLIC_URL + "/data/clients.json")
-  //     .then(response => response.json())
-  //     .then(data =>
-  //       this.setState({
-  //         client: data[this.state.offert.clientId]
-  //       })
-  //     );
-  // }
   // addOfferToAuction = (price, comment, auctionId) => {
   //   firebase.database().ref("offers").child(offerId).remove()
   // }

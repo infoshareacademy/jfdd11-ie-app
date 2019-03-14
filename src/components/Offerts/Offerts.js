@@ -5,30 +5,13 @@ import { Link } from "react-router-dom";
 import Header from "../Header";
 import Footer from "../Footer";
 import "./Offerts.css";
+import { withAuth } from "../../contexts/AuthContext";
 
 class Offerts extends Component {
   state = {
-    offerts: [],
-    clients: []
+    offerts: this.props.authContext.auctions,
+    clients: this.props.authContext.users
   };
-
-  componentDidMount() {
-    fetch(process.env.PUBLIC_URL + "/data/offerts.json")
-      .then(response => response.json())
-      .then(data =>
-        this.setState({
-          offerts: Object.entries(data).map(([id, value]) => ({ id, ...value }))
-        })
-      );
-
-    fetch(process.env.PUBLIC_URL + "/data/clients.json")
-      .then(response => response.json())
-      .then(data =>
-        this.setState({
-          clients: data
-        })
-      );
-  }
 
   render() {
     return (
@@ -41,7 +24,7 @@ class Offerts extends Component {
               <thead />
               <tbody>
                 {this.state.offerts.map(offert => {
-                  const client = this.state.clients[offert.clientId];
+                  const client = this.state.clients.find(person=>person.id===offert.clientId);
                   return (
                     <tr key={offert.id} className="Offerts_table">
                       <td className="offert-table-data">
@@ -49,8 +32,8 @@ class Offerts extends Component {
                         <ul className="offert-list">
                         <li>
                            <b>
-                           <span className="Offerts_list-information"> {client && client.first_name}{" "}
-                            {client && client.last_name}</span></b>
+                           <span className="Offerts_list-information"> {client && client.name}{" "}
+                            {client && client.surname}</span></b>
                           </li>
                           <li><b>Miasto: </b><span className="Offerts_list-information">
                           Gdańsk</span>
@@ -62,14 +45,14 @@ class Offerts extends Component {
                           
                           <li>
                             <b>Data: </b>
-                            <span className="Offerts_list-information">{offert.date}</span>
+                            <span className="Offerts_list-information">{offert.dateOfRemoval}</span>
                           </li>
                           <li>
                             <b>Wniesienie: </b>
                             <span className="Offerts_list-information">{offert.bringFurnitures ? "Tak" : "Nie"}</span>
                           </li>
                           <li>
-                            <Link to={`/offerts/${offert.id}`}>
+                            <Link to={`/offerts/${offert.auctionId}`}>
                               <button className="offert-button">
                                 Zobacz ofertę
                               </button>
@@ -91,4 +74,4 @@ class Offerts extends Component {
   }
 }
 
-export default Offerts;
+export default withAuth(Offerts);
