@@ -67,10 +67,12 @@ class Pickup extends Component {
             </div>
             <div className="Pickup_information-details">
               <label>Winda: </label>
-              Tak<input type="radio" className="Pickup_input5" name="isElevator" 
+              <span className ="Pickup_input-elev">Tak<input type="radio" name="isElevator" 
                 onChange={this.handleChange("isElevator")} value="true" />
-              Nie<input type="radio" className="Pickup_input5" name="isElevator" 
-                onChange={this.handleChange("isElevator")} value="false" />
+              </span>
+              <span className ="Pickup_input-elev" >
+              Nie<input type="radio" name="isElevator" 
+                onChange={this.handleChange("isElevator")} value="false" /></span>
             </div>
 
             {this.props.children}
