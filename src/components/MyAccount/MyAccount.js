@@ -142,9 +142,10 @@ class MyAccount extends Component {
                 alt="moje zdjęcie"
               />
             </div>
-            <div className="MyAccount_company-name">
+            {this.state.isCarrier?<div className="MyAccount_company-name">
               {this.state.user.company}
-            </div>
+            </div>:null}
+            
             <div className="MyAccount_information">
               <span className="MyAccount_information-title">Imie:</span>{" "}
               {this.state.user.name}

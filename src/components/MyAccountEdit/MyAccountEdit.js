@@ -8,7 +8,8 @@ class MyAccountEdit extends Component {
     surname: this.props.user.surname,
     phone: this.props.user.phone,
     email: this.props.user.email,
-    company: this.props.user.company
+    company: this.props.user.company,
+    isCarrier: false
   };
 
   handleChange = event => {
@@ -31,6 +32,9 @@ class MyAccountEdit extends Component {
       this.state.email,
       this.state.phone
     );
+    this.setState({
+      isCarrier: this.props.authContext.getIsCarrier()
+    });
   };
 
   render() {
@@ -52,14 +56,15 @@ class MyAccountEdit extends Component {
             alt="moje zdjęcie"
           />
         </div>
-        <div className="MyAccount_company-name">
+        {this.state.isCarrier?<div className="MyAccount_company-name">
           <input
             className="MyAccountEdit_input"
             value={this.state.company}
             name="company"
             onChange={this.handleChange}
           />
-        </div>
+        </div>:null}
+        
         <div className="MyAccount_information">
           <span className="MyAccount_information-title"></span>
           <input
