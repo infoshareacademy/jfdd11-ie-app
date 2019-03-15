@@ -13,10 +13,15 @@ export default class AuthContextProvider extends Component {
     user: null,
     signOut: () => firebase.auth().signOut(),
     signIn: (email, password) => firebase.auth().signInWithEmailAndPassword(email, password),
+    getIsCarrier: () => {
+      const { users, user } = this.state
+      return user && users && users[user.uid].isCarrier || false
+    },
     users: [],
     offers: [],
     auctions: [],
-    comments: []
+    comments: [],
+    isCarrier: false
   };
 
   componentDidMount() {
@@ -46,14 +51,18 @@ export default class AuthContextProvider extends Component {
           }))
         })
       });
-      getUsersPromise().then(data =>
+      getUsersPromise().then(data => {
+        if (data === null) {
+          return;
+        }
         this.setState({
-          users: Object.entries(data).map(([id, value]) => ({
+          originalUsers: data,
+          users: Object.entries(data || {}).map(([id, value]) => ({
             id,
             ...value
           }))
         })
-      );
+      });
       getCommentsPromise().then(data =>
         this.setState({
           comments: Object.entries(data).map(([id, value]) => ({
@@ -62,6 +71,7 @@ export default class AuthContextProvider extends Component {
           }))
         })
       );
+     
   }
 
   componentWillUnmount() {

@@ -22,7 +22,8 @@ class MyAccount extends Component {
     },
     users: this.props.authContext.users,
     opinions: this.props.authContext.comments,
-    editedUserId: null
+    editedUserId: null,
+    isCarrier: false
   };
 
   openEditionForm = userId => {
@@ -82,11 +83,15 @@ class MyAccount extends Component {
         this.syncProfile(userId, email);
       }
     });
-    
+    this.setState({
+      isCarrier: this.props.authContext.getIsCarrier()
+    });
   }
 
   render() {
-    const comments = this.state.opinions.filter(opinion => opinion.carrierId === this.props.authContext.user.uid)
+    const comments = this.state.opinions.filter(
+      opinion => opinion.carrierId === this.props.authContext.user.uid
+    );
     const mapMark = this.state.opinions.map(opinion => parseInt(opinion.mark));
     const { editedUserId } = this.state;
     const averageOpinion = mapMark.reduce(
@@ -159,32 +164,39 @@ class MyAccount extends Component {
           </div>
         )}
         <div className="MyAccount_marks">
-          <div className="MyAccount_starts-average">
-            {" "}
-            Ocena ( {averageOpinion.toFixed(2)} ){" "}
-            <StarsAverage
-              average={mapMark.reduce(
-                (sum, current) => sum + current / mapMark.length,
-                0
-              )}
-            />
-          </div>
-          <div className="MyAccount_opinions">
-            <h2 className="MyAccount_opinions-title">OPINIE</h2>
-            <hr />
-            {comments.map(opinion => (
-              <div key={opinion.id}>
-                <h3 className="MyAccount_user-name">
-                  {opinion.name+" "+opinion.surname}
-                  <span className="MyAccount_mark-stars">
-                    <Stars rating={opinion.mark} />
-                  </span>
-                </h3>
-                <p className="MyAccount_users-opinion">{opinion.comment}</p>{" "}
-                <hr className="MyAccount_line" />{" "}
+          {this.state.isCarrier ? (
+            <>
+              <div className="MyAccount_starts-average">
+                {" "}
+                Ocena ( {averageOpinion.toFixed(2)} ){" "}
+                <StarsAverage
+                  average={mapMark.reduce(
+                    (sum, current) => sum + current / mapMark.length,
+                    0
+                  )}
+                />
               </div>
-            ))}
-          </div>
+              <div className="MyAccount_opinions">
+                <h2 className="MyAccount_opinions-title">OPINIE</h2>
+                <hr />
+                {comments.map(opinion => (
+                  <div key={opinion.id}>
+                    <h3 className="MyAccount_user-name">
+                      {opinion.name + " " + opinion.surname}
+                      <span className="MyAccount_mark-stars">
+                        <Stars rating={opinion.mark} />
+                      </span>
+                    </h3>
+                    <p className="MyAccount_users-opinion">{opinion.comment}</p>{" "}
+                    <hr className="MyAccount_line" />{" "}
+                  </div>
+                ))}
+              </div>
+            </>
+          ) : (
+            <h1>Nie ma komentarzy!</h1>
+          )}
+
           <Footer />
         </div>
       </div>
