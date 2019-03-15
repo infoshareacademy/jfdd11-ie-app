@@ -22,6 +22,7 @@ class DateOfRemoval extends Component {
   }
 
   saveAndContinue = () => {
+    this.props.onDateOfRemovalSave(this.state.date)
     this.props.nextStep();
   };
 
@@ -41,6 +42,16 @@ class DateOfRemoval extends Component {
           onFocusChange={({ focused }) => this.setState({ focused })}
           numberOfMonths={1}
         />
+        <button className="Pickup_back-button" onClick={this.back}>
+          Wstecz
+        </button>
+
+        <button
+          className="Furnitures_next-button"
+          onClick={this.saveAndContinue}
+        >
+          Dalej
+        </button>
       </>
     );
   }

@@ -37,7 +37,7 @@ class MainForm extends Component {
   };
 
   handleSubmit = () => {
-    const { step, offert, ...data } = this.state;
+    const { step, offert, dateOfRemoval, ...data } = this.state;
   };
 
   nextStep = () => {
@@ -107,10 +107,11 @@ class MainForm extends Component {
             handleChange={this.handleChange}
             dateOfRemoval={dateOfRemoval}
             hourOfRemoval={hourOfRemoval}
+            onDateOfRemovalSave={date => this.setState({ dateOfRemoval: date })}
           />
         );
       case 5:
-        return <Success />;
+        return <Success {...this.state} />;
       case 6:
         return <Success />;
       default:
