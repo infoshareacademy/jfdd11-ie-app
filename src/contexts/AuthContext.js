@@ -13,15 +13,15 @@ export default class AuthContextProvider extends Component {
     user: null,
     signOut: () => firebase.auth().signOut(),
     signIn: (email, password) => firebase.auth().signInWithEmailAndPassword(email, password),
-    getIsCarrier: () => {
-      const { users, user } = this.state
-      return user && users && users[user.uid].isCarrier || false
-    },
+    originalUsers:[],
     users: [],
     offers: [],
     auctions: [],
     comments: [],
-    isCarrier: false
+    getIsCarrier: () => {
+      const { originalUsers, user } = this.state
+      return user && originalUsers && originalUsers[user.uid].isCarrier || false
+    },
   };
 
   componentDidMount() {
