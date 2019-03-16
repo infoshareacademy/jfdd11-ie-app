@@ -55,6 +55,7 @@ class MyAuctions extends Component {
               <button onClick={() => this.filterPending()}>oczekujące</button>
             </div>
             {carrierFilterdOffers === [] ? (
+              //w tym miejscu powinna pojawiać się informacja gdy przewoźnik nie złożył żadnych ofert. do ostylowania
               <h1 className="MyAuctions_offer">nie ma ofert</h1>
             ) : (
               <table className="offert-table">

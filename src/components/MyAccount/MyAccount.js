@@ -163,6 +163,7 @@ console.log(comments)
           </div>
         )}
         <div className="MyAccount_marks">
+        //w tym miejscu powinna pojawiać się informacja jeżeli przewoźnik nie posiada żadnych komentarzy. do ostylowania
           {isCarrier ? comments===[]?<p>brak opinii</p>:(
             <>
               <div className="MyAccount_starts-average">
@@ -193,6 +194,7 @@ console.log(comments)
               </div>
             </>
           ) : (
+            //tu pojawia się informacja jeżeli użytkownik nie jest przewoźnikiem więc nie może mieć komentarzy. do ostylowania
             <h1>Nie ma komentarzy!</h1>
           )}
 
