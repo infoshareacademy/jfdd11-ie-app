@@ -22,8 +22,7 @@ class MyAccount extends Component {
     },
     users: this.props.authContext.users,
     opinions: this.props.authContext.comments,
-    editedUserId: null,
-    isCarrier: false
+    editedUserId: null
   };
 
   openEditionForm = userId => {
@@ -83,12 +82,10 @@ class MyAccount extends Component {
         this.syncProfile(userId, email);
       }
     });
-    this.setState({
-      isCarrier: this.props.authContext.getIsCarrier()
-    });
   }
 
   render() {
+    const isCarrier = this.props.authContext.getIsCarrier()
     const comments =this.props.authContext.user&& this.state.opinions.filter(
       opinion => opinion.carrierId === this.props.authContext.user.uid
     );
@@ -98,7 +95,7 @@ class MyAccount extends Component {
       (sum, current) => sum + current / mapMark.length,
       0
     );
-
+console.log(comments)
     return (
       <div className="MyAccount_All Width_480px">
         <Header />
@@ -106,7 +103,7 @@ class MyAccount extends Component {
           <MyAccountEdit
             key={this.state.user.id}
             user={this.state.user}
-            isCarrier={this.state.isCarrier}
+            isCarrier={isCarrier}
             handleData={this.updateUser}
             extraButtons={() => (
               <>
@@ -143,7 +140,7 @@ class MyAccount extends Component {
                 alt="moje zdjęcie"
               />
             </div>
-            {this.state.isCarrier?<div className="MyAccount_company-name">
+            {isCarrier?<div className="MyAccount_company-name">
               {this.state.user.company}
             </div>:null}
             
@@ -166,7 +163,7 @@ class MyAccount extends Component {
           </div>
         )}
         <div className="MyAccount_marks">
-          {this.state.isCarrier ? (
+          {isCarrier ? comments===[]?<p>brak opinii</p>:(
             <>
               <div className="MyAccount_starts-average">
                 {" "}

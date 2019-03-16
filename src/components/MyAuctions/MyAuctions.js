@@ -35,6 +35,7 @@ class MyAuctions extends Component {
     const carrierFilterdOffers = this.state.offers.filter(
       offer => offer.carrierId === this.state.userId
     );
+    const clientFilteredOffers = this.state.auctions.filter(auction => auction.clientId === this.state.userId)
     return (
       <div className="my-offers_root Width_480px">
         <Header />

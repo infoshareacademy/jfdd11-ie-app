@@ -18,10 +18,7 @@ export default class AuthContextProvider extends Component {
     offers: [],
     auctions: [],
     comments: [],
-    getIsCarrier: () => {
-      const { originalUsers, user } = this.state
-      return user && originalUsers && originalUsers[user.uid] && originalUsers[user.uid].isCarrier
-    },
+    getIsCarrier: null
   };
 
   componentDidMount() {
@@ -71,6 +68,12 @@ export default class AuthContextProvider extends Component {
           }))
         })
       );
+      this.setState({
+        getIsCarrier: () => {
+          const { originalUsers, user } = this.state
+          return user && originalUsers && originalUsers[user.uid] && originalUsers[user.uid].isCarrier || false
+        }
+      })
      
   }
 
