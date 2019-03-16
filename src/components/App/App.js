@@ -7,6 +7,7 @@ import SignUp from "../SignUp";
 import SignIn from "../SignIn";
 import { SignOut } from "../SignOut/SignOut";
 import MyAuctions from "../MyAuctions";
+import AuctionDetailsOffert from "../AuctionDetailsOffert";
 
 import Offerts from "../Offerts";
 import Offert from "../Offert";
@@ -33,6 +34,7 @@ class App extends Component {
             <Route path="/offerts/:offertId" component={Offert} />
             <Route path="/comment-about-auction" component={commentAboutAuction} />
             <Route path="/create-auction" component={CreateAuction} />
+            {/* <Route path="/auction-detail-offert" component={AuctionDetailsOffert} /> */}
           </div>
         </Router>
       </>
