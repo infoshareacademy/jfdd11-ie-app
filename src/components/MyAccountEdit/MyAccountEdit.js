@@ -9,7 +9,7 @@ class MyAccountEdit extends Component {
     phone: this.props.user.phone,
     email: this.props.user.email,
     company: this.props.user.company,
-    isCarrier: false
+    isCarrier: this.props.isCarrier
   };
 
   handleChange = event => {
@@ -32,9 +32,6 @@ class MyAccountEdit extends Component {
       this.state.email,
       this.state.phone
     );
-    this.setState({
-      isCarrier: this.props.authContext.getIsCarrier()
-    });
   };
 
   render() {

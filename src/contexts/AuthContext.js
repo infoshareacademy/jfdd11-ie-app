@@ -20,7 +20,7 @@ export default class AuthContextProvider extends Component {
     comments: [],
     getIsCarrier: () => {
       const { originalUsers, user } = this.state
-      return user && originalUsers && originalUsers[user.uid].isCarrier || false
+      return user && originalUsers && originalUsers[user.uid] && originalUsers[user.uid].isCarrier
     },
   };
 

@@ -89,7 +89,7 @@ class MyAccount extends Component {
   }
 
   render() {
-    const comments = this.state.opinions.filter(
+    const comments =this.props.authContext.user&& this.state.opinions.filter(
       opinion => opinion.carrierId === this.props.authContext.user.uid
     );
     const mapMark = this.state.opinions.map(opinion => parseInt(opinion.mark));
@@ -106,6 +106,7 @@ class MyAccount extends Component {
           <MyAccountEdit
             key={this.state.user.id}
             user={this.state.user}
+            isCarrier={this.state.isCarrier}
             handleData={this.updateUser}
             extraButtons={() => (
               <>

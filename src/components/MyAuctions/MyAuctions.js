@@ -32,29 +32,25 @@ class MyAuctions extends Component {
     });
   };
   render() {
-    const filterdOffers = this.state.offers.filter(
+    const carrierFilterdOffers = this.state.offers.filter(
       offer => offer.carrierId === this.state.userId
     );
-
-    console.log("user id: " + this.state.userId);
-    console.log(this.state.auctions);
-    console.log(this.state.offers);
-    console.log(this.state.users);
-    console.log(filterdOffers);
     return (
       <div className="my-offers_root Width_480px">
         <Header />
         <h1 className="myAuctions_title">Moje oferty</h1>
         <div className="myAuctions_filters">
-        <button onClick={() => this.filterAll()}>wszystkie</button>
-        <button onClick={() => this.filterAccepted()}>przyjęte</button>
-        <button onClick={() => this.filterPending()}>oczekujące</button>
+          <button onClick={() => this.filterAll()}>wszystkie</button>
+          <button onClick={() => this.filterAccepted()}>przyjęte</button>
+          <button onClick={() => this.filterPending()}>oczekujące</button>
         </div>
-        {filterdOffers !== [] ? (
+        {carrierFilterdOffers === [] ? (
+          <h1 className="MyAuctions_offer">nie ma ofert</h1>
+        ) : (
           <table className="offert-table">
             <thead />
             <tbody>
-              {filterdOffers.map(offer => {
+              {carrierFilterdOffers.map(offer => {
                 const client = this.state.users.find(
                   user => user.id === offer.clientId
                 );
@@ -130,8 +126,6 @@ class MyAuctions extends Component {
               })}
             </tbody>
           </table>
-        ) : (
-          <h1 className="MyAuctions_offer">nie ma ofert</h1>
         )}
         {/* 
         
