@@ -74,7 +74,7 @@ class DateOfRemoval extends Component {
         </span>
         </div>
         <p className="DateOfRemoval_list-title">Uwagi:</p>
-        <textarea></textarea>
+        <textarea className="DateOfRemoval_textarea"></textarea>
        <div><button className="DateOfRemoval_back-button" onClick={this.back}>
           Wstecz
         </button>

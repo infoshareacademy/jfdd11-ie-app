@@ -63,8 +63,8 @@
 
 .DateOfRemoval_calender{
  padding-left: 20px;
-  padding-top: 22px;
-  padding-bottom: 22px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   background-color: #f8c512;
   text-transform: uppercase;
 }
@@ -110,3 +110,9 @@
   
 }
 
+.DateOfRemoval_textarea{
+  border: 1px solid black;
+  margin: 22px 20px 10px 20px;
+  width: 90%;
+  padding-bottom: 40px;
+}
