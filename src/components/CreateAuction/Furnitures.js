@@ -64,7 +64,7 @@ class Furnitures extends Component {
               </li>
             </ul>
           </>
-        ))}
+        ))}<div>
         {this.props.children}
         <button
           className="Furnitures_next-button"
@@ -72,6 +72,7 @@ class Furnitures extends Component {
         >
           Dalej
         </button>
+        </div>
       </div>
     );
   }
