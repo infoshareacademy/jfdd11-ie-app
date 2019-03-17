@@ -122,7 +122,6 @@ class Offert extends Component {
             ) : (
               auctionOffers.map(offer => (
                 <>
-                  <h1>Oferty przewoźników:</h1>
                   <ul className="Offert_main-section">
                     <li className="Offert_offert-information-all">
                       <span>Oferta: </span>
