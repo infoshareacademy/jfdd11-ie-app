@@ -85,11 +85,12 @@ class MyAccount extends Component {
   }
 
   render() {
+    const userId = this.props.authContext.user&&this.props.authContext.user.uid
     const isCarrier = this.props.authContext.getIsCarrier()
     const comments =this.props.authContext.user&& this.state.opinions.filter(
-      opinion => opinion.carrierId === this.props.authContext.user.uid
+      opinion => opinion.carrierId === userId
     );
-    const mapMark = this.state.opinions.map(opinion => parseInt(opinion.mark));
+    const mapMark = this.state.opinions.filter(opinion=>opinion.carrierId === userId).map(opinion => parseInt(opinion.mark));
     const { editedUserId } = this.state;
     const averageOpinion = mapMark.reduce(
       (sum, current) => sum + current / mapMark.length,
