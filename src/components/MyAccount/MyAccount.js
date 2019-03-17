@@ -196,7 +196,7 @@ console.log(comments)
           ) : (
             
             //tu pojawia się informacja jeżeli użytkownik nie jest przewoźnikiem więc nie może mieć komentarzy. do ostylowania
-            <div className="MyAccount_user-down">Brak komentarzy</div>
+            <div className="MyAccount_user-down"></div>
           )}
 
           <Footer />

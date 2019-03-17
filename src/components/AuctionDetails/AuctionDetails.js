@@ -17,7 +17,8 @@ function AuctionDetails(props) {
   const user = props.authContext.users.find(user => user.id === offer.clientId);
 
   function removeOffer(offerId){
-    firebase.database().ref("offers").child(offerId).remove()
+    firebase.database().ref("offers").child(offerId).remove();
+    this.props.history.push("/myauctions")
   }
 
   if (offer === null) {
@@ -27,9 +28,8 @@ function AuctionDetails(props) {
     <div className="Width_480px">
       <Header />
       <div className="Offert">
-        <h1 className="offert-header">Oferta</h1>
+        <h1 className="offert-header">Szczegóły oferty</h1>
         <div className="Ofert_first-section">
-          <h2 className="offert-title">{offer&&offer.offerId}</h2>
           <AuctionDetailsOffert
           offerId={offerId}
           />
