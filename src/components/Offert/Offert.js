@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import firebase from "firebase";
 import Header from "../Header";
 import Footer from "../Footer";
 import "./Offert.css";
@@ -35,18 +36,32 @@ class Offert extends Component {
       commentToPrice: event.target.value
     });
   };
+  acceptOffer = offerId => {
+    firebase.database().ref("offers").child(offerId).update({"chosen":true})
+  }
   // addOfferToAuction = (price, comment, auctionId) => {
   //   firebase.database().ref("offers").child(offerId).remove()
   // }
-  // ściągnąć offers z withAuth i porównać z auctionId. 
+  // ściągnąć offers z withAuth i porównać z auctionId.
   // .find(auction=>auction.auctionId === offertId)
   render() {
+    const userId = this.props.authContext.user.uid;
     const auctionId = this.props.match.params.offertId;
-    const singleAuction = this.state.auction.find(auction => auction.auctionId === auctionId)
-    const client = this.state.client.find(client=>client.id === singleAuction.clientId)
+    const singleAuction = this.state.auction.find(
+      auction => auction.auctionId === auctionId
+    );
+    const client = this.state.client.find(
+      client => client.id === singleAuction.clientId
+    );
+    const isCarrier = this.props.authContext.getIsCarrier();
+    const auctionOffers = this.props.authContext.offers.filter(
+      offer => offer.auctionId === auctionId
+    );
+    const users = this.props.authContext.users
     if (this.state.auction === null) {
       return <p>Loading...</p>;
     }
+    console.log(auctionOffers);
     return (
       <div className="Width_480px">
         <Header />
@@ -54,7 +69,39 @@ class Offert extends Component {
           <h1 className="offert-header">Oferta</h1>
           <div className="Ofert_first-section">
             <h2 className="offert-title">{singleAuction.name}</h2>
-            <a href="#make-offert" />
+            {auctionOffers.length === 0 ? (
+              <p>nie ma żadnych ofert</p>
+            ) : (
+              auctionOffers.map(offer => (
+                
+                <>
+                  <h1>Oferty przewoźników:</h1>
+                  <ul className="Offert_main-section">
+                    <li className="Offert_offert-information-all">
+                      <span>Oferta: </span>
+                      <div className="Offert_offert-information">
+                        {offer.price}
+                      </div>
+                      <span>Przewoźnik: </span>
+                      <div className="Offert_offert-information">
+                        {users.find(user=>user.id === offer.carrierId).name}
+                      </div>
+                      <span>Data złożenia oferty: </span>
+                      <div className="Offert_offert-information">
+                        {offer.date}
+                      </div>
+                      {isCarrier ? null :offer.chosen===true?<p>oferta została zaakceptowana</p>: (
+                        <div className="Offert_offert-information">
+                          <button className="Offert_offert-button" onClick={()=>this.acceptOffer(offer.offerId)}>
+                            Zaakceptuj ofertę
+                          </button>
+                        </div>
+                      )}
+                    </li>
+                  </ul>
+                </>
+              ))
+            )}
             <h1 className="Offert_title-section-first">
               Szczegóły miejsca odbioru
             </h1>
@@ -67,7 +114,9 @@ class Offert extends Component {
               <li className="Offert_offert-information-all">
                 <span>Adres odbioru: </span>
                 <div className="Offert_offert-information">
-                  {singleAuction.pickupAddress.city+" "+singleAuction.pickupAddress.address}
+                  {singleAuction.pickupAddress.city +
+                    " " +
+                    singleAuction.pickupAddress.address}
                 </div>
               </li>
               <li className="Offert_offert-information-all">
@@ -116,7 +165,9 @@ class Offert extends Component {
               <li className="Offert_offert-information-all">
                 <span>Adres dostawy: </span>
                 <div className="Offert_offert-information">
-                  {singleAuction.deliveryAddress.city+" "+singleAuction.deliveryAddress.address}
+                  {singleAuction.deliveryAddress.city +
+                    " " +
+                    singleAuction.deliveryAddress.address}
                 </div>
               </li>
               <li className="Offert_offert-information-all">
@@ -170,15 +221,20 @@ class Offert extends Component {
                 </table>
               </div>
             ))}
-
-            <a href="#make-offert">
-              <button
-                className="Offert_offert-button"
-                onClick={this.toggleOffert}
-              >
-                Złóż ofertę
-              </button>
-            </a>
+            {console.log(auctionOffers.length)}
+            {isCarrier&&isCarrier ? (
+              auctionOffers.length===0?null:auctionOffers.find(offer => offer.carrierId === userId).length ===
+              0 ? (
+                <a href="#make-offert">
+                  <button
+                    className="Offert_offert-button"
+                    onClick={this.toggleOffert}
+                  >
+                    Złóż ofertę
+                  </button>
+                </a>
+              ) : <p>złożyłeś ofertę w tej aukcji</p>
+            ) : null}
 
             <div className={`Offert_form ${this.state.classOffert}`}>
               <p className="Offert_form-title" id="make-offert">
@@ -208,7 +264,6 @@ class Offert extends Component {
             </div>
           </div>
         </div>
-
         <Footer />
       </div>
     );
