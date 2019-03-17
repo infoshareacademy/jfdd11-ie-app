@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import "react-dates/lib/css/_datepicker.css";
 import "./DateOfRemoval.css";
 import { SingleDatePicker } from "react-dates";
-import "react-dates/lib/css/_datepicker.css";
+
 
 import moment from "moment";
 
@@ -32,17 +33,18 @@ class DateOfRemoval extends Component {
 
   render() {
     return (
-      <>
-        <div className="padding">Data przeprowadzki:</div>
-        <SingleDatePicker
+      < div className= "Width_480px">
+       <h1 className="DateOfRemoval_header">Dodawanie zamówienia</h1>
+       <h1 className="DateOfRemoval_progress_bar">Pasek postępu</h1>
+        <div className ="DateOfRemoval_list-title">Data i godzina przeprowadzki:</div>
+        <div className="DateOfRemoval_calender"><SingleDatePicker
           date={this.state.date}
           onDateChange={date => this.setState({ date })}
           focused={this.state.focused}
           onFocusChange={({ focused }) => this.setState({ focused })}
           numberOfMonths={1}
-          hideKeyboardShortcutsPanel={true}
-        />
-        <select>
+          hideKeyboardShortcutsPanel={true}/>
+          <span className ="DateOfRemoval_hours"><select className="DateOfRemoval_select">
           <option value="00:00">00:00</option>
           <option value="00:00">01:00</option>
           <option value="00:00">02:00</option>
@@ -69,19 +71,20 @@ class DateOfRemoval extends Component {
           <option value="00:00">23:00</option>
           <option value="00:00">24:00</option>
         </select>
-        <p>Uwagi:</p>
-        <textarea></textarea>
-        <button className="Pickup_back-button" onClick={this.back}>
+        </span>
+        </div>
+        <p className="DateOfRemoval_list-title">Uwagi:</p>
+        <textarea className="DateOfRemoval_textarea"></textarea>
+       <div><button className="DateOfRemoval_back-button" onClick={this.back}>
           Wstecz
         </button>
         <button
-          className="Pickup_next-button"
+          className="DateOfRemoval_next-button"
           type={"submit"}
-          onClick={this.saveAndContinue}
-        >
-          Dalej
-        </button>
-      </>
+          onClick={this.saveAndContinue}>
+       Dalej
+        </button></div>
+      </div>
     );
   }
 }
