@@ -13,7 +13,6 @@ class AuctionDetailsOffert extends Component {
         const offer = this.state.offers.find(
             offer => offer.offerId === this.props.offerId
           );
-          console.log(this.props)
     return (
       <>
         <h1 className="Offert_title-section-secound">

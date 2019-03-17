@@ -100,7 +100,7 @@ class Offert extends Component {
               :
               auctionOffers.some(
                   offer => offer.carrierId === userId
-                ).length === 0? 
+                ) === false? 
                 (
                 <a href="#make-offert">
                   <button
