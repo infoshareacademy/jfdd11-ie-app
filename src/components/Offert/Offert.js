@@ -53,6 +53,7 @@ class Offert extends Component {
     const auctionOffers = this.props.authContext.offers.filter(
       offer => offer.auctionId === auctionId
     );
+    const users = this.props.authContext.users
     if (this.state.auction === null) {
       return <p>Loading...</p>;
     }
@@ -68,19 +69,20 @@ class Offert extends Component {
               <p>nie ma żadnych ofert</p>
             ) : (
               auctionOffers.map(offer => (
+                
                 <>
                   <h1>Oferty przewoźników:</h1>
                   <ul className="Offert_main-section">
                     <li className="Offert_offert-information-all">
-                      <span>oferta: </span>
+                      <span>Oferta: </span>
                       <div className="Offert_offert-information">
                         {offer.price}
                       </div>
-                      <span>id przewoźnika: </span>
+                      <span>Przewoźnik: </span>
                       <div className="Offert_offert-information">
-                        {offer.carrierId}
+                        {users.find(user=>user.id === offer.carrierId).name}
                       </div>
-                      <span>data złożenia oferty: </span>
+                      <span>Data złożenia oferty: </span>
                       <div className="Offert_offert-information">
                         {offer.date}
                       </div>
