@@ -98,7 +98,7 @@ class Offert extends Component {
                   </button>
                 </a>
               :
-              auctionOffers.find(
+              auctionOffers.some(
                   offer => offer.carrierId === userId
                 ).length === 0? 
                 (
