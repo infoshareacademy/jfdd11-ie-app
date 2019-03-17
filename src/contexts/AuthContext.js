@@ -48,7 +48,10 @@ export default class AuthContextProvider extends Component {
           }))
         })
       });
-      getUsersPromise().then(data => {
+      firebase
+      .database()
+      .ref("users").on("value", snapshot =>{
+        const data = snapshot.val()
         if (data === null) {
           return;
         }
@@ -59,7 +62,9 @@ export default class AuthContextProvider extends Component {
             ...value
           }))
         })
-      });
+      })
+        
+        
       getCommentsPromise().then(data =>
         this.setState({
           comments: Object.entries(data).map(([id, value]) => ({
