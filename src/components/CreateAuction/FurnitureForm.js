@@ -72,11 +72,13 @@ class FurnitureForm extends Component {
                 onChange={this.handleChange("count")}
               />
             </div>
+           
           </div>
           <button className="FurnitureForm_button" type={"submit"}>
-            Zapisz{" "}
+            Dodaj{" "}
           </button>
         </form>
+      
       </div>
     );
   }

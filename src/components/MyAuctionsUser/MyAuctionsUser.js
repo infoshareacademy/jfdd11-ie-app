@@ -1,30 +1,27 @@
 import React, { Component } from "react";
 
 import { Link } from "react-router-dom";
-
-import Header from "../Header";
-import Footer from "../Footer";
-import "./Offerts.css";
 import { withAuth } from "../../contexts/AuthContext";
 
-class Offerts extends Component {
+class MyAuctionUser extends Component {
   state = {
-    auctions: this.props.authContext.auctions,
-    clients: this.props.authContext.users
+    auctions: this.props.auctions,
+    userId: this.props.userId
   };
 
   render() {
+      const userId = this.props.userId
+      const user =this.props.users&& this.props.users.filter(user => user.id === userId)
+      const filteredAuctions = this.props.auctions&&this.props.auctions.filter(auction => auction.clientId === userId) 
     return (
       <div className="Width_480px">
-        <Header />
         <div className="Offerts">
-          <h1 className="offert-header">Oferty przeprowadzek</h1>
+          <h1 className="offert-header">Moje przeprowadzki</h1>
           <div>
             <table className="offert-table">
               <thead />
               <tbody>
-                {this.state.auctions.map(auction => {
-                  const client = this.state.clients.find(person=>person.id===auction.clientId);
+                {filteredAuctions.map(auction => {
                   return (
                     <tr key={auction.id} className="Offerts_table">
                       <td className="offert-table-data">
@@ -32,11 +29,11 @@ class Offerts extends Component {
                         <ul className="offert-list">
                         <li>
                            <b>
-                           <span className="Offerts_list-information"> {client && client.name}{" "}
-                            {client && client.surname}</span></b>
+                           <span className="Offerts_list-information"> {user && user.name}{" "}
+                            {user && user.surname}</span></b>
                           </li>
                           <li><b>Miasto: </b><span className="Offerts_list-information">
-                          Gdańsk</span>
+                          {auction.deliveryAddress.city + " " + auction.deliveryAddress.address}</span>
                             </li>
                           <li>
                             <b>Meble: </b>
@@ -68,10 +65,9 @@ class Offerts extends Component {
             </table>
           </div>
         </div>
-        <Footer />
       </div>
     );
   }
 }
 
-export default withAuth(Offerts);
+export default withAuth(MyAuctionUser);

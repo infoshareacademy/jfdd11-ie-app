@@ -82,18 +82,20 @@ class MyAccount extends Component {
         this.syncProfile(userId, email);
       }
     });
-    
   }
 
   render() {
-    const comments = this.state.opinions.filter(opinion => opinion.carrierId === this.props.authContext.user.uid)
+    const isCarrier = this.props.authContext.getIsCarrier()
+    const comments =this.props.authContext.user&& this.state.opinions.filter(
+      opinion => opinion.carrierId === this.props.authContext.user.uid
+    );
     const mapMark = this.state.opinions.map(opinion => parseInt(opinion.mark));
     const { editedUserId } = this.state;
     const averageOpinion = mapMark.reduce(
       (sum, current) => sum + current / mapMark.length,
       0
     );
-
+console.log(comments)
     return (
       <div className="MyAccount_All Width_480px">
         <Header />
@@ -101,6 +103,7 @@ class MyAccount extends Component {
           <MyAccountEdit
             key={this.state.user.id}
             user={this.state.user}
+            isCarrier={isCarrier}
             handleData={this.updateUser}
             extraButtons={() => (
               <>
@@ -137,9 +140,10 @@ class MyAccount extends Component {
                 alt="moje zdjęcie"
               />
             </div>
-            <div className="MyAccount_company-name">
+            {isCarrier?<div className="MyAccount_company-name">
               {this.state.user.company}
-            </div>
+            </div>:null}
+            
             <div className="MyAccount_information">
               <span className="MyAccount_information-title">Imie:</span>{" "}
               {this.state.user.name}
@@ -158,33 +162,43 @@ class MyAccount extends Component {
             </div>
           </div>
         )}
-        <div className="MyAccount_marks">
-          <div className="MyAccount_starts-average">
-            {" "}
-            Ocena ( {averageOpinion.toFixed(2)} ){" "}
-            <StarsAverage
-              average={mapMark.reduce(
-                (sum, current) => sum + current / mapMark.length,
-                0
-              )}
-            />
-          </div>
-          <div className="MyAccount_opinions">
-            <h2 className="MyAccount_opinions-title">OPINIE</h2>
-            <hr />
-            {comments.map(opinion => (
-              <div key={opinion.id}>
-                <h3 className="MyAccount_user-name">
-                  {opinion.name+" "+opinion.surname}
-                  <span className="MyAccount_mark-stars">
-                    <Stars rating={opinion.mark} />
-                  </span>
-                </h3>
-                <p className="MyAccount_users-opinion">{opinion.comment}</p>{" "}
-                <hr className="MyAccount_line" />{" "}
+        <div>
+       
+          {isCarrier ? comments===[]?<p>brak opinii</p>:(
+            <>
+              <div className="MyAccount_starts-average">
+                {" "}
+                Ocena ( {averageOpinion.toFixed(2)} ){" "}
+                <StarsAverage
+                  average={mapMark.reduce(
+                    (sum, current) => sum + current / mapMark.length,
+                    0
+                  )}
+                />
               </div>
-            ))}
-          </div>
+              <div className="MyAccount_opinions">
+                <h2 className="MyAccount_opinions-title">OPINIE</h2>
+                <hr />
+                {comments.map(opinion => (
+                  <div key={opinion.id}>
+                    <h3 className="MyAccount_user-name">
+                      {opinion.name + " " + opinion.surname}
+                      <span className="MyAccount_mark-stars">
+                        <Stars rating={opinion.mark} />
+                      </span>
+                    </h3>
+                    <p className="MyAccount_users-opinion">{opinion.comment}</p>{" "}
+                    <hr className="MyAccount_line" />{" "}
+                  </div>
+                ))}
+              </div>
+            </>
+          ) : (
+            
+            //tu pojawia się informacja jeżeli użytkownik nie jest przewoźnikiem więc nie może mieć komentarzy. do ostylowania
+            <div className="MyAccount_user-down"></div>
+          )}
+
           <Footer />
         </div>
       </div>

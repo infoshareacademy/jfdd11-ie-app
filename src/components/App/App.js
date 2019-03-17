@@ -7,6 +7,7 @@ import SignUp from "../SignUp";
 import SignIn from "../SignIn";
 import { SignOut } from "../SignOut/SignOut";
 import MyAuctions from "../MyAuctions";
+import AuctionDetailsOffert from "../AuctionDetailsOffert";
 
 import Offerts from "../Offerts";
 import Offert from "../Offert";
@@ -14,6 +15,7 @@ import { WorkInProgress } from "../WorkInProgress/WorkInProgress";
 import CreateAuction from "../CreateAuction/CreateAuction";
 import AuctionDetails from "../AuctionDetails";
 import commentAboutAuction from "../commentAboutAuction";
+import MyAuctionsUser from "../MyAuctionsUser/MyAuctionsUser";
 
 class App extends Component {
   render() {
@@ -29,10 +31,12 @@ class App extends Component {
             <Route path="/sign-out" component={SignOut} />
             <Route exact path="/myauctions" component={MyAuctions} />
             <Route path="/myauctions/:offerId" component={AuctionDetails}/>
+            <Route exact path="/myauctions-client" component={MyAuctionsUser}/>
             <Route exact path="/offerts" component={Offerts} />
             <Route path="/offerts/:offertId" component={Offert} />
             <Route path="/comment-about-auction" component={commentAboutAuction} />
             <Route path="/create-auction" component={CreateAuction} />
+            {/* <Route path="/auction-detail-offert" component={AuctionDetailsOffert} /> */}
           </div>
         </Router>
       </>

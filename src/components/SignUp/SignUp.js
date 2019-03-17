@@ -93,6 +93,7 @@ class SignUp extends Component {
   }
 
   render() {
+    console.log(this.props.history)
     const {
       name,
       surname,

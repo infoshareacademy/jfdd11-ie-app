@@ -24,10 +24,14 @@ class Header extends Component {
   render() {
     const user = this.props.authContext.user;
     const signOut = this.props.authContext.signOut;
+    const isCarrier =
+      this.props.authContext.getIsCarrier &&
+      this.props.authContext.getIsCarrier();
     return (
-      
       <nav className="menu Width_480px">
-        <NavLink to="/"><img src={logo} alt="logo-MoveIt" className="logo" /></NavLink>
+        <NavLink to="/">
+          <img src={logo} alt="logo-MoveIt" className="logo" />
+        </NavLink>
         <div className="menu-absolute">
           <img
             src={menu}
@@ -39,10 +43,6 @@ class Header extends Component {
 
         {user ? (
           <ul className={`js-menu-upgrade upperCase ${this.state.class}`}>
-            <li className="header_user-email">{user.email}</li>
-            <li className="header_user-email " onClick={signOut}>
-              <NavLink to="/">Wyloguj się</NavLink>
-            </li>
             <li className="Link-Style">
               <NavLink to="/">Strona główna</NavLink>
             </li>
@@ -50,16 +50,26 @@ class Header extends Component {
               <NavLink to="/myAccount">Moje konto</NavLink>
             </li>
             <li className="Link-Style">
-              <NavLink to="/create-auction">Zaplanuj przeprowadzkę</NavLink>
-            </li>
-            <li className="Link-Style">
               <NavLink to="/myauctions">Moje przeprowadzki</NavLink>
             </li>
-            <li className="Link-Style">
-              <NavLink to="/offerts">Oferty przeprowadzek</NavLink>
-            </li>
+            {isCarrier ? (
+              <li className="Link-Style">
+                <NavLink to="/offerts">Oferty przeprowadzek</NavLink>
+              </li>
+            ) : (
+              <li className="Link-Style">
+                <NavLink to="/create-auction">Zaplanuj przeprowadzkę</NavLink>
+              </li>
+            )}
+
             <li className="Link-Style">
               <NavLink to="/faq">FAQ</NavLink>
+            </li>
+            <li className="header_user-email lowerCase login-shadow ">
+              {user.email}
+            </li>
+            <li className="header_user-email " onClick={signOut}>
+              <NavLink to="/">Wyloguj się</NavLink>
             </li>
           </ul>
         ) : (
@@ -79,7 +89,6 @@ class Header extends Component {
           </ul>
         )}
       </nav>
-    
     );
   }
 }

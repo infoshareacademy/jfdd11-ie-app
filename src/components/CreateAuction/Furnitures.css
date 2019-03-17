@@ -48,6 +48,25 @@
     padding-bottom: 22px;
 }
 
+.Furnitures_progress-bar ul {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Furnitures_progress-bar ul li {
+    width: 50px;
+    height: 50px;
+    padding: 17px 20px;
+    margin: 0 15px;
+    background-color: grey;
+    border-radius: 50%
+}
+
+.Furnitures_progress-bar ul li:first-child{
+    background-color: #f8c512;
+}
+
 .Furnitures_information{
     font-weight: bold;
 }

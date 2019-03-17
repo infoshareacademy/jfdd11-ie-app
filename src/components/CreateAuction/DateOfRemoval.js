@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import "react-dates/lib/css/_datepicker.css";
 import "./DateOfRemoval.css";
 import { SingleDatePicker } from "react-dates";
-import "react-dates/lib/css/_datepicker.css";
+
 
 import moment from "moment";
 
@@ -33,9 +34,18 @@ class DateOfRemoval extends Component {
 
   render() {
     return (
-      <>
-        <div className="padding">Data przeprowadzki:</div>
-        <SingleDatePicker
+      < div className= "Width_480px">
+       <h1 className="DateOfRemoval_header">Dodawanie zamówienia</h1>
+        <div className ="DateOfRemoval_progress-bar">
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+        </ul>
+        </div>
+        <div className ="DateOfRemoval_list-title">Data i godzina przeprowadzki:</div>
+        <div className="DateOfRemoval_calender"><SingleDatePicker
           date={this.state.dateOfRemoval || this.state.date}
           onDateChange={date => this.setState({ date })}
           focused={this.state.focused}
@@ -70,19 +80,19 @@ class DateOfRemoval extends Component {
           <option value="23:00" name="hourOfRemoval">23:00</option>
           <option value="24:00" name="hourOfRemoval">24:00</option>
         </select>
-        <p>Uwagi:</p>
-        <textarea></textarea>
-        <button className="Pickup_back-button" onClick={this.back}>
+        </div>
+        <p className="DateOfRemoval_list-title">Uwagi:</p>
+        <textarea className="DateOfRemoval_textarea"></textarea>
+       <div><button className="DateOfRemoval_back-button" onClick={this.back}>
           Wstecz
         </button>
         <button
-          className="Pickup_next-button"
+          className="DateOfRemoval_next-button"
           type={"submit"}
-          onClick={this.saveAndContinue}
-        >
-          Dalej
-        </button>
-      </>
+          onClick={this.saveAndContinue}>
+       Dodaj ofertę
+        </button></div>
+      </div>
     );
   }
 }
