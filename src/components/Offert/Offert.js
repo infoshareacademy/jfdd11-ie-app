@@ -37,7 +37,21 @@ class Offert extends Component {
     });
   };
   acceptOffer = offerId => {
-    firebase.database().ref("offers").child(offerId).update({"chosen":true})
+    firebase
+      .database()
+      .ref("offers")
+      .child(offerId)
+      .update({ chosen: true });
+  };
+  addOffer = (price, comment, auctionId, carrierId, clientId, date) => {
+    firebase.database().ref("offers").push().set({
+      price,
+      comment,
+      auctionId,
+      carrierId,
+      clientId,
+      date
+    })
   }
   // addOfferToAuction = (price, comment, auctionId) => {
   //   firebase.database().ref("offers").child(offerId).remove()
@@ -45,6 +59,11 @@ class Offert extends Component {
   // ściągnąć offers z withAuth i porównać z auctionId.
   // .find(auction=>auction.auctionId === offertId)
   render() {
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = today.getFullYear();
+    today = dd + '/' + mm + '/' + yyyy;
     const userId = this.props.authContext.user.uid;
     const auctionId = this.props.match.params.offertId;
     const singleAuction = this.state.auction.find(
@@ -57,11 +76,10 @@ class Offert extends Component {
     const auctionOffers = this.props.authContext.offers.filter(
       offer => offer.auctionId === auctionId
     );
-    const users = this.props.authContext.users
+    const users = this.props.authContext.users;
     if (this.state.auction === null) {
       return <p>Loading...</p>;
     }
-    console.log(auctionOffers);
     return (
       <div className="Width_480px">
         <Header />
@@ -69,11 +87,40 @@ class Offert extends Component {
           <h1 className="offert-header">Oferta</h1>
           <div className="Ofert_first-section">
             <h2 className="offert-title">{singleAuction.name}</h2>
+            {isCarrier && isCarrier? 
+            (auctionOffers.length === 0? 
+              <a href="#make-offert">
+                  <button
+                    className="Offert_offert-button"
+                    onClick={this.toggleOffert}
+                  >
+                    Złóż ofertę
+                  </button>
+                </a>
+              :
+              auctionOffers.find(
+                  offer => offer.carrierId === userId
+                ).length === 0? 
+                (
+                <a href="#make-offert">
+                  <button
+                    className="Offert_offert-button"
+                    onClick={this.toggleOffert}
+                  >
+                    Złóż ofertę
+                  </button>
+                </a>
+              ) 
+              : 
+              (
+                <p>złożyłeś ofertę w tej aukcji</p>
+              )
+            ) : 
+            null}
             {auctionOffers.length === 0 ? (
               <p>nie ma żadnych ofert</p>
             ) : (
               auctionOffers.map(offer => (
-                
                 <>
                   <h1>Oferty przewoźników:</h1>
                   <ul className="Offert_main-section">
@@ -84,15 +131,20 @@ class Offert extends Component {
                       </div>
                       <span>Przewoźnik: </span>
                       <div className="Offert_offert-information">
-                        {users.find(user=>user.id === offer.carrierId).name}
+                        {users.find(user => user.id === offer.carrierId).name}
                       </div>
                       <span>Data złożenia oferty: </span>
                       <div className="Offert_offert-information">
                         {offer.date}
                       </div>
-                      {isCarrier ? null :offer.chosen===true?<p>oferta została zaakceptowana</p>: (
+                      {isCarrier ? null : offer.chosen === true ? (
+                        <p>oferta została zaakceptowana</p>
+                      ) : (
                         <div className="Offert_offert-information">
-                          <button className="Offert_offert-button" onClick={()=>this.acceptOffer(offer.offerId)}>
+                          <button
+                            className="Offert_offert-button"
+                            onClick={() => this.acceptOffer(offer.offerId)}
+                          >
                             Zaakceptuj ofertę
                           </button>
                         </div>
@@ -221,20 +273,7 @@ class Offert extends Component {
                 </table>
               </div>
             ))}
-            {console.log(auctionOffers.length)}
-            {isCarrier&&isCarrier ? (
-              auctionOffers.length===0?null:auctionOffers.find(offer => offer.carrierId === userId).length ===
-              0 ? (
-                <a href="#make-offert">
-                  <button
-                    className="Offert_offert-button"
-                    onClick={this.toggleOffert}
-                  >
-                    Złóż ofertę
-                  </button>
-                </a>
-              ) : <p>złożyłeś ofertę w tej aukcji</p>
-            ) : null}
+            
 
             <div className={`Offert_form ${this.state.classOffert}`}>
               <p className="Offert_form-title" id="make-offert">
@@ -256,7 +295,7 @@ class Offert extends Component {
                 />
               </div>
               <div className="offert-box-buttons">
-                <button className="Offert_form-button">Wyślij</button>
+                <button className="Offert_form-button" onClick={()=>this.addOffer(this.state.price, this.state.commentToPrice, auctionId, userId, client.id, today)}>Wyślij</button>
                 <p className="offert-back" onClick={this.toggleOffert}>
                   Zwiń ->{" "}
                 </p>
