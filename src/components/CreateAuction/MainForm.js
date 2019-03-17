@@ -110,9 +110,12 @@ class MainForm extends Component {
           />
         );
       case 5:
-        return <Success />;
-      case 6:
-        return <Success />;
+        return <Success 
+        deliveryAddress={deliveryAddress}
+        furnitures={furnitures}
+        pickupAddress={pickupAddress}
+        dateOfRemoval={dateOfRemoval}
+        />;
       default:
         break;
     }

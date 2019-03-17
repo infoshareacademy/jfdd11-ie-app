@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Pickup.css";
+import "./Delivery.css";
 
 class Delivery extends Component {
   state = {
@@ -33,7 +34,14 @@ class Delivery extends Component {
       <div className="Pickup_all">
         <h1 className="Pickup_header">Dodawanie zamówienia</h1>
         <form onSubmit={this.addAddress}>
-          <h1 className="Pickup_progress_bar">Pasek postępu</h1>
+        <div className ="Delivery_progress-bar">
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+        </ul>
+        </div>
           <h2 className="Pickup_list-title"> Szczegóły miejsca dostawy</h2>
           <div className="Pickup_all-information">
             <div className="Pickup_information-details">
@@ -66,10 +74,8 @@ class Delivery extends Component {
             </div>
             <div className="Pickup_information-details">
               <label>Winda: </label>
-              Tak<input type="radio" className="Pickup_input5" name="isElevator" 
-                onChange={this.handleChange("isElevator")} value="true" />
-              Nie<input type="radio" className="Pickup_input5" name="isElevator" 
-                onChange={this.handleChange("isElevator")} value="false" />
+              <input type="checkbox" className="Pickup_input5" name="isElevator" 
+                onChange={this.handleChange("isElevator")} />
             </div>
 
             {this.props.children}

@@ -34,7 +34,14 @@ class Pickup extends Component {
       
         <h1 className="Pickup_header">Dodawanie zamówienia</h1>
         <form onSubmit={this.addAddress}>
-          <h1 className="Pickup_progress_bar">Pasek postępu</h1>
+        <div className ="Pickup_progress-bar">
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+        </ul>
+        </div>
           <h2 className="Pickup_list-title"> Szczegóły miejsca odbioru</h2>
           <div className="Pickup_all-information">
             <div className="Pickup_information-details">
@@ -67,12 +74,8 @@ class Pickup extends Component {
             </div>
             <div className="Pickup_information-details">
               <label>Winda: </label>
-              <span className ="Pickup_input-elev">Tak<input type="radio" name="isElevator" 
+              <input type="checkbox" className="Pickup_input5" name="isElevator" 
                 onChange={this.handleChange("isElevator")} value="true" />
-              </span>
-              <span className ="Pickup_input-elev" >
-              Nie<input type="radio" name="isElevator" 
-                onChange={this.handleChange("isElevator")} value="false" /></span>
             </div>
 
             {this.props.children}

@@ -23,7 +23,14 @@ class Furnitures extends Component {
     return (
       <div className="Furnitures_All Width_480px">
         <h1 className='Furnitures_header'>Dodawanie zamówienia</h1>
-        <div className ="Furnitures_progress-bar">Pasek postępu</div>
+        <div className ="Furnitures_progress-bar">
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+        </ul>
+        </div>
         <h2 className ="Furnitures_list-title">Lista mebli:</h2>
         
         {furnitures.map(furniture => (

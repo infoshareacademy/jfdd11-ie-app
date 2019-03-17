@@ -75,7 +75,7 @@ class FurnitureForm extends Component {
            
           </div>
           <button className="FurnitureForm_button" type={"submit"}>
-            Zapisz{" "}
+            Dodaj{" "}
           </button>
         </form>
       
