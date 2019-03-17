@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import firebase from "firebase";
 import Header from "../Header";
 import Footer from "../Footer";
 import "./Offert.css";
@@ -35,6 +36,9 @@ class Offert extends Component {
       commentToPrice: event.target.value
     });
   };
+  acceptOffer = offerId => {
+    firebase.database().ref("offers").child(offerId).update({"chosen":true})
+  }
   // addOfferToAuction = (price, comment, auctionId) => {
   //   firebase.database().ref("offers").child(offerId).remove()
   // }
@@ -86,9 +90,9 @@ class Offert extends Component {
                       <div className="Offert_offert-information">
                         {offer.date}
                       </div>
-                      {isCarrier ? null : (
+                      {isCarrier ? null :offer.chosen===true?<p>oferta została zaakceptowana</p>: (
                         <div className="Offert_offert-information">
-                          <button className="Offert_offert-button">
+                          <button className="Offert_offert-button" onClick={()=>this.acceptOffer(offer.offerId)}>
                             Zaakceptuj ofertę
                           </button>
                         </div>
