@@ -221,8 +221,9 @@ class Offert extends Component {
                 </table>
               </div>
             ))}
+            {console.log(auctionOffers.length)}
             {isCarrier&&isCarrier ? (
-              auctionOffers&&auctionOffers.find(offer => offer.carrierId === userId).length ===
+              auctionOffers.length===0?null:auctionOffers.find(offer => offer.carrierId === userId).length ===
               0 ? (
                 <a href="#make-offert">
                   <button
